@@ -1,0 +1,1 @@
+import{x as e}from"./index-DATLbTqa.js";var t=e();function n({className:e=``,children:n}){let r=[`text-center`].join(` `);return(0,t.jsx)(`h1`,{className:`heading-title ${e} ${r}`,children:n})}export{n as t};

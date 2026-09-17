@@ -1,0 +1,1 @@
+import{b as e,x as t}from"./index-DATLbTqa.js";import{t as n}from"./Section-OwXCioEJ.js";import{t as r}from"./typography-Yv2SCwwQ.js";var i=t();function a(){let t=`about-page`;return(0,i.jsx)(n,{className:t,children:(0,i.jsx)(e,{className:`${t}__container`,children:(0,i.jsx)(r,{className:`${t}__title`,as:`h1`,children:`About us`})})})}export{a as default};

@@ -1,25 +1,25 @@
-import { useMatch } from 'react-router';
-import '../styles/breadcrumbs.scss';
-import { BreadcrumbsProps } from '../model/types';
+// import { useMatch } from 'react-router';
+// import '../styles/breadcrumbs.scss';
+// import { BreadcrumbsProps } from '../model/types';
 
-const props = withDefaults(defineProps<BreadcrumbsProps>(), {
-  showOnHome: false,
-  mode: 'all',
-  homeLabel: 'Home',
-});
+// const props = withDefaults(defineProps<BreadcrumbsProps>(), {
+//   showOnHome: false,
+//   mode: 'all',
+//   homeLabel: 'Home',
+// });
 
-function Breadcrumbs(): React.JSX.Element {
-  const breadcrumbs = 'breadcrumbs'
+// function Breadcrumbs(): React.JSX.Element {
+//   const breadcrumbs = 'breadcrumbs'
 
-  const matches = useMatch()
+//   const matches = useMatch()
 
-  const currentNatch = matches[matches]
+//   const currentNatch = matches[matches]
 
-  return (
-    <nav className={breadcrumbs}>
+//   return (
+//     <nav className={breadcrumbs}>
 
-    </nav>
-  );
-}
+//     </nav>
+//   );
+// }
 
-export default Breadcrumbs;
+// export default Breadcrumbs;

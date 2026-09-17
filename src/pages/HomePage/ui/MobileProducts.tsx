@@ -4,8 +4,6 @@ import Headline from "@/widgets/Headline/ui/Headline";
 import ProductList from "@/widgets/ProductList/ui/ProductList";
 import '../styles/mobile-products.scss';
 import Container from "@/shared/primitives/Container/Container";
-import { useAppSelector } from "@/app/store/hooks";
-import { selectProducts } from "@/entities/product/model/productSelector";
 
 interface MobileProductsProps {
   className?: string;

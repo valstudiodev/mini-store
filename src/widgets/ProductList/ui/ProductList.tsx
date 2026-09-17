@@ -1,8 +1,6 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useAppSelector } from "@/app/store/hooks";
 import { selectHasLoaded, selectProductError, selectProductloading, selectProducts } from "@/entities/product/model/productSelector";
-import { fetchProducts } from "@/entities/product/model/productThunk";
 import ProductCard from "@/entities/product/ui/ProductCard";
-import { useEffect } from "react";
 import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
 import { ProductCategoryProps } from "@/entities/product/model/types";

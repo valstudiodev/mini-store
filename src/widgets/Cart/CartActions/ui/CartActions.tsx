@@ -1,6 +1,7 @@
 import LinkButton from '@/shared/ui/LinkButton/ui/LInkButton';
 import '../styles/cart-actions.scss';
 import { routeMap } from '@/app/routes/routeMap';
+import { Link } from 'react-router';
 
 interface CartActionsProps {
   className?: string;
@@ -23,20 +24,23 @@ function CartActions({
       </LinkButton>
 
       <LinkButton
-        href={`${routeMap.product.path}`}
+        href={`${routeMap.pages.path}`}
         variant='primary'
         className={`${cartActions}__btn`}
       >
         Continue shopping
       </LinkButton>
 
-      <LinkButton
+      {/* <LinkButton
         href={`${routeMap.checkout.path}`}
         variant='primary'
         className={`${cartActions}__btn`}
       >
         Proceed to checkout
-      </LinkButton>
+      </LinkButton> */}
+      <Link to='/pages/checkout'>
+        Proceed to checkout
+      </Link>
     </div>
   );
 }

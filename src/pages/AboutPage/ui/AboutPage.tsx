@@ -1,7 +1,7 @@
 import Container from "@/shared/primitives/Container/Container";
 import Section from "@/shared/primitives/Section/Section";
 import '../styles/aboutPage.scss';
-import { HeadingTitle } from "@/shared/typography";
+import { Title } from "@/shared/typography";
 
 function AboutPage(): React.JSX.Element {
   const classAboutPage = 'about-page'
@@ -9,9 +9,11 @@ function AboutPage(): React.JSX.Element {
   return (
     <Section className={classAboutPage}>
       <Container className={`${classAboutPage}__container`}>
-        <HeadingTitle>
-          About page
-        </HeadingTitle>
+        <Title
+          className={`${classAboutPage}__title`}
+          as="h1">
+          About us
+        </Title>
       </Container>
     </Section>
   );

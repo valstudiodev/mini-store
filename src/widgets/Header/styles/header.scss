@@ -1,8 +1,27 @@
 @use '@/shared/styles/settings/settings' as *;
 @use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
 
 .header {
   @include adaptiveValue('padding-block', 12, 10);
+  // position: fixed;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
   &__container {}
 

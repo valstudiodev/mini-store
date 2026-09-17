@@ -16,7 +16,7 @@ export default defineConfig(() => {
         '@': path.resolve(import.meta.dirname, './src'),
         '@app': path.resolve(import.meta.dirname, './src/app'),
         '@assets': path.resolve(import.meta.dirname, './src/assets'),
-        '@entites': path.resolve(import.meta.dirname, '/src/entities'),
+        '@entities': path.resolve(import.meta.dirname, './src/entities'),
         '@featured': path.resolve(import.meta.dirname, './src/featured'),
         '@pages': path.resolve(import.meta.dirname, './src/pages'),
         '@shared': path.resolve(import.meta.dirname, './src/shared'),

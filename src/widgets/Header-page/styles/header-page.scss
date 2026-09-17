@@ -2,11 +2,9 @@
 @use '@/shared/styles/mixins/grid' as *;
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
-.about-page {
+.header-page {
   @include adaptiveValue('padding-block', 77, 30);
   background-color: var(--color-surface);
-
-  &__container {}
 
   &__title {
     @include adaptiveValue('font-size', 83, 40);

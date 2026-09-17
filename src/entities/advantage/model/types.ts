@@ -1,7 +1,4 @@
 import { LucideIcon } from "lucide-react";
-import { ComponentType } from "react";
-
-type IconProp = ComponentType<LucideIcon>
 
 export interface AdvantageItem {
   icon?: LucideIcon;

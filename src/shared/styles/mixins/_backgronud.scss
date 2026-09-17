@@ -1,0 +1,122 @@
+@use "sass:math";
+
+@mixin img-bg-cover($url) {
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url($url) center / cover no-repeat;
+  }
+}
+
+@mixin overlay($color: black, $opacity: 0.5) {
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color, $opacity);
+    z-index: 1;
+  }
+}
+
+@mixin overlay-gradient($color: black, $opacity-start: 0.8, $opacity-end: 0.2) {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0; // Це скорочення для top, left, width 100%, height 100%
+    background: linear-gradient(to bottom,
+        rgba($color, $opacity-start),
+        rgba($color, $opacity-end));
+    z-index: 1;
+  }
+}
+
+@mixin overlay-hover($color, $transition: 0.4s) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: $color;
+    transition: opacity $transition ease;
+    z-index: 1;
+  }
+
+  @include hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+
+@mixin overlay-rotate($display: block,
+  $color: black,
+  $opacity: 0.5,
+  $rotate: 0deg,
+  $transition: 0.4s ease-in-out,
+  $origin: center,
+
+  // Position control
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null) {
+  position: relative;
+  overflow: hidden;
+  display: $display;
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    // Positioning logic
+    @if $top !=null {
+      top: $top;
+    }
+
+    @if $right !=null {
+      right: $right;
+    }
+
+    @if $bottom !=null {
+      bottom: $bottom;
+    }
+
+    @if $left !=null {
+      left: $left;
+    }
+
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba($color, $opacity);
+    transform: rotate($rotate);
+    transform-origin: $origin;
+    transition: transform $transition,
+    opacity $transition;
+    will-change: transform;
+  }
+
+  @include hover {
+    &::after {
+      transform: rotate(calc($rotate + 180deg));
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@utility wrapper {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+
+  &>main {
+    flex-grow: 1;
+  }
+}
+
+@utility container {
+  /* Наприклад, для макета 1440px: calc(1440rem / 16) */
+  max-width: calc(1300rem / 16);
+
+  /* Контейнерний паддінг навпіл (наприклад, 30px / 2 = 15px): calc(15rem / 16) */
+  padding-inline: calc(15rem / 16);
+
+  margin-inline: auto;
+}
+
+@utility text-h1-adaptive {
+  font-size: clamp(28px, 4.5vw + 12px, 48px);
+}
+
+@utility text-hero-fluid {
+  font-size: clamp(calc(28rem / 16),
+      /* Мінімальний розмір у rem */
+      calc(calc(28rem / 16) - calc(calc(48 - 28) / calc(var(--layout-max) - var(--layout-min)) * calc(var(--layout-min) * 1rem / 16))) + calc(calc(48 - 28) / calc(var(--layout-max) - var(--layout-min)) * 100vw),
+      calc(48rem / 16)
+      /* Максимальний розмір у rem */
+    );
+}
+
+@utility text-base-adaptive {
+  font-size: clamp(14px, 0.18vw + 13.4px, 100px);
+}

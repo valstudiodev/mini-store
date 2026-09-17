@@ -1,0 +1,7 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.cart-content {
+  @include adaptiveValue('padding-block', 120, 40);
+}

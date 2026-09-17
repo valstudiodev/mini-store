@@ -1,0 +1,21 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+@use '@/shared/styles/mixins/grid' as *;
+
+.footer-menu {
+
+  display: flex;
+  justify-content: space-between;
+  // display: grid;
+  // @include grid-adaptive($size: toRem(200));
+  gap: toRem(20);
+
+  @media (max-width: toEm(990)) {
+    width: 100%;
+    flex-wrap: wrap;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // @include grid-adaptive($size: toRem(300));
+  }
+}

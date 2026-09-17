@@ -1,0 +1,29 @@
+@use "sass:math";
+
+@mixin flex-center-horizont ($justify-content) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: center;
+}
+
+@mixin flex-center-vertical ($align-items) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align-items;
+}
+
+@mixin flexbox-items-adaptive($justify: space-between, $align: center, $wrap: nowrap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin flex-link-arrow($display: inline-flex,
+  $direction: row-reverse,
+  $gap: 0) {
+  display: $display;
+  align-items: center;
+  flex-direction: $direction;
+  gap: $gap;
+}

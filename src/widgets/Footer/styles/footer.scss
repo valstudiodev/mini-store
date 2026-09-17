@@ -1,0 +1,29 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.footer {
+  @include adaptiveValue('padding-bottom', 80, 30);
+  @include adaptiveValue('padding-top', 50, 20);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    // flex-wrap: wrap;
+    @include adaptiveValue('gap', 140, 30);
+
+    // display: flex;
+    // grid-template-columns: 1fr 1fr;
+
+    @media (max-width: toEm(990)) {
+      flex-direction: column;
+      @include adaptiveValue('gap', 30, 15);
+    }
+  }
+
+  &__brand {}
+
+  &__menu {
+    flex-grow: 1;
+  }
+}

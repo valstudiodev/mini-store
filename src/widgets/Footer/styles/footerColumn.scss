@@ -1,0 +1,36 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.footer-column {
+
+  &__title {
+    margin-bottom: toRem(10);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: toRem(8);
+  }
+
+  &__item {}
+
+  &__link {
+    text-transform: uppercase;
+    line-height: 1.48;
+    letter-spacing: 1.4px;
+    @include adaptiveValue('font-size', 14, 12);
+    font-weight: 500;
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+
+  @media (max-width: toEm(629)) {
+    flex-grow: 1;
+  }
+}

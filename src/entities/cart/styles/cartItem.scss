@@ -1,0 +1,158 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.cart-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: toRem(24);
+  padding: toRem(18) 0;
+  border-bottom: 1px solid var(--color-border);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: toRem(18);
+    min-width: 0;
+  }
+
+  &__img {
+    flex: 0 0 toRem(96);
+    width: toRem(96);
+    aspect-ratio: 1;
+    overflow: hidden;
+    background-color: var(--color-surface);
+  }
+
+  &__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: grid;
+    gap: toRem(6);
+    min-width: 0;
+  }
+
+  &__title {
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--font-secondary);
+    font-size: toRem(18);
+    font-weight: 500;
+    letter-spacing: toRem(0.5);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__price {
+    color: var(--color-text-secondary);
+    font-size: toRem(15);
+  }
+
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: toRem(8);
+    user-select: none;
+  }
+
+  &__actions span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: toRem(24);
+    color: var(--color-text-secondary);
+    font-size: toRem(17);
+  }
+
+  &__actions span:nth-child(2) {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  &__subtotal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: toRem(22);
+    min-width: toRem(132);
+  }
+
+  &__subtotal-value {
+    color: var(--color-accent);
+    font-family: var(--font-secondary);
+    font-size: toRem(18);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  &__btn-delete {
+    padding: toRem(6) 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: toRem(13);
+    transition: color 0.2s ease;
+  }
+
+  &__btn-delete:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: toRem(4);
+  }
+
+  @include hover {
+    &__btn-delete:hover {
+      color: var(--color-error);
+    }
+  }
+
+  @media (max-width: toEm(700)) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: toRem(14) toRem(18);
+
+    &__content {
+      grid-column: 1 / -1;
+    }
+
+    &__actions {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    &__subtotal {
+      grid-column: 2;
+      grid-row: 2;
+      min-width: 0;
+    }
+  }
+
+  @media (max-width: toEm(420)) {
+    &__img {
+      flex-basis: toRem(72);
+      width: toRem(72);
+    }
+
+    &__content {
+      gap: toRem(12);
+    }
+
+    &__title {
+      font-size: toRem(16);
+    }
+
+    &__subtotal {
+      gap: toRem(12);
+    }
+
+    &__btn-delete {
+      font-size: toRem(12);
+    }
+  }
+}

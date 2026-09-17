@@ -1,0 +1,20 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.logo {
+  display: inline-flex;
+  @include adaptiveValue('font-size', 33, 22);
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  transition: color 0.3s;
+  z-index: 100;
+
+  span {
+    color: var(--color-accent);
+  }
+
+  @include hover {
+    color: var(--color-accent);
+  }
+}

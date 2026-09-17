@@ -1,0 +1,8 @@
+@use '../../../shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '../../../shared/styles/abstracts/input-mixins' as *;
+
+.smart-watches {
+  @include adaptiveValue('padding-top', 60, 20);
+  @include adaptiveValue('padding-bottom', 120, 40);
+}

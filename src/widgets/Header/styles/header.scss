@@ -1,0 +1,10 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.header {
+  @include adaptiveValue('padding-block', 12, 10);
+
+  &__container {}
+
+  &__menu {}
+}

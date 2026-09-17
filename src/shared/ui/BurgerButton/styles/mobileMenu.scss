@@ -1,0 +1,78 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+
+.icon-menu {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+
+  // Доступність для навігації клавіатурою
+  &:focus-visible {
+    outline: toRem(2) solid #2563eb;
+    outline-offset: toRem(4);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: var(--height-line, 2px);
+    border-radius: var(--radius, 10px);
+    background-color: var(--color, black);
+    transition: rotate 0.3s ease, translate 0.3s ease, top 0.3s;
+    will-change: rotate, translate, width, top;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    translate: 0 -50%;
+    background-color: var(--color, black);
+    width: var(--width-span, 100%);
+    height: var(--height-line, 2px);
+    border-radius: var(--radius, 10px);
+    transition: width 0.3s ease;
+    will-change: width;
+  }
+
+  // Стан відкритого меню
+  &.is-open {
+    &::before {
+      top: 50%;
+      rotate: 45deg;
+      translate: 0 -50%;
+    }
+
+    &::after {
+      top: 50%;
+      rotate: -45deg;
+      translate: 0 -50%;
+    }
+
+    span {
+      width: 0;
+    }
+  }
+
+  @media (min-width: toEm(768.98)) {
+    display: none;
+  }
+}

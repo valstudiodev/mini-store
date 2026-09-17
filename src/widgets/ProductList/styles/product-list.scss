@@ -1,0 +1,22 @@
+@use '../../../shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '../../../shared/styles/abstracts/input-mixins' as *;
+
+.product-list {
+  @include grid-adaptive($size: toRem(310));
+  @include adaptiveValue('gap', 20, 10);
+
+  &__item {
+    height: 100%;
+  }
+
+  &__btn-add {
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+    // opacity: 0;
+    // visibility: hidden;
+    // translate: 0 toRem(10);
+    // transition: opacity 0.3s visibility 0.3s translate 0.3s;
+  }
+}

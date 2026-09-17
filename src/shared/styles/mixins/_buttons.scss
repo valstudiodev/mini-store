@@ -1,0 +1,246 @@
+@use "sass:math";
+
+@mixin icon-menu ($width,
+  $height,
+  $side: right,
+  $middle-width: 100%,
+  $pseudo-width: 100%,
+  $duration: 0,
+  $color: #000,
+  $thickness: 3px,
+  $radius: 10px,
+  $transition: 0.3s) {
+  position: relative;
+  width: $width;
+  height: $height;
+  z-index: 10;
+  flex-shrink: 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    #{$side}: 0;
+    width: $pseudo-width;
+    height: $thickness;
+    border-radius: $radius;
+    background-color: $color;
+    transition: $transition ease,
+      background-color $transition ease;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  span {
+    position: absolute;
+    top: 50%;
+    #{$side}: $duration;
+    translate: 0 -50%;
+    background-color: $color;
+    width: $middle-width;
+    height: $thickness;
+    border-radius: $radius;
+    transition: transform $transition ease,
+      width $transition ease,
+      background-color $transition ease;
+  }
+
+  .menu-open & {
+    &::before {
+      top: 50%;
+      rotate: 45deg;
+      translate: 0 -50%;
+    }
+
+    &::after {
+      top: 50%;
+      rotate: -45deg;
+      translate: 0 -50%;
+    }
+
+    span {
+      width: 0;
+    }
+  }
+}
+
+@mixin buttonMore($width: 40px,
+  $line-height: 2px,
+  $color: white,
+  $hover-color: black,
+  $transition: 0.3s,
+  $radius: 0,
+  $aspect: 1,
+  $ease: cubic-bezier(0.4, 0, 0.2, 1),
+  $type: "plus" // Додаємо параметр: "plus" або "cross"
+
+) {
+  width: $width;
+  aspect-ratio: $aspect;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform $transition $ease;
+
+  span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: $line-height;
+    background-color: $color;
+    transition: background-color $transition ease, transform $transition $ease;
+    will-change: transform;
+    border-radius: $radius;
+    transform: rotate(0);
+
+    &::after {
+      content: "";
+      // @include abs-center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      width: 100%;
+      height: $line-height; // Використовуємо ту саму товщину
+      background-color: inherit; // Колір буде таким самим, як у span
+      border-radius: $radius;
+      will-change: transform;
+      transition: transform $transition $ease;
+    }
+  }
+
+  @include hover {
+    transform: scale(1.05); // Легка пульсація (збільшення)
+
+    span {
+      background-color: $hover-color; // Зміна кольору обох ліній
+    }
+  }
+
+  &.icon-active {
+    span {
+      @if $type =="cross" {
+        transform: rotate(45deg); // Для хрестика повертаємо на 45
+      }
+
+      @else {
+        transform: rotate(0); // Для звичайного плюса (мінус)
+      }
+
+      &::after {
+        @if $type =="cross" {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        @else {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+      }
+    }
+
+    &:focus {
+      span {
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+@mixin button-base($bg-color: #3498db,
+  $text-color: #ffffff,
+  $padding: 10px 20px,
+  $border-radius: 6px,
+  $font-size: 16px,
+  $border: none,
+  $display: inline-flex) {
+  display: $display;
+  align-items: center;
+  justify-content: center;
+  padding: $padding;
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: $border-radius;
+  border: $border;
+  font-size: $font-size;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none; // Якщо кнопка буде тегом <a>
+  transition: all 0.2s ease-in-out;
+
+  // Базовий ефект при наведенні (легке затемнення)
+  &:hover {
+    background-color: darken($bg-color, 8%);
+
+    @if $border !=none {
+      border-color: darken($bg-color, 8%);
+    }
+  }
+
+  // Ефект при кліку
+  &:active {
+    transform: scale(0.98);
+  }
+
+  // Стан вимкненої кнопки
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
+
+@mixin customize-bullets($active-color,
+  $inactive-border-color: #fff,
+  $size: 12px,
+  $gap: 8px,
+  $scale-active: 1,
+  $border: none,
+  $background: transparent,
+  $sizeBefore: 10px) {
+  display: flex;
+  justify-content: center;
+  gap: $gap;
+  position: static;
+
+  .swiper-pagination-bullet {
+    width: $size;
+    height: $size;
+    border: $border solid $inactive-border-color;
+    background: $background;
+    position: relative;
+    opacity: 1;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0 !important;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s ease;
+
+    // Збільшуємо зону кліку до 44px (рекомендація Apple/Google)
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: $sizeBefore;
+      height: $sizeBefore;
+    }
+
+    &.swiper-pagination-bullet-active {
+      background-color: $active-color;
+      border-color: $active-color;
+      transform: scale($scale-active);
+    }
+  }
+}

@@ -1,0 +1,58 @@
+import { CartItemProps } from "../model/cartTypes";
+import '../styles/cartItem.scss';
+import DecreaseQuantityButton from "@/features/cart/decrease-quantity/ui/DecreaseQuantityButton";
+import IncreaseQuantityButton from "@/features/cart/increase-quantity/ui/IncreaseQuantityButton";
+import RemoveFromCartButton from "@/features/cart/remove-from-cart/ui/RemoveFromCartButton";
+import CartItemQuantity from "@/features/cart/cart-item-quantity/ui/CartItemQuantity";
+
+function CartItem({
+  product,
+  className
+}: CartItemProps): React.JSX.Element {
+  const cartItem = 'cart-item'
+
+  const subtotal = product.price * product.quantity
+
+  return (
+    <article className={`${cartItem} ${className}`}>
+      <div className={`${cartItem}__content`}>
+        <div className={`${cartItem}__img`}>
+          <img src={product.imageUrl} alt={product.title} />
+        </div>
+        <div className={`${cartItem}__info`}>
+          <h4 className={`${cartItem}__title`}>
+            {product.title}
+          </h4>
+          <span className={`${cartItem}__price`}>
+            {product.price}
+          </span>
+        </div>
+      </div>
+      <div className={`${cartItem}__actions`}>
+        <DecreaseQuantityButton
+          product={product}
+          label="-" />
+
+        <CartItemQuantity product={product} />
+
+        <IncreaseQuantityButton
+          label="+"
+          product={product}
+        />
+      </div>
+      <div className={`${cartItem}__subtotal`}>
+        <span className={`${cartItem}__subtotal-value`}>{subtotal}</span>
+        <RemoveFromCartButton
+          label="Delete"
+          product={product}
+        />
+      </div>
+    </article>
+  );
+}
+
+export default CartItem;
+
+
+
+

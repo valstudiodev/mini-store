@@ -1,0 +1,17 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.btn-increase-quantity {
+  background-color: var(--color-primary);
+  width: toRem(44);
+  height: toRem(44);
+  box-shadow: 0 0 44px 0 rgba(0, 0, 0, 0.08);
+  border: toRem(1) solid var(--color-border);
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  @include hover {
+    background-color: var(--color-surface-hover);
+  }
+}

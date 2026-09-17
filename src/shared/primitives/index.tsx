@@ -1,0 +1,1 @@
+export { default as Section } from '@/shared/primitives/Section/Section'

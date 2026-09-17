@@ -1,0 +1,16 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @include adaptiveValue('gap', 20, 10);
+
+  &__btn {
+    @media (max-width: toEm(520)) {
+      width: 100%;
+    }
+  }
+}

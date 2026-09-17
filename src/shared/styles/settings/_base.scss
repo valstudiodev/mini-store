@@ -1,0 +1,25 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900);
+@import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900);
+
+:root {
+  --font-primary: 'Lato', sans-serif;
+  --font-secondary: 'Jost', sans-serif;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--font-primary);
+  letter-spacing: 0.48px;
+  color: var(--color-text-primary);
+  line-height: 1.48;
+}
+
+html[data-menu-open='true'] {
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
+  scrollbar-width: none;
+}

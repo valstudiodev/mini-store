@@ -1,0 +1,36 @@
+@use '../../../shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '../../../shared/styles/abstracts/input-mixins' as *;
+
+.advantage-item {
+  display: flex;
+  align-items: flex-start;
+  @include adaptiveValue('gap', 14, 6);
+
+  &__icon {
+    width: toRem(25);
+    height: toRem(27);
+    color: var(--color-accent);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(4);
+    align-items: flex-start;
+  }
+
+  &__title {
+    @include adaptiveValue('font-size', 20, 16);
+    text-transform: uppercase;
+    font-family: var(--font-secondary);
+  }
+
+  &__text {
+    @include adaptiveValue('font-size', 16, 14);
+    line-height: 1.38;
+    letter-spacing: 0.48px;
+    color: var(--color-button-hover);
+    max-width: toRem(245);
+  }
+}

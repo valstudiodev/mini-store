@@ -1,0 +1,35 @@
+// ============================================================================
+// Dark theme
+// ============================================================================
+[data-theme='dark'] {
+  --color-primary: #1C1C1C;
+  --color-surface: #272727;
+  --color-surface-hover: #333333;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #D1D5D7;
+  --color-text-muted: #9A9A9A;
+
+  --color-border: #414141;
+  --color-border-hover: #555555;
+
+  --color-accent: #82C4E0;
+  --color-accent-hover: #9BD2E8;
+
+  --color-button: #EDF1F3;
+  --color-button-hover: #FFFFFF;
+
+  --color-icon: #657175;
+
+  --color-success: #78B991;
+  --color-success-hover: #8CC7A3;
+
+  --color-error: #E08282;
+  --color-error-hover: #ED9696;
+
+  --color-warning: #D6B06D;
+  --color-warning-hover: #E2C080;
+
+  --color-info: #82B5CE;
+  --color-info-hover: #98C6DB;
+}

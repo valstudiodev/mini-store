@@ -1,0 +1,60 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.cart-total {
+  // max-width: toRem(530);
+  @include adaptiveValue('padding-top', 40, 20);
+
+  &__title {
+    @include adaptiveValue('font-size', 30, 20);
+    font-family: var(--font-secondary);
+    line-height: 1.14;
+    text-transform: uppercase;
+    border-bottom: toRem(1) solid var(--color-border);
+
+  }
+
+  &__inner {
+    @include adaptiveValue('padding-block', 30, 10);
+  }
+
+  &__subtotal-title,
+  &__total-title {
+    @include adaptiveValue('font-size', 20, 16);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-family: var(--font-secondary);
+    text-decoration: underline;
+  }
+
+  &__subtotal,
+  &__total {
+    @include adaptiveValue('gap', 20, 5);
+    border-bottom: toRem(1) solid var(--color-border);
+    padding-block: toRem(20);
+  }
+
+  &__subtotal-wrap,
+  &__total-wrap {
+    max-width: toRem(530);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__subtotal-title {}
+
+  &__subtotal-quantity,
+  &__total-quantity {
+    @include adaptiveValue('font-size', 20, 16);
+    color: var(--color-accent);
+    letter-spacing: 0.6px;
+  }
+
+  &__total {}
+
+  &__total-title {}
+
+  &__total-quantity {}
+}

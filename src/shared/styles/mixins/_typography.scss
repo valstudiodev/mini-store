@@ -1,0 +1,8 @@
+@use "sass:math";
+
+@mixin line-clamp($lines: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}

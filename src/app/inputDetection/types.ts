@@ -1,0 +1,1 @@
+export type InputType = 'mouse' | 'touch' | 'keyboard';

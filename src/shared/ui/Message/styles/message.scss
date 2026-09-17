@@ -1,0 +1,44 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: var(--color-primary);
+
+  padding: toRem(20);
+  border-radius: toRem(10);
+  z-index: 1000;
+  border: toRem(1) solid var(--color-border);
+  overflow: hidden;
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0 0 0 / 50%);
+  }
+
+  &__label {
+    @include adaptiveValue('font-size', 30, 20);
+    text-align: center;
+  }
+
+  &--success {
+    color: var(--color-success);
+  }
+
+  &--error {
+    color: var(--color-error);
+  }
+
+  &--warning {
+    color: var(--color-warning);
+  }
+
+  &--info {
+    color: var(--color-info);
+  }
+}

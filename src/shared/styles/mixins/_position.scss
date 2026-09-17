@@ -1,0 +1,28 @@
+@use "sass:math";
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin abs-pos($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+
+  @if ($top !=null) {
+    top: $top
+  }
+
+  @if ($right !=null) {
+    right: $right
+  }
+
+  @if ($bottom !=null) {
+    bottom: $bottom
+  }
+
+  @if ($left !=null) {
+    left: $left
+  }
+}

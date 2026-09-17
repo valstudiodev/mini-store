@@ -1,0 +1,62 @@
+@use "sass:math";
+
+@mixin link-hover($height, $color, $left, $translate, $bottom: 0) {
+  position: relative;
+
+  &::after {
+    content: "";
+    height: $height;
+    background-color: $color;
+    position: absolute;
+    bottom: $bottom;
+    left: $left;
+    translate: $translate $translate;
+    width: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  @include hover {
+    &::after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin link-hover-underline($height, $color) {
+  position: relative;
+
+  &::after {
+    content: "";
+    height: $height;
+    background-color: $color;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  @include hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin card-style($bg, $radius: 10px, $shadow-color: rgba(0, 0, 0, 0.5)) {
+  border-radius: $radius;
+  box-shadow: 0 4px 10px $shadow-color;
+  background-color: $bg;
+}
+
+@mixin link-style($main-color, $hover-color) {
+  color: $main-color;
+  transition: color 0.3s ease;
+
+  @include hover {
+    color: $hover-color;
+  }
+}

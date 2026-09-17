@@ -1,0 +1,42 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.footer-contacts {
+
+  &__title {
+    color: var(--color-text-primary);
+    @include adaptiveValue('font-size', 20, 16);
+    margin-bottom: toRem(10);
+    text-transform: uppercase;
+  }
+
+  &__list {}
+
+  &__item {
+    &:not(:last-child) {
+      @include adaptiveValue('margin-bottom', 10, 5);
+    }
+  }
+
+  &__text {
+    color: var(--color-button-hover);
+    @include adaptiveValue('font-size', 16, 14);
+    letter-spacing: 0.48px;
+    font-weight: 300;
+    line-height: 1.38;
+  }
+
+  &__link {
+    text-decoration: underline;
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--color-text-primary);
+    }
+  }
+
+  @media (max-width: toEm(629)) {
+    flex-grow: 1;
+  }
+}

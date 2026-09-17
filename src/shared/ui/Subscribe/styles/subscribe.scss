@@ -1,0 +1,62 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.subscribe-form {
+  max-width: toRem(494);
+  min-height: toRem(53);
+
+
+  &__body {
+    display: flex;
+
+    @media (max-width: toEm(600)) {
+      flex-direction: column;
+      gap: toRem(10);
+    }
+  }
+
+  &__input {
+    @include adaptiveValue('padding-left', 30, 10);
+    padding-block: toRem(10);
+    border: toRem(1) solid var(--color-border);
+    flex-grow: 1;
+    background-color: var(--color-primary);
+
+    &::placeholder {
+      color: var(--color-button-hover);
+      font-size: toRem(16);
+      font-weight: 300;
+      line-height: 1.38;
+      letter-spacing: 0.48px;
+      transition: opacity 0.3s;
+      will-change: opacity;
+    }
+
+    &:focus-visible {
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    background-color: var(--color-accent);
+    font-weight: 500;
+    line-height: 1.48;
+    letter-spacing: 1.4px;
+    @include adaptiveValue('font-size', 14, 12);
+    color: var(--color-primary);
+    padding-block: toRem(16);
+    padding-inline: toRem(40);
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    @include hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  &__message {}
+}

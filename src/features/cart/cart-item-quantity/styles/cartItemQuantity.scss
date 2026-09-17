@@ -1,0 +1,12 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.cart-item-quantity {
+  background-color: var(--color-primary);
+  border: toRem(1) solid var(--color-border);
+  @include adaptiveValue('padding-inline', 40, 10);
+  text-align: center;
+  align-content: center;
+  height: toRem(44);
+}

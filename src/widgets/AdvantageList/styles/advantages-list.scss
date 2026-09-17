@@ -1,0 +1,17 @@
+@use '../../../shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '../../../shared/styles/abstracts/input-mixins' as *;
+
+.advantages {
+  @include adaptiveValue('padding-top', 120, 40);
+  @include adaptiveValue('padding-bottom', 60, 20);
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include adaptiveValue('gap', 20, 10);
+  }
+
+  &__item {}
+}

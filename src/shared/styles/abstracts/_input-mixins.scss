@@ -1,0 +1,33 @@
+@use "sass:math";
+
+@mixin input($type) {
+  html[data-input='#{$type}'] & {
+    @content;
+  }
+}
+
+@mixin hover {
+  @include mouse {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin mouse {
+  @include input('mouse') {
+    @content;
+  }
+}
+
+@mixin touch {
+  @include input('touch') {
+    @content;
+  }
+}
+
+@mixin keyboard {
+  @include input('keyboard') {
+    @content;
+  }
+}

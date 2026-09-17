@@ -1,0 +1,16 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.cart-items {
+  @include adaptiveValue('padding-bottom', 40, 20);
+
+  &__text {
+    text-align: center;
+    @include adaptiveValue('font-size', 30, 20);
+  }
+
+  &__list {}
+
+  &__item {}
+}

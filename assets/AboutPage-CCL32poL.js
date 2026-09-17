@@ -1,0 +1,1 @@
+import{b as e,x as t}from"./index-C5KqMCQi.js";import{t as n}from"./Section-lBqrpMFX.js";import{t as r}from"./HeadingTitle-CajItoUh.js";import"./typography-Zgrh-8oA.js";var i=t();function a(){let t=`about-page`;return(0,i.jsx)(n,{className:t,children:(0,i.jsx)(e,{className:`${t}__container`,children:(0,i.jsx)(r,{children:`About page`})})})}export{a as default};

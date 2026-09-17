@@ -1,1 +1,0 @@
-import{b as e,x as t}from"./index-DATLbTqa.js";import{t as n}from"./Section-OwXCioEJ.js";import{t as r}from"./HeadingTitle-BMPi2Q03.js";import"./typography-Yv2SCwwQ.js";var i=t();function a(){let t=`contacts-page`;return(0,i.jsx)(n,{className:t,children:(0,i.jsx)(e,{className:`${t}__container`,children:(0,i.jsx)(r,{children:`Contacts page`})})})}export{a as default};

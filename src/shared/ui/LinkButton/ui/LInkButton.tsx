@@ -1,6 +1,26 @@
 import { LinkButtonProps } from "../model/types";
 import '../styles/linkButton.scss';
 
+import { Link } from 'react-router-dom';
+import type { LinkProps } from 'react-router-dom';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
+
+type LinkButtonProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'href'
+> & {
+  href: string;
+  children?: ReactNode;
+  iconOnly?: ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  variant?: 'primary' | 'secondary' | 'unstyled';
+  size?: 'none' | 'small' | 'medium' | 'large';
+  external?: boolean;
+  disabled?: boolean;
+  as?: 'a' | typeof Link;
+};
+
 function LinkButton({
   href,
   children,
@@ -11,47 +31,73 @@ function LinkButton({
   size = 'none',
   external,
   disabled = false,
-  as: Component = 'a',
+  as: Component = Link,
   className = '',
   'aria-label': ariaLabel,
   ...props
-}: LinkButtonProps) {
-  const clLinkButton = 'link-button'
+}: LinkButtonProps): React.JSX.Element {
+  const clLinkButton = 'link-button';
 
-  const isExternal = external ?? (href.startsWith('http://') || href.startsWith('htpps://') || href.startsWith('//'))
+  // Визначаємо зовнішні посилання.
+  const isExternal =
+    external ??
+    /^(https?:\/\/|\/\/)/i.test(href);
 
-  // Якщо передано iconOnly, автоматично ставимо variant="unstyled" (якщо не вказано інший)
-  const activeVariant = iconOnly ? (variant === 'primary' ? 'unstyled' : variant) : variant;
+  const activeVariant =
+    iconOnly && variant === 'primary'
+      ? 'unstyled'
+      : variant;
 
-  const combinedClasses = `
-    ${clLinkButton}
-    ${clLinkButton}--${activeVariant}
-    ${activeVariant !== 'unstyled' ? `link-button--${size}` : ''}
-    ${clLinkButton}--${size}
-    ${disabled ? 'is-disabled' : ''}
-    ${className} 
-  `.trim()
+  const combinedClasses = [
+    clLinkButton,
+    `${clLinkButton}--${activeVariant}`,
+    `${clLinkButton}--${size}`,
+    disabled ? 'is-disabled' : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-  // const renderIcon = (icon: React.ReactNode, position: 'left' | 'right') => (
-  //   <span
-  //     className={`${clLinkButton}__icon ${clLinkButton}__icon--${position}`}
-  //     aria-hidden='true'
-  //   >
-  //     {icon}
-  //   </span>
-  // )
-
-  // Вміст: або одиночна іконка, або стандартний текст з іконками
   const content = iconOnly ? (
     iconOnly
   ) : (
     <>
-      {leftIcon && <span className="link-button__icon">{leftIcon}</span>}
+      {leftIcon && (
+        <span
+          className={`${clLinkButton}__icon`}
+          aria-hidden="true"
+        >
+          {leftIcon}
+        </span>
+      )}
+
       {children && <span>{children}</span>}
-      {rightIcon && <span className="link-button__icon">{rightIcon}</span>}
+
+      {rightIcon && (
+        <span
+          className={`${clLinkButton}__icon`}
+          aria-hidden="true"
+        >
+          {rightIcon}
+        </span>
+      )}
     </>
   );
 
+  // Disabled: не дозволяємо навігацію.
+  if (disabled) {
+    return (
+      <span
+        className={combinedClasses}
+        aria-disabled="true"
+        aria-label={ariaLabel}
+      >
+        {content}
+      </span>
+    );
+  }
+
+  // Зовнішнє посилання.
   if (isExternal) {
     return (
       <a
@@ -59,24 +105,37 @@ function LinkButton({
         target="_blank"
         rel="noopener noreferrer"
         className={combinedClasses}
-        aria-disabled={disabled}
-        tabIndex={disabled ? -1 : undefined}
+        aria-label={ariaLabel}
         {...props}
       >
         {content}
       </a>
-    )
+    );
+  }
+
+  // Внутрішня навігація через React Router.
+  if (Component === 'a') {
+    return (
+      <a
+        href={href}
+        className={combinedClasses}
+        aria-label={ariaLabel}
+        {...props}
+      >
+        {content}
+      </a>
+    );
   }
 
   return (
-    <Component
-      href={href}
+    <Link
+      to={href}
       className={combinedClasses}
-      aria-disabled={disabled ? -1 : undefined}
-      {...props}
+      aria-label={ariaLabel}
+      {...(props as Omit<LinkProps, 'to'>)}
     >
       {content}
-    </Component>
+    </Link>
   );
 }
 

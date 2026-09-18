@@ -1,1 +1,0 @@
-import{x as e}from"./index-BltGhyxa.js";var t=e();function n({variant:e=null,label:n,className:r=``}){let i=`message`;return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(`div`,{className:`${i}__overlay`,"aria-hidden":`true`}),(0,t.jsx)(`div`,{className:`${i} ${i}--${e} ${r}`,children:(0,t.jsx)(`p`,{className:`${i}__label`,children:n})})]})}export{n as t};

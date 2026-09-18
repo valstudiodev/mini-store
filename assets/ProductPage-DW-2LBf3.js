@@ -1,0 +1,1 @@
+import{T as e,w as t}from"./index-CAJRqsl8.js";import{t as n}from"./Section-B69HdHq5.js";import{t as r}from"./HeadingTitle-Bkt1c8KS.js";import"./typography-Br7tseE5.js";var i=e();function a(){let e=`product-page`;return(0,i.jsx)(n,{className:e,children:(0,i.jsx)(t,{className:`${e}__container`,children:(0,i.jsx)(r,{children:`Product page`})})})}export{a as default};

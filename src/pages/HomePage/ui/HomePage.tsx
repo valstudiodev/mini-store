@@ -9,6 +9,7 @@ import { SubscribeSection } from '@/widgets';
 import { useAppDispatch } from '@/app/store/hooks';
 import { useEffect } from 'react';
 import { fetchProducts } from '@/entities/product/model/productThunk';
+import InstaLinks from '@/widgets/Insta-links/ui/InstaLinks';
 
 function HomePage(): React.JSX.Element {
   const classHomePage = 'home-page'
@@ -27,6 +28,7 @@ function HomePage(): React.JSX.Element {
       <SmartWatches />
       <Banner />
       <SubscribeSection />
+      <InstaLinks />
     </Section>
   );
 }

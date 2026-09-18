@@ -20,10 +20,13 @@ export const routeMap = {
   shop: defineRoute('/pages/shop'),
   cart: defineRoute('/pages/cart'),
   checkout: defineRoute('/pages/checkout'),
-  product: defineRoute('/product'),
   blog: defineRoute('/blog'),
   blogPost: defineRoute('/blog-post'),
   contacts: defineRoute('/contacts'),
+  product: defineRoute(
+    '/product/:id',
+    (id: string | number) => `/product/${id}`
+  ),
   productEdit: defineRoute(
     '/products/edit/:id',
     (id: string | number) => `/products/edit/${id}`

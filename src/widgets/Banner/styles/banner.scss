@@ -1,6 +1,6 @@
-@use '../../../shared/styles/settings/settings' as *;
+@use '@/shared/styles/settings/settings' as *;
 @use '@/shared/styles/mixins/grid' as *;
-@use '../../../shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
 
 .banner {
   background-color: var(--color-surface);

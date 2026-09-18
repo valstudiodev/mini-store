@@ -1,3 +1,4 @@
+
 export interface BreadcrumbItem {
   label: string;
   to?: string;
@@ -14,3 +15,6 @@ export interface UseBreadcrumbsOptions {
   mode?: 'all' | 'last';
   homeLabel?: string;
 }
+
+
+

@@ -36,6 +36,10 @@ export const routes = [
         meta: {
           isInMenu: true,
           title: 'Home',
+        },
+        handle: {
+          breadcrumb: 'Home',
+          title: 'Home',
         }
       },
       {
@@ -50,6 +54,10 @@ export const routes = [
           isInMenu: true,
           title: 'About',
           breadcrumbs: true,
+        },
+        handle: {
+          breadcrumb: 'About',
+          title: 'About',
         }
       },
       {
@@ -65,6 +73,10 @@ export const routes = [
           title: 'Pages',
           breadcrumbs: true,
         },
+        handle: {
+          breadcrumb: true,
+          title: 'Pages'
+        },
         children: [
           {
             index: true,
@@ -77,7 +89,11 @@ export const routes = [
             meta: {
               isInMenu: true,
               title: 'Shop',
-            }
+            },
+            handle: {
+              breadcrumb: 'Shop',
+              title: 'Shop',
+            },
           },
           {
             path: routeMap.cart.path,
@@ -90,7 +106,11 @@ export const routes = [
             meta: {
               isInMenu: false,
               title: 'Cart',
-            }
+            },
+            // title: {
+            //   breadcrumb: true,
+            //   title: 'Cart'
+            // }
           },
           {
             path: routeMap.checkout.path,
@@ -115,7 +135,7 @@ export const routes = [
           isInMenu: false,
           title: 'Product',
           breadcrumbs: true,
-        }
+        },
       },
       {
         path: routeMap.blog.path,
@@ -130,6 +150,10 @@ export const routes = [
           title: 'Blog',
           breadcrumbs: true,
         },
+        handle: {
+          breadcrumb: 'Blog',
+          title: 'Blog'
+        }
       },
       {
         path: routeMap.blogPost.path,
@@ -157,6 +181,10 @@ export const routes = [
           isInMenu: true,
           title: 'Contacts',
           breadcrumbs: true,
+        },
+        handle: {
+          breadcrumb: 'Contacts',
+          title: 'Contacts'
         }
       },
       {

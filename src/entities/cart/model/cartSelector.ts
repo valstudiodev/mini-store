@@ -1,30 +1,64 @@
 import { RootState } from "@/app/store/store";
+import { selectProducts } from "@/entities/product/model/productSelector";
+import { createSelector } from "@reduxjs/toolkit";
 
 export const selectCartItems = (state: RootState) => state.cart
 export const selectCartTotalQuantity = (state: RootState) => state.cart.reduce((total, item) => total + item.quantity, 0)
-export const selectCartProducts = (state: RootState) => {
-  const cartItems = state.cart
-  const products = state.products.products
+// export const selectCartProducts = (state: RootState) => {
+//   const cartItems = state.cart
+//   const products = state.products.products
 
-  return cartItems.map((cartItem) => {
-    const product = products.find(
-      (product) => product.id === cartItem.productId
+//   return cartItems.map((cartItem) => {
+//     const product = products.find(
+//       (product) => product.id === cartItem.productId
+//     )
+
+//     if (!product) return undefined
+
+
+//     return {
+//       ...product,
+//       quantity: cartItem.quantity
+//     }
+//   })
+//     .filter((product) => product !== undefined)
+// }
+
+export const selectCartProducts = createSelector(
+  [selectCartItems, selectProducts],
+  (cartItems, products) => {
+    return cartItems
+      .map((cartItem) => {
+        const product = products.find(
+          (product) => product.id === cartItem.productId
+        )
+
+        if (!product) return undefined
+
+        return {
+          ...product,
+          quantity: cartItem.quantity,
+        }
+      })
+      .filter((product) => product !== undefined)
+  }
+)
+
+// export const selectCartSubtotal = (state: RootState) => {
+//   const cartProducts = selectCartProducts(state)
+//   return cartProducts.reduce((prev, product) => {
+//     const total = prev + (product.price * product.quantity)
+//     return total
+//   }, 0)
+// }
+
+export const selectCartSubtotal = createSelector(
+  [selectCartProducts],
+  (cartProducts) => {
+    return cartProducts.reduce(
+      (total, product) =>
+        total + product.price * product.quantity,
+      0
     )
-
-    if (!product) return undefined
-
-
-    return {
-      ...product,
-      quantity: cartItem.quantity
-    }
-  })
-    .filter((product) => product !== undefined)
-}
-export const selectCartSubtotal = (state: RootState) => {
-  const cartProducts = selectCartProducts(state)
-  return cartProducts.reduce((prev, product) => {
-    const total = prev + (product.price * product.quantity)
-    return total
-  }, 0)
-}
+  }
+)

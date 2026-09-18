@@ -1,25 +1,8 @@
-import { LinkButtonProps } from "../model/types";
 import '../styles/linkButton.scss';
 
 import { Link } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
-import type { AnchorHTMLAttributes, ReactNode } from 'react';
-
-type LinkButtonProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'href'
-> & {
-  href: string;
-  children?: ReactNode;
-  iconOnly?: ReactNode;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
-  variant?: 'primary' | 'secondary' | 'unstyled';
-  size?: 'none' | 'small' | 'medium' | 'large';
-  external?: boolean;
-  disabled?: boolean;
-  as?: 'a' | typeof Link;
-};
+import { LinkButtonProps } from '../model/types';
 
 function LinkButton({
   href,

@@ -4,6 +4,9 @@ import ProductCard from "@/entities/product/ui/ProductCard";
 import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
 import { ProductCategoryProps } from "@/entities/product/model/types";
+import LinkButton from "@/shared/ui/LinkButton/ui/LInkButton";
+import { routeMap } from "@/app/routes/routeMap";
+import { Link } from "react-router";
 
 function ProductList({
   category
@@ -42,14 +45,19 @@ function ProductList({
           key={product.id}
           className={`${productList}__item`}
         >
-          <ProductCard
-            product={product}
-            actions={[
-              <AddToCartButton
-                className={`${productList}__btn-add`}
-                product={product} />
-            ]}
-          />
+          <Link
+            className={`${productList}__link`}
+            to={`${routeMap.product.path}`}
+          >
+            <ProductCard
+              product={product}
+              actions={[
+                <AddToCartButton
+                  className={`${productList}__btn-add`}
+                  product={product} />
+              ]}
+            />
+          </Link>
         </li>
       ))}
     </ul>

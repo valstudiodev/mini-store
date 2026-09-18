@@ -7,7 +7,7 @@ export const footerColumns: FooterColumnData[] = [
     items: [
       { type: 'link', label: 'Home', to: `${routeMap.home.path}` },
       { type: 'link', label: 'About us', to: `${routeMap.about.path}` },
-      { type: 'link', label: 'Shop', to: `${routeMap.shop.path}` },
+      { type: 'link', label: 'Shop', to: `${routeMap.pages.path}` },
       { type: 'link', label: 'Blogs', to: `${routeMap.blog.path}` },
       { type: 'link', label: 'Contact', to: `${routeMap.contacts.path}` },
     ],

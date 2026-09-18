@@ -3,17 +3,8 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .about-page {
-  @include adaptiveValue('padding-block', 77, 30);
-  background-color: var(--color-surface);
 
   &__container {}
 
-  &__title {
-    @include adaptiveValue('font-size', 83, 40);
-    text-transform: uppercase;
-    letter-spacing: 1.66px;
-    font-weight: 300;
-    font-family: var(--font-secondary);
-    text-align: center;
-  }
+  &__title {}
 }

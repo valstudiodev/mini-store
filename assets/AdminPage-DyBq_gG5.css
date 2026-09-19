@@ -1,0 +1,1 @@
+.create-form{background-color:var(--color-surface);flex-direction:column;align-items:center;gap:1.25rem;padding:1.25rem;display:flex}.create-form input{border:.0625rem solid var(--color-border);padding:.25rem}.create-form__btn-add{background-color:var(--color-accent);cursor:pointer;padding-inline:1.25rem}

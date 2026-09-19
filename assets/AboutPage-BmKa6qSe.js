@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{m as t}from"./index-DIsHiK7x.js";import{t as n}from"./Section-D_8zyxsb.js";var r=e();function i(){let e=`about-page`;return(0,r.jsx)(n,{className:e,children:(0,r.jsx)(t,{className:`${e}__container`})})}export{i as default};

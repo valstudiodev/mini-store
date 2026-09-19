@@ -1,1 +1,0 @@
-import{T as e,w as t}from"./index-CAJRqsl8.js";import{t as n}from"./Section-B69HdHq5.js";var r=e();function i(){let e=`about-page`;return(0,r.jsx)(n,{className:e,children:(0,r.jsx)(t,{className:`${e}__container`})})}export{i as default};

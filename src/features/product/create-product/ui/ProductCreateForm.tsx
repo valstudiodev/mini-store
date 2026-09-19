@@ -85,6 +85,88 @@ function ProductCreateForm(): React.JSX.Element {
         />
       </label>
 
+      <label>
+        <input
+          name='category'
+          type='text'
+          value={formValues.category}
+          onChange={handleChange}
+          placeholder='Type a category...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='rating'
+          type='number'
+          value={formValues.rating}
+          onChange={handleChange}
+          placeholder='Type rating...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='description'
+          type='text'
+          value={formValues.description}
+          onChange={handleChange}
+          placeholder='Type a description...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='stock'
+          type='number'
+          value={formValues.stock}
+          onChange={handleChange}
+          placeholder='Type a stock...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='sku'
+          type='text'
+          value={formValues.sku}
+          onChange={handleChange}
+          placeholder='Type a SKU...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='tags'
+          type='text'
+          value={formValues.tags}
+          onChange={handleChange}
+          placeholder='Type tags...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='colors'
+          type='text'
+          value={formValues.colors}
+          onChange={handleChange}
+          placeholder='Type colors...'
+        />
+      </label>
+
+      <label>
+        <input
+          name='sizes'
+          type='text'
+          value={formValues.sizes}
+          onChange={handleChange}
+          placeholder='Type sizes...'
+        />
+      </label>
+
+
+
       {errorStatus && (
         error
       )}
@@ -98,6 +180,7 @@ function ProductCreateForm(): React.JSX.Element {
       <button
         type='submit'
         disabled={loading}
+        className={`${clCreateForm}__btn-add`}
       >
         {loading ? 'Adding...' : 'Add'}
       </button>

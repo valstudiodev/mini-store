@@ -8,7 +8,26 @@ export interface Product {
   price: number;
   imageUrl: string;
   category: ProductCategoryType;
+  rating: number;
+  description: string;
+  stock: number;
+  sku: string;
+  tags: string[];
+  colors: ProductColor[];
+  sizes: ProductSize[];
 }
+
+export type ProductColor =
+  | 'black'
+  | 'white'
+  | 'green'
+  | 'orange'
+
+export type ProductSize =
+  | 'XL'
+  | 'L'
+  | 'M'
+  | 'S'
 
 export interface ProductsState {
   products: Product[];
@@ -26,6 +45,14 @@ export interface CreateProductPayload {
   title: string;
   price: number;
   imageUrl: string;
+  category: ProductCategoryType;
+  rating: number;
+  description: string;
+  stock: number;
+  sku: string;
+  tags: string[];
+  colors: ProductColor[];
+  sizes: ProductSize[];
 }
 
 export interface ProductListProps {

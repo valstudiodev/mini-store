@@ -1,7 +1,7 @@
 import { routes } from '@/app/routes/routes';
 import '../styles/mainMenu.scss';
 import { Link, NavLink } from 'react-router';
-import { CustomRouteObject, MainMenuProps } from '../model/mainMenuTypes';
+import { MainMenuProps } from '../model/mainMenuTypes';
 import { Search, User, ShoppingCart } from "lucide-react";
 import ButtonBase from '@/shared/ui/ButtonBase/ui/ButtonBase';
 import { useEffect, useState } from 'react';

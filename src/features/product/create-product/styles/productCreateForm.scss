@@ -1,0 +1,23 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: toRem(20);
+  background-color: var(--color-surface);
+  padding: toRem(20);
+
+  input {
+    border: toRem(1) solid var(--color-border);
+    padding: toRem(4);
+  }
+
+  &__btn-add {
+    background-color: var(--color-accent);
+    padding-inline: toRem(20);
+    cursor: pointer;
+  }
+}

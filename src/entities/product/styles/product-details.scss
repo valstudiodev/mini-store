@@ -1,0 +1,152 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.product-details {
+  display: flex;
+  align-items: flex-start;
+  gap: toRem(20);
+  @include adaptiveValue('padding-top', 120, 40);
+  @include adaptiveValue('padding-bottom', 60, 30);
+
+  @media (max-width: toEm(768)) {
+    flex-direction: column;
+  }
+
+  &__image {
+    flex: 0 1 50%;
+    aspect-ratio: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: toEm(768)) {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    gap: toRem(20);
+    align-items: flex-start;
+  }
+
+  &__title {
+    @include adaptiveValue('font-size', 30, 22);
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    line-height: 1.14;
+    font-family: var(--font-secondary);
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: toRem(7);
+
+    &.rating-text {
+      @include adaptiveValue('font-size', 16, 14);
+      letter-spacing: 0.48px;
+      line-height: 1.38;
+      color: var(--color-button-hover);
+    }
+  }
+
+  &__price {
+    @include adaptiveValue('font-size', 40, 32);
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  &__description {
+    color: var(--color-button-hover);
+    @include adaptiveValue('font-size', 16, 14);
+    line-height: 1.38;
+    letter-spacing: 0.48px;
+    font-weight: 300;
+  }
+
+  &__color {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(12);
+    align-items: flex-start;
+  }
+
+  &__color-title,
+  &__size-title {
+    @include adaptiveValue('font-size', 20, 16);
+    text-decoration: underline;
+    letter-spacing: 1.2px;
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+  }
+
+  &__color-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include adaptiveValue('gap', 20, 10);
+
+    span {
+      @include adaptiveValue('font-size', 16, 14);
+      letter-spacing: 0.48px;
+      line-height: 1.38;
+      text-transform: capitalize;
+      transition: color 0.3s;
+      cursor: pointer;
+      color: var(--color-button-hover);
+
+      @include hover {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  &__size {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(12);
+    align-items: flex-start;
+  }
+
+  &__size-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: toRem(20);
+
+    span {
+      @include adaptiveValue('font-size', 16, 14);
+      text-transform: uppercase;
+      letter-spacing: 0.48px;
+      line-height: 1.38;
+      color: var(--color-button-hover);
+    }
+  }
+
+  &__stock {
+    @include adaptiveValue('font-size', 16, 14);
+    line-height: 1.38;
+    letter-spacing: 0.48px;
+    color: var(--color-button-hover);
+  }
+
+  &__sku,
+  &__category,
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: toRem(4);
+    color: var(--color-button-hover);
+    letter-spacing: 0.48px;
+    line-height: 1.38;
+    @include adaptiveValue('font-size', 16, 14);
+  }
+
+}

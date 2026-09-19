@@ -1,4 +1,3 @@
-import Container from "@/shared/primitives/Container/Container";
 import Section from "@/shared/primitives/Section/Section";
 import '../styles/shopPage.scss';
 import { HeadingTitle } from "@/shared/typography";
@@ -9,14 +8,12 @@ function ShopPage(): React.JSX.Element {
 
   return (
     <Section className={classShopPage}>
-      <Container className={`${classShopPage}__container`}>
-        <HeadingTitle>
-          Shop page
-        </HeadingTitle>
-        <Link to='/product'>
-          Go to product-page
-        </Link>
-      </Container>
+      <HeadingTitle>
+        Shop page
+      </HeadingTitle>
+      <Link to='/product'>
+        Go to product-page
+      </Link>
     </Section>
   );
 }

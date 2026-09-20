@@ -20,5 +20,7 @@
     translate: 0 toRem(10);
     margin-inline: auto;
     width: max-content;
+    padding-block: toRem(8);
+    @include adaptiveValue('padding-inline', 30, 15);
   }
 }

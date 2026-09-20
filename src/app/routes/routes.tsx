@@ -107,10 +107,10 @@ export const routes = [
               isInMenu: false,
               title: 'Cart',
             },
-            // title: {
-            //   breadcrumb: true,
-            //   title: 'Cart'
-            // }
+            handle: {
+              breadcrumb: 'Cart',
+              title: 'Cart'
+            }
           },
           {
             path: routeMap.checkout.path,

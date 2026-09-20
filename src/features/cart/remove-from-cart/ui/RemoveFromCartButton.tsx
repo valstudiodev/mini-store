@@ -2,11 +2,11 @@ import { removeFromCart } from "@/entities/cart/model/cartSlice";
 import { RemoveFromCartButtonProps } from "../model/remove-types";
 import { useAppDispatch } from "@/app/store/hooks";
 import '../styles/remove-btn.scss';
+import { X } from "lucide-react";
 
 function RemoveFromCartButton({
   product,
   className = '',
-  label
 }: RemoveFromCartButtonProps): React.JSX.Element {
   const btnRemoveFromCart = 'btn-remove-from-cart'
 
@@ -21,7 +21,9 @@ function RemoveFromCartButton({
       className={`${btnRemoveFromCart} ${className}`}
       onClick={handleDeleteItem}
     >
-      {label}
+      <span>
+        <X size={36} />
+      </span>
     </button>
   );
 }

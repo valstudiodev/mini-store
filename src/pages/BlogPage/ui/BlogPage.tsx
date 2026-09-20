@@ -19,7 +19,6 @@ function BlogPage(): React.JSX.Element {
         </Link>
         {/* <Outlet /> */}
       </HeadingTitle>
-      <SmartWatches />
     </Section>
   );
 }

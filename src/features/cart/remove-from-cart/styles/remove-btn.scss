@@ -2,4 +2,11 @@
 @use '@/shared/styles/mixins/grid' as *;
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
-.btn-remove-from-cart {}
+.btn-remove-from-cart {
+  cursor: pointer;
+  transition: color 0.3s;
+
+  @include hover {
+    color: var(--color-button-hover);
+  }
+}

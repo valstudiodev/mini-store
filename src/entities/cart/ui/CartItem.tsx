@@ -36,7 +36,7 @@ function CartItem({
             {product.title}
           </h4>
           <span className={`${cartItem}__price`}>
-            {product.price}
+            ${product.price}
           </span>
         </div>
       </div>
@@ -55,9 +55,8 @@ function CartItem({
         />
       </div>
       <div className={`${cartItem}__subtotal`}>
-        <span className={`${cartItem}__subtotal-value`}>{subtotal}</span>
+        <span className={`${cartItem}__subtotal-value`}>${subtotal}</span>
         <RemoveFromCartButton
-          label="Delete"
           product={product}
         />
       </div>

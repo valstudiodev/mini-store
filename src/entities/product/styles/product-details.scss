@@ -117,6 +117,7 @@
 
   &__btn-add {
     padding-block: toRem(16);
+    @include adaptiveValue('padding-inline', 50, 20);
 
     @media (max-width: toEm(768)) {
       width: 100%;

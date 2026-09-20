@@ -3,7 +3,9 @@ import '../styles/cartItem.scss';
 import DecreaseQuantityButton from "@/features/cart/decrease-quantity/ui/DecreaseQuantityButton";
 import IncreaseQuantityButton from "@/features/cart/increase-quantity/ui/IncreaseQuantityButton";
 import RemoveFromCartButton from "@/features/cart/remove-from-cart/ui/RemoveFromCartButton";
-import CartItemQuantity from "@/features/cart/cart-item-quantity/ui/CartItemQuantity";
+import { useAppDispatch } from "@/app/store/hooks";
+import { decreaseQuantity, increaseQuantity } from "../model/cartSlice";
+import QuantityDisplay from "@/features/cart/cart-item-quantity/ui/QuantityDisplay";
 
 function CartItem({
   product,
@@ -12,6 +14,16 @@ function CartItem({
   const cartItem = 'cart-item'
 
   const subtotal = product.price * product.quantity
+
+  const dispatch = useAppDispatch()
+
+  const handleDecrease = (): void => {
+    dispatch(decreaseQuantity(product.id))
+  }
+
+  const handleIncrease = (): void => {
+    dispatch(increaseQuantity(product.id))
+  }
 
   return (
     <article className={`${cartItem} ${className}`}>
@@ -30,14 +42,16 @@ function CartItem({
       </div>
       <div className={`${cartItem}__actions`}>
         <DecreaseQuantityButton
-          product={product}
-          label="-" />
+          onClick={handleDecrease}
+          label="-"
+          disabled={product.quantity === 1}
+        />
 
-        <CartItemQuantity product={product} />
+        <QuantityDisplay quantity={product.quantity} />
 
         <IncreaseQuantityButton
           label="+"
-          product={product}
+          onClick={handleIncrease}
         />
       </div>
       <div className={`${cartItem}__subtotal`}>

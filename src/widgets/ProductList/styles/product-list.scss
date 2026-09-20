@@ -11,12 +11,14 @@
   }
 
   &__btn-add {
-    // position: absolute;
-    // bottom: 0;
-    // left: 0;
-    // opacity: 0;
-    // visibility: hidden;
-    // translate: 0 toRem(10);
-    // transition: opacity 0.3s visibility 0.3s translate 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 toRem(10);
+    margin-inline: auto;
+    width: max-content;
   }
 }

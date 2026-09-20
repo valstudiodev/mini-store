@@ -1,25 +1,17 @@
-import { useAppDispatch } from "@/app/store/hooks";
-import { increaseQuantity } from "@/entities/cart/model/cartSlice";
 import { IncreaseQuantityButtonProps } from "../model/increase-types";
 import '../styles/increase-btn.scss';
 
 function IncreaseQuantityButton({
-  product,
+  onClick,
   label,
   className = ''
 }: IncreaseQuantityButtonProps): React.JSX.Element {
   const btnIncreaseQuantity = 'btn-increase-quantity'
 
-  const dispatch = useAppDispatch()
-
-  const handleIncreaseQuantity = (): void => {
-    dispatch(increaseQuantity(product.id))
-  }
-
   return (
     <button
       className={`${btnIncreaseQuantity} ${className}`}
-      onClick={handleIncreaseQuantity}>
+      onClick={onClick}>
       {label}
     </button>
   );

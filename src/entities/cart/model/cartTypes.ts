@@ -14,3 +14,8 @@ export interface CartItemProps {
 export interface CartProduct extends Product {
   quantity: number
 }
+
+export interface AddToCartPayload {
+  productId: string;
+  quantity: number;
+}

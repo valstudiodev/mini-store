@@ -2,4 +2,4 @@ export { default as AddToCartBtn } from '@/features/cart/add-to-cart/ui/AddToCar
 export { default as DecreaseQuantityButton } from '@/features/cart/decrease-quantity/ui/DecreaseQuantityButton'
 export { default as IncreaseQuantityButton } from '@/features/cart/increase-quantity/ui/IncreaseQuantityButton'
 export { default as RemoveFromCartButton } from '@/features/cart/remove-from-cart/ui/RemoveFromCartButton'
-export { default as CartItemQuantity } from '@/features/cart/cart-item-quantity/ui/CartItemQuantity'
+export { default as CartItemQuantity } from '@/features/cart/cart-item-quantity/ui/QuantityDisplay'

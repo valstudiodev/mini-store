@@ -1,9 +1,10 @@
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { selectHasLoaded, selectProductError, selectProductloading, selectProducts } from "@/entities/product/model/productSelector";
 import ProductCard from "@/entities/product/ui/ProductCard";
 import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
 import { ProductCategoryProps } from "@/entities/product/model/types";
+import { addToCart } from "@/entities/cart/model/cartSlice";
 
 function ProductList({
   category
@@ -15,6 +16,14 @@ function ProductList({
   const productError = useAppSelector(selectProductError)
   const hasLoaded = useAppSelector(selectHasLoaded)
 
+  const dispatch = useAppDispatch()
+
+  const handleAddToCart = (productId: string): void => {
+    dispatch(addToCart({
+      productId,
+      quantity: 1,
+    }))
+  }
 
   const filteredProducts = products.filter(
     (product) => product.category === category
@@ -47,7 +56,8 @@ function ProductList({
             actions={[
               <AddToCartButton
                 className={`${productList}__btn-add`}
-                product={product} />
+                onClick={() => handleAddToCart(product.id)}
+              />
             ]}
           />
         </li>

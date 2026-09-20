@@ -3,16 +3,10 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .btn-add-to-cart {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   gap: toRem(8);
-  padding-block: toRem(8);
   background-color: var(--color-text-primary);
   @include adaptiveValue('padding-inline', 30, 15);
   @include adaptiveValue('font-size', 14, 12);
@@ -23,12 +17,9 @@
   cursor: pointer;
   transition: background-color 0.3s;
   will-change: opacity, translate, background-color;
-  width: max-content;
-  margin-inline: auto;
+  text-align: center;
+  justify-content: center;
 
-  opacity: 0;
-  visibility: hidden;
-  translate: 0 toRem(10);
   transition:
     opacity 0.3s,
     visibility 0.3s,

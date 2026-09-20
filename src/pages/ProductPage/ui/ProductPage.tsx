@@ -1,7 +1,6 @@
 import Container from "@/shared/primitives/Container/Container";
 import Section from "@/shared/primitives/Section/Section";
 import '../styles/productPage.scss';
-import { HeadingTitle } from "@/shared/typography";
 import { useParams } from "react-router";
 import ProductDetails from "@/entities/product/ui/ProductDetails";
 import { getProductById } from "@/entities/product/api/productServise";
@@ -33,7 +32,6 @@ function ProductPage() {
       isMounted = false
     }
   }, [id]);
-
 
   return (
     <Section className={classProductPage}>

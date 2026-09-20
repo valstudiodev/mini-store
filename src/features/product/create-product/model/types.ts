@@ -1,4 +1,4 @@
-import { ProductCategoryType, ProductColor, ProductSize } from "@/entities/product/model/types";
+import { ProductCategoryType } from "@/entities/product/model/types";
 
 // export interface CreateProductPayload {
 //   title: string;

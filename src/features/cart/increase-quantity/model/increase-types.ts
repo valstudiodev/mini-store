@@ -1,5 +1,7 @@
-import { CartItemProps } from "@/entities/cart/model/cartTypes";
 
-export interface IncreaseQuantityButtonProps extends CartItemProps {
+
+export interface IncreaseQuantityButtonProps {
   label?: string;
+  className?: string;
+  onClick: () => void;
 }

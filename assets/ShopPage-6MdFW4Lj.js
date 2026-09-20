@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{t}from"./chunk-BV7QT456-Bs4AFhOu.js";import{t as n}from"./Section-D_8zyxsb.js";import{n as r}from"./typography-Dj4tbJ3D.js";var i=e();function a(){return(0,i.jsxs)(n,{className:`shop-page`,children:[(0,i.jsx)(r,{children:`Shop page`}),(0,i.jsx)(t,{to:`/product`,children:`Go to product-page`})]})}export{a as default};

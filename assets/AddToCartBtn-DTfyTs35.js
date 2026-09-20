@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{p as t}from"./cartSlice-BZ0FCthR.js";var n=e();function r({className:e=``,onClick:r,showIcon:i=!0}){let a=`btn-add-to-cart`;return(0,n.jsxs)(`button`,{type:`button`,className:`${a} ${e}`,onClick:r,children:[`Add to cart`,i&&(0,n.jsx)(`span`,{className:`${a}__icon`,children:(0,n.jsx)(t,{size:16})})]})}export{r as t};

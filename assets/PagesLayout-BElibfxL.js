@@ -1,0 +1,2 @@
+import{r as e,t}from"./jsx-runtime-Cx0BB4qO.js";import{r as n}from"./chunk-BV7QT456-Bs4AFhOu.js";import{t as r}from"./typography-B08g8MLp.js";var i=e({default:()=>o}),a=t();function o(){return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(r,{as:`h1`,title:`Pages layouts`,className:`text-center\r
+        text-5xl`,children:`Pages Layout`}),(0,a.jsx)(n,{})]})}export{i as t};

@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{E as t}from"./index-DVbzB7Z0.js";import{t as n}from"./Section-D_8zyxsb.js";import{n as r}from"./typography-Dj4tbJ3D.js";var i=e();function a(){let e=`checkout-page`;return(0,i.jsx)(n,{className:e,children:(0,i.jsx)(t,{className:`${e}__container`,children:(0,i.jsx)(r,{children:`Checkout page`})})})}export{a as default};

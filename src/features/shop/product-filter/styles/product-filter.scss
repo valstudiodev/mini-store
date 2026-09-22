@@ -1,0 +1,33 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.product-filter {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(40);
+
+  &__option {}
+
+  &__btn {
+    text-transform: capitalize;
+    @include adaptiveValue('font-size', 16, 14);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--color-accent);
+    }
+
+    &.active {
+      color: var(--color-accent);
+    }
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: toRem(8);
+    }
+  }
+}

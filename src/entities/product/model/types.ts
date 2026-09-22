@@ -1,6 +1,8 @@
 export type ProductCategoryType =
-  | 'mobile'
-  | 'smart-watches'
+  | 'phones'
+  | 'watches'
+  | 'accessories'
+  | 'tablets'
 
 export interface Product {
   id: string;
@@ -15,6 +17,7 @@ export interface Product {
   tags: string[];
   colors: ProductColor[];
   sizes: ProductSize[];
+  brand: string;
 }
 
 export type ProductColor =
@@ -68,3 +71,8 @@ export type RequestStatus =
   | 'success'
   | 'loading'
   | 'failed'
+
+export interface ProductGridProps {
+  products: Product[];
+  className?: string;
+}

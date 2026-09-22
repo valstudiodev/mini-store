@@ -23,3 +23,9 @@ html[data-menu-open='true'] {
   overscroll-behavior: none;
   scrollbar-width: none;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}

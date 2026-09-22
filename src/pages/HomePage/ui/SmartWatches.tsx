@@ -19,10 +19,10 @@ function SmartWatches({
       <Container>
         <Headline
           title="smart watches"
-          to={`${routeMap.product.path}`}
+          to={`${routeMap.pages.path}`}
           linkLabel="go to shop"
         />
-        <ProductList category="smart-watches" />
+        <ProductList category="watches" />
       </Container>
     </Section>
   );

@@ -1,3 +1,6 @@
+import { Search, X } from "lucide-react";
+import '../styles/search.scss';
+
 import {
   ChangeEvent,
   useEffect,
@@ -7,93 +10,72 @@ import {
 } from "react";
 import { SearchProps } from "../model/types";
 
-export default function Search({
+export default function SearchInput({
   value = '',
-  placeholder = 'Search...',
-  debounceTime = 300,
+  placeholder = 'Search',
   disabled = false,
   label = 'Search',
-  onChange,
   onClear,
+  onSearch,
   ...props
 }: SearchProps): React.JSX.Element {
+  const search = 'search'
+
   const [searchTerm, setSearchTerm] = useState<string>(value);
   const inputId = useId()
-
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus()
-    }
-  }, []);
 
   useEffect(() => {
     setSearchTerm(value)
   }, [value]);
 
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      if (searchTerm !== value) {
-        onChange(searchTerm)
-      }
-    }, debounceTime);
-
-    return () => window.clearTimeout(timer)
-  }, [searchTerm, debounceTime, onChange, value]);
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>): void {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(e.target.value)
   }
 
-  function handleClear(): void {
+  const handleSearch = (): void => {
+    onSearch?.(searchTerm)
+  }
+
+  const handleClear = (): void => {
     setSearchTerm('')
-    onChange('')
     onClear?.()
+    onSearch?.('')
   }
 
   return (
-    <div className={`search ${disabled ? 'search--disabled' : ''}`}>
-      <label
-        htmlFor={inputId}
-        className="search__label mb-2"
-        aria-hidden="true">
-        {label}
-      </label>
-
-      <div className="search__wrapper flex items-center
-      gap-2">
-        <span
-          className="search__icon"
-          aria-hidden="true"
-        >
-          🔍
-        </span>
-
+    <div className={`${search} search ${disabled ? 'search--disabled' : ''}`}>
+      <div className={`${search}__inner`}>
         <input
           {...props}
           id={inputId}
           type="search"
-          className="search__input border w-full"
+          className={`${search}__input`}
           value={searchTerm}
           placeholder={placeholder}
           disabled={disabled}
           onChange={handleChange}
         />
 
+        <button
+          type="button"
+          onClick={handleSearch}
+          className={`${search}__btn`}
+        >
+          <Search
+            className={`${search}__icon`}
+            size={21} />
+        </button>
+
         {searchTerm && !disabled && (
           <button
             type="button"
-            className="search__btn-clear"
+            className='btn-clear'
             aria-label="Clear search"
             onClick={handleClear}>
-            {/* &times; */}
+            <X size={20} />
           </button>
         )}
       </div>
-
-
-
     </div>
   )
 }

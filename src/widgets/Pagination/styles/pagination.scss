@@ -1,0 +1,47 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.pagination {
+
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptiveValue('gap', 30, 15);
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    font-size: toRem(20);
+    font-family: var(--font-secondary);
+    letter-spacing: toRem(1.2);
+    color: var(--color-icon);
+  }
+
+  &__btn {
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    @include hover {
+      &:not(:disabled) {
+        color: var(--color-accent);
+      }
+    }
+
+    &--left {
+      rotate: 180deg;
+    }
+
+    &--right {}
+
+    &.is-active {
+      color: var(--color-accent);
+    }
+  }
+}

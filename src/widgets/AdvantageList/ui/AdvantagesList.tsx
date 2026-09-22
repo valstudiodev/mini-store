@@ -22,7 +22,6 @@ function AdvantagesList({
               className={`${advantagesList}__item`}>
               <AdvantageItem item={item} />
             </li>
-
           ))}
         </ul>
       </div>

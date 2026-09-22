@@ -1,0 +1,36 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.shop-filter {
+
+  &__header {}
+
+  &__products {}
+
+  &__items {
+    flex-grow: 1;
+
+    @media (max-width: toEm(768)) {
+      order: 2;
+    }
+  }
+
+  &__layout {
+    display: flex;
+    justify-content: space-between;
+    @include adaptiveValue('gap', 40, 20);
+    @include adaptiveValue('padding-top', 120, 30);
+    @include adaptiveValue('padding-bottom', 60, 20);
+
+    @media (max-width: toEm(768)) {
+      flex-direction: column;
+    }
+  }
+
+  &__sidebar {
+    @media (max-width: toEm(768)) {
+      order: 1;
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import { routeMap } from "@/app/routes/routeMap";
 import { Title } from "@/shared/typography";
-import LinkButton from "@/shared/ui/LinkButton/ui/LInkButton";
 import { Section } from "@/shared/primitives";
 import heroImage from "@/assets/img/home/hero-image.webp";
 import '../styles/hero-section.scss';
 import Container from "@/shared/primitives/Container/Container";
+import LinkButton from "@/shared/ui/LinkButton/ui/LInkButton";
 
 function HeroSection(): React.JSX.Element {
   const heroSection = 'hero-section'
@@ -20,7 +20,7 @@ function HeroSection(): React.JSX.Element {
             Your Products are great.
           </Title>
           <LinkButton
-            href={`${routeMap.product.path}`}
+            href={routeMap.pages.path}
             variant="primary"
             className={`${heroSection}__btn`}
           >

@@ -38,6 +38,9 @@ function MainMenu({
     (route) => route?.meta?.isInMenu
   ) ?? []
 
+  const closeMenu = (): void => {
+    setIsMenuOpen(false)
+  }
 
   return (
     <nav className={`${classMainMenu} ${className}`}>
@@ -53,6 +56,7 @@ function MainMenu({
             >
               <NavLink
                 to={path ?? ''}
+                onClick={closeMenu}
                 className={({ isActive }) => `${classMainMenu}__link ${isActive ? 'is-active' : ''}`}
               >
                 {route?.meta?.title}

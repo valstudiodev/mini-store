@@ -1,0 +1,50 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.about-info {
+  @include adaptiveValue('padding-block', 60, 20);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    @include adaptiveValue('gap', 70, 20);
+  }
+
+  &__image {
+    flex: 1 0 50%;
+
+    img {}
+  }
+
+  &__content {
+    flex: 1 0 50%;
+  }
+
+  &__title {
+    @include adaptiveValue('font-size', 30, 22);
+    text-transform: uppercase;
+    line-height: 1.14;
+    letter-spacing: toRem(1.8);
+    // font-family: var(--font-secondary);
+    margin-bottom: toRem(10);
+  }
+
+  &__text {
+    @include adaptiveValue('font-size', 16, 14);
+    color: var(--color-button-hover);
+    font-weight: 300;
+    line-height: 1.38;
+    letter-spacing: toRem(0.48);
+    @include adaptiveValue('margin-bottom', 40, 10);
+
+    p:not(:last-child) {
+      margin-bottom: toRem(10);
+    }
+  }
+
+  &__btn {
+    padding-block: toRem(16);
+    padding-inline: toRem(50);
+  }
+}

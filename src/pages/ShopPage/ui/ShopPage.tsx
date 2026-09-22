@@ -1,19 +1,18 @@
-import Section from "@/shared/primitives/Section/Section";
-import '../styles/shopPage.scss';
-import { HeadingTitle } from "@/shared/typography";
-import { Link } from "react-router";
+import { Section } from '@/shared/primitives';
+import '../styles/shop-page.scss';
+import Container from '@/shared/primitives/Container/Container';
+import ShopFilter from './ShopFilter';
 
-function ShopPage(): React.JSX.Element {
-  const classShopPage = 'shop-page'
+function ShopPage({
+  className = ''
+}: { className?: string }): React.JSX.Element {
+  const shopPage = 'shop-page'
 
   return (
-    <Section className={classShopPage}>
-      <HeadingTitle>
-        Shop page
-      </HeadingTitle>
-      <Link to='/product'>
-        Go to product-page
-      </Link>
+    <Section className={`${shopPage} ${className}`}>
+      <Container className={`${shopPage}`}>
+        <ShopFilter />
+      </Container>
     </Section>
   );
 }

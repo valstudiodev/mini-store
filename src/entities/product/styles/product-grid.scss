@@ -1,0 +1,28 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.product-grid {
+  @include adaptiveValue('margin-bottom', 60, 20);
+
+  &__list {
+    @include grid-adaptive($size: toRem(250));
+    gap: toRem(20);
+  }
+
+  &__item {}
+
+  &__btn-add {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 toRem(10);
+    margin-inline: auto;
+    width: max-content;
+    padding-block: toRem(8);
+    @include adaptiveValue('padding-inline', 30, 15);
+  }
+}

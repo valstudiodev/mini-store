@@ -1,0 +1,54 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.search {
+  min-height: toRem(53);
+  margin-bottom: toRem(40);
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 44px 0 rgba(0, 0, 0, 0.08);
+    border: toRem(1) solid var(--color-border);
+
+    @media (max-width: toEm(768)) {
+      justify-content: space-between;
+    }
+  }
+
+  &__input {
+    letter-spacing: toRem(0.48);
+    line-height: 1.38;
+    min-height: toRem(53);
+    @include adaptiveValue('padding-left', 30, 10);
+
+    @media (max-width: toEm(768)) {
+      flex-grow: 1;
+    }
+  }
+
+  &__btn {
+    background-color: var(--color-button);
+    padding: toRem(16);
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    @include hover {
+      background-color: var(--color-button-hover);
+    }
+  }
+
+  &__icon {
+    color: var(--color-primary);
+  }
+}
+
+.btn-clear {
+  position: absolute;
+  top: 50%;
+  right: 23%;
+  translate: 0 -50%;
+  cursor: pointer;
+}

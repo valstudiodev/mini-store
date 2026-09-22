@@ -19,10 +19,10 @@ function MobileProducts({
     <Section className={`${mobileProducts} ${className}`}>
       <Container>
         <Headline
-          to={`${routeMap.product.path}`}
+          to={`${routeMap.pages.path}`}
           linkLabel="go to shop"
           title="Mobile product" />
-        <ProductList category="mobile" />
+        <ProductList category="phones" />
       </Container>
     </Section>
   );

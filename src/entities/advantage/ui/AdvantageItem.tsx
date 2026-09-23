@@ -11,8 +11,9 @@ function AdvantageItem({
   return (
     <article className={`${advantageItem}`}>
       {IconItem && (
-        <span className={`${advantageItem}__icon`}>
-          <IconItem />
+        <span
+          aria-hidden='true'
+          className={`${advantageItem}__icon ${IconItem}`}>
         </span>
       )}
       <div className={`${advantageItem}__content`}>

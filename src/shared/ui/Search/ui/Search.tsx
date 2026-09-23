@@ -6,7 +6,6 @@ import {
   useEffect,
   useId,
   useState,
-  useRef
 } from "react";
 import { SearchProps } from "../model/types";
 

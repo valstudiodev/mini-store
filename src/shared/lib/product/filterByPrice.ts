@@ -22,4 +22,6 @@ export function matchesPriceFilter(price: string, productPrice: number) {
   if (price === '$400-$500') {
     return productPrice > 400 && productPrice <= 500
   }
+
+  return false
 }

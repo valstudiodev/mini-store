@@ -6,6 +6,8 @@ import ProductDetails from "@/entities/product/ui/ProductDetails";
 import { getProductById } from "@/entities/product/api/productServise";
 import { useEffect, useState } from "react";
 import { Product } from "@/entities/product/model/types";
+import { SubscribeSection } from "@/widgets";
+import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
 
 function ProductPage() {
   const classProductPage = 'product-page'
@@ -40,6 +42,9 @@ function ProductPage() {
           ? <ProductDetails product={product} />
           : <div>Loading...</div>
         }
+
+        <SubscribeSection />
+        <InstaLinks />
       </Container>
     </Section>
   );

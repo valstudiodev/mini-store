@@ -33,6 +33,6 @@
     ]
   }, // <-- Тут закінчується compilerOptions
   "include": [
-    "src"
+    "src/**/*"
   ]
 }

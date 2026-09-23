@@ -8,9 +8,15 @@
   @include adaptiveValue('gap', 14, 6);
 
   &__icon {
-    width: toRem(25);
-    height: toRem(27);
+    font-size: toRem(27);
+    line-height: 0;
     color: var(--color-accent);
+
+    &::before {
+      stroke: transparent;
+    }
+
+
   }
 
   &__content {

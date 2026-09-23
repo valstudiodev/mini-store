@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'iconfont';
+  src:
+    url('@/assets/fonts/icomoon.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class*="--icon-"]::before {
+  font-family: 'iconfont';
+  line-height: 1 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+[class*="--icon-admin-icon"]::before {
+  content: "\e901";
+}
+
+[class*="--icon-arcticons-brand"]::before {
+  content: "\e909";
+}
+
+
+
+
+
+[class*="--icon-ion-cart"]::before {
+  content: "\e916";
+}
+
+[class*="--icon-guarantee-icon"]::before {
+  content: "\e912";
+}
+
+[class*="--icon-offers-icon"]::before {
+  content: "\e91c";
+}
+
+[class*="--icon-security-icon"]::before {
+  content: "\e924";
+}
+
+
+
+.--icon-arcticons-brand:before {
+  content: "\e909";
+}
+
+.--icon-delivery-icon:before {
+  content: "\e90c";
+}
+
+.--icon-fb1:before {
+  content: "\e911";
+}
+
+
+
+.--icon-instagramm:before {
+  content: "\e913";
+}
+
+
+
+.--icon-label-dhl:before {
+  content: "\e917";
+}
+
+.--icon-linkdin:before {
+  content: "\e919";
+}
+
+.--icon-master-card:before {
+  content: "\e91b";
+}
+
+
+
+.--icon-pay-pal:before {
+  content: "\e91d";
+}
+
+.--icon-quotes-icon:before {
+  content: "\e91e";
+}
+
+.--icon-search-icon:before {
+  content: "\e91f";
+}
+
+
+
+.--icon-star-icon:before {
+  content: "\e925";
+}
+
+.--icon-twitter:before {
+  content: "\e926";
+}
+
+.--icon-utub:before {
+  content: "\e927";
+}
+
+.--icon-visa:before {
+  content: "\e928";
+}
+
+.--icon-customer-feedback:before {
+  content: "\e90e";
+}
+
+.--icon-custom-support:before {
+  content: "\e910";
+}
+
+.--icon-settings:before {
+  content: "\e93a";
+}
+
+.--icon-location1:before {
+  content: "\e90b";
+}
+
+.--icon-user:before {
+  content: "\e914";
+}
+
+.--icon-search:before {
+  content: "\e921";
+}
+
+.--icon-i-chevron:before {
+  content: "\e904";
+}
+
+.--icon-star-empty:before {
+  content: "\e90d";
+}
+
+.--icon-fb:before {
+  content: "\e92e";
+}
+
+.--icon-i-hours:before {
+  content: "\e90a";
+}
+
+.--icon-discord:before {
+  content: "\e923";
+}
+
+.--icon-plus:before {
+  content: "\e92d";
+}
+
+.--icon-wup:before {
+  content: "\e92a";
+}
+
+.--icon-check:before {
+  content: "\e906";
+}
+
+.--icon-home:before {
+  content: "\e905";
+}
+
+.--icon-telegram:before {
+  content: "\e92c";
+}
+
+.--icon-like:before {
+  content: "\e908";
+}

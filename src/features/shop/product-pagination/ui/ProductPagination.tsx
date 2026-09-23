@@ -1,11 +1,11 @@
-import '../styles/product-pagination.scss';
+// import '../styles/product-pagination.scss';
 
-function ProductPagination(): React.JSX.Element {
-  const productPagination = 'product-pagination'
+// function ProductPagination(): React.JSX.Element {
+//   const productPagination = 'product-pagination'
 
-  return (
-    <div></div>
-  );
-}
+//   return (
+//     <div></div>
+//   );
+// }
 
-export default ProductPagination;
+// export default ProductPagination;

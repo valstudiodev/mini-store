@@ -2,6 +2,8 @@ import { Section } from '@/shared/primitives';
 import '../styles/shop-page.scss';
 import Container from '@/shared/primitives/Container/Container';
 import ShopFilter from './ShopFilter';
+import { SubscribeSection } from '@/widgets';
+import InstaLinks from '@/widgets/Insta-links/ui/InstaLinks';
 
 function ShopPage({
   className = ''
@@ -12,6 +14,8 @@ function ShopPage({
     <Section className={`${shopPage} ${className}`}>
       <Container className={`${shopPage}`}>
         <ShopFilter />
+        <SubscribeSection />
+        <InstaLinks />
       </Container>
     </Section>
   );

@@ -3,6 +3,7 @@ import AdvantageItem from '@/entities/advantage/ui/AdvantageItem';
 import { advantageItems } from '@/entities/advantage/model/advantage-data';
 import Container from '@/shared/primitives/Container/Container';
 
+
 interface AdvantageListProps {
   className?: string;
 }

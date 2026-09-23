@@ -1,13 +1,12 @@
 import '../styles/shop-filter.scss';
-import { Title } from "@/shared/typography";
 import ShopProducts from "@/widgets/Shop/ShopProducts/ui/ShopProducts";
 import { useAppSelector } from "@/app/store/hooks";
 import { selectProducts } from "@/entities/product/model/productSelector";
 import { useState } from "react";
 import { CategoryFilterType } from "@/features/shop/product-filter/model/product-filter.types";
-import Container from "@/shared/primitives/Container/Container";
 import ShopSidebar from "@/widgets/Shop/ShopSidebar/ui/ShopSidebar";
 import { matchesPriceFilter } from "@/shared/lib/product/filterByPrice";
+import ShopFilterHeader from './ShopFilterHeader';
 
 function ShopFilter(): React.JSX.Element {
   const classShopFilter = 'shop-filter'
@@ -70,6 +69,9 @@ function ShopFilter(): React.JSX.Element {
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
 
+  const firstItem = startIndex + 1
+  const lastItem = Math.min(startIndex + itemsPerPage, filteredProducts.length)
+
   const currentProducts = filteredProducts.slice(startIndex, endIndex)
 
   return (
@@ -77,9 +79,11 @@ function ShopFilter(): React.JSX.Element {
       <div className={`${classShopFilter}__layout`}>
         <div className={`${classShopFilter}__items`}>
           <div className={`${classShopFilter}__header`}>
-            <Title as="h1">
-              Shop page
-            </Title>
+            <ShopFilterHeader
+              firstItem={firstItem}
+              lastItem={lastItem}
+              totalResults={filteredProducts.length}
+            />
           </div>
           <ShopProducts
             className={`${classShopFilter}__products`}

@@ -1,0 +1,1 @@
+import{r as e}from"./react-SIfiwpqq.js";import{A as t,O as n}from"./index-GH3tmu-J.js";var r=e({default:()=>a}),i=n();function a(){return(0,i.jsx)(i.Fragment,{children:(0,i.jsx)(t,{})})}export{r as t};

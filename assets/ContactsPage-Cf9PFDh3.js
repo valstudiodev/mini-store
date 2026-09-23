@@ -1,0 +1,1 @@
+import{D as e,O as t}from"./index-GH3tmu-J.js";import{t as n}from"./Section-qgcmK4-5.js";var r=t();function i(){return(0,r.jsx)(n,{className:`contacts-page`,children:(0,r.jsx)(e,{})})}export{i as default};

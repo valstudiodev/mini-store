@@ -1,0 +1,1 @@
+import{O as e,k as t}from"./index-S7yXRUF-.js";import{t as n}from"./Section-D6BTnwBS.js";import{t as r}from"./HeadingTitle-BjG1Ws-O.js";import"./typography-DfCLfge0.js";var i=t();function a(){let t=`checkout-page`;return(0,i.jsx)(n,{className:t,children:(0,i.jsx)(e,{className:`${t}__container`,children:(0,i.jsx)(r,{children:`Checkout page`})})})}export{a as default};

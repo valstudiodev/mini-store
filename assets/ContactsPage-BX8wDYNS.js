@@ -1,0 +1,1 @@
+import{O as e,k as t}from"./index-S7yXRUF-.js";import{t as n}from"./Section-D6BTnwBS.js";var r=t();function i(){return(0,r.jsx)(n,{className:`contacts-page`,children:(0,r.jsx)(e,{})})}export{i as default};

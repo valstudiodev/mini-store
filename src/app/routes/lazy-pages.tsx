@@ -12,5 +12,11 @@ export const LazyCheckoutPage = lazy(() => import('@/pages/CheckoutPage/ui/Check
 export const LazyContactsPage = lazy(() => import('@/pages/Contacts/ui/ContactsPage'));
 export const LazyProductPage = lazy(() => import('@/pages/ProductPage/ui/ProductPage'));
 export const LazyShopFilter = lazy(() => import('@/pages/ShopPage/ui/ShopFilter'));
-export const LazyAdminPage = lazy(() => import('@/pages/AdminPage/ui/AdminPage'));
 export const LazyShopPage = lazy(() => import('@/pages/ShopPage/ui/ShopPage'));
+
+
+// admin
+export const LazyAdminDashboard = lazy(() => import('@/pages/Admin/AdminDashboard/AdminDashboard'));
+export const LazyAdminProducts = lazy(() => import('@/pages/Admin/AdminProducts/AdminProducts'));
+export const LazyAdminPosts = lazy(() => import('@/pages/Admin/AdminPosts/AdminPosts'));
+export const LazyAdminComments = lazy(() => import('@/pages/Admin/AdminComments/AdminComments'));

@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import { ProductProps } from "../model/types";
+import { ProductCardProps } from "../model/types";
 import '../styles/product-card.scss';
 import { routeMap } from "@/app/routes/routeMap";
 import { } from "react";
@@ -8,7 +8,7 @@ import { Link } from "react-router";
 function ProductCard({
   product,
   actions,
-}: ProductProps): React.JSX.Element {
+}: ProductCardProps): React.JSX.Element {
   const productCard = 'product-card'
 
   return (

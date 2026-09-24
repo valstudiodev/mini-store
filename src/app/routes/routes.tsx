@@ -1,7 +1,10 @@
 import { Suspense } from "react";
 import {
   LazyAboutPage,
-  LazyAdminPage,
+  LazyAdminComments,
+  LazyAdminDashboard,
+  LazyAdminPosts,
+  LazyAdminProducts,
   LazyBlogPage,
   LazyBlogPost,
   LazyCartPage,
@@ -17,6 +20,7 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "@/widgets/MainLayout/ui/MainLayout";
 import ErrorPage from "@/pages/ErrorPage/ui/ErrorPage";
 import { routeMap } from "./routeMap";
+import { AdminLayout } from "@/widgets/Admin";
 
 
 export const routes = [
@@ -120,6 +124,10 @@ export const routes = [
                 <LazyCheckoutPage />
               </Suspense>
             ),
+            meta: {
+              isInMenu: false,
+              title: 'Checkout'
+            }
           }
         ]
       },
@@ -188,24 +196,58 @@ export const routes = [
         }
       },
       {
-        path: routeMap.admin.path,
-        id: 'admin',
-        element: (
-          <Suspense>
-            <LazyAdminPage />
-          </Suspense>
-        ),
-      },
-      {
         path: '*',
         element: (
           <Suspense>
             <LazyPage404 />
           </Suspense>
         ),
-        mets: {
+        meta: {
           id: 'page-404'
         }
+      }
+    ]
+  },
+  {
+    path: 'admin',
+    Component: AdminLayout,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        id: 'admin',
+        element: (
+          <Suspense>
+            <LazyAdminDashboard />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'products',
+        id: 'admin-products',
+        element: (
+          <Suspense>
+            <LazyAdminProducts />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'posts',
+        id: 'admin-posts',
+        element: (
+          <Suspense>
+            <LazyAdminPosts />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'comments',
+        id: 'admin-comments',
+        element: (
+          <Suspense>
+            <LazyAdminComments />
+          </Suspense>
+        ),
       }
     ]
   }

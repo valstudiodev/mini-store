@@ -76,9 +76,9 @@
       translate: 0 toRem(-70);
     }
 
-    &::before {
-      opacity: 0.2;
-    }
+    // &::before {
+    //   opacity: 0.2;
+    // }
   }
 
   @include input('keyboard') {
@@ -88,8 +88,8 @@
       translate: 0 toRem(-70);
     }
 
-    &::before {
-      opacity: 0.2;
-    }
+    // &::before {
+    //   opacity: 0.2;
+    // }
   }
 }

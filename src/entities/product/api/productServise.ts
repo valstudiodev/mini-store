@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs } from "firebase/firestore"
 import { CreateProductPayload, Product } from "../model/types"
 import db from "@/shared/config/firebase/firebase-config"
 
@@ -44,4 +44,14 @@ export async function getProductById(productId: string): Promise<Product | null>
     id: productSnap.id,
     ...productData,
   }
+}
+
+export async function deleteProductById(productId: string): Promise<void> {
+  const productDocRef = doc(db, 'products', productId)
+
+  console.log('DELETE:', productId)
+
+  await deleteDoc(productDocRef)
+
+  console.log('DELETED:', productId)
 }

@@ -32,6 +32,7 @@ export type ProductSize =
   | 'M'
   | 'S'
 
+
 export interface ProductsState {
   products: Product[];
   loading: boolean;
@@ -39,7 +40,7 @@ export interface ProductsState {
   hasLoaded: boolean;
 }
 
-export interface ProductProps {
+export interface ProductCardProps {
   product: Product;
   actions?: React.ReactElement[];
 }
@@ -76,3 +77,4 @@ export interface ProductGridProps {
   products: Product[];
   className?: string;
 }
+

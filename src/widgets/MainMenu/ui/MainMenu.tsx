@@ -11,6 +11,7 @@ import { routeMap } from '@/app/routes/routeMap';
 import LinkButton from '@/shared/ui/LinkButton/ui/LInkButton';
 import { useAppSelector } from '@/app/store/hooks';
 import { selectCartTotalQuantity } from '@/entities/cart/model/cartSelector';
+import { MenuRoute } from '@/app/routes/route-types';
 
 
 function MainMenu({
@@ -34,7 +35,8 @@ function MainMenu({
     setIsMenuOpen((prev) => !prev)
   }
 
-  const menuItems = routes[0].children.filter(
+
+  const menuItems = (routes[0]?.children as MenuRoute[]).filter(
     (route) => route?.meta?.isInMenu
   ) ?? []
 

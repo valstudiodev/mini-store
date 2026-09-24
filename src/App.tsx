@@ -12,6 +12,7 @@ function App(): React.JSX.Element {
 
   useInputDetection()
 
+
   const dispatch = useAppDispatch()
 
   const hasLoaded = useAppSelector(selectHasLoaded)

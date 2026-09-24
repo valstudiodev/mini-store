@@ -5,6 +5,7 @@ import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
 import { ProductCategoryProps } from "@/entities/product/model/types";
 import { addToCart } from "@/entities/cart/model/cartSlice";
+import { deleteProduct } from "@/entities/product/model/productThunk";
 
 function ProductList({
   category
@@ -39,8 +40,17 @@ function ProductList({
     )
   }
 
-  if (hasLoaded && products.length === 0) {
+  if (hasLoaded && filteredProducts.length === 0) {
     return <div>Products is not found.</div>
+  }
+
+  const handleDelete = async (productId: string): Promise<void> => {
+
+    try {
+      await dispatch(deleteProduct(productId)).unwrap()
+    } catch (error) {
+
+    }
   }
 
 
@@ -57,7 +67,13 @@ function ProductList({
               <AddToCartButton
                 className={`${productList}__btn-add`}
                 onClick={() => handleAddToCart(product.id)}
-              />
+              />,
+              <button
+                type="button"
+                onClick={() => handleDelete(product.id)}
+              >
+                Delete
+              </button>
             ]}
           />
         </li>

@@ -1,11 +1,10 @@
-import { ComponentType } from "react";
-import { House, LucideIcon } from "lucide-react";
 
 type FooterColumnItem = FooterLink | FooterContact
 
 export interface FooterLink {
   type: 'link';
   label: string;
+  icon?: string;
   to: string;
 }
 
@@ -22,17 +21,23 @@ export interface FooterColumnData {
   className?: string;
 }
 
-export interface SocialLink {
-  label: string;
-  to: string;
-  icon: ComponentType<{ size?: number }> | LucideIcon;
-}
-
 export interface FooterColumnProps {
   title?: string;
   items: FooterLink[];
   className?: string;
 }
+
+export interface SocialLink {
+  label: string;
+  to: string;
+  icon: string;
+}
+
+
+
+
+
+
 
 export interface FooterContactItem {
   label: string;
@@ -45,31 +50,32 @@ export interface FooterContactsProps {
   className?: string;
 }
 
+
 export const socialLinks: SocialLink[] = [
   {
-    label: 'home',
+    label: 'facebook',
     to: '/',
-    icon: House,
+    icon: '--icon-fb1',
   },
   {
-    label: 'home',
+    label: 'instagram',
     to: '/',
-    icon: House,
+    icon: '--icon-instagramm',
   },
   {
-    label: 'home',
+    label: 'twitter',
     to: '/',
-    icon: House
+    icon: '--icon-twitter'
   },
   {
-    label: 'home',
+    label: 'linkdin',
     to: '/',
-    icon: House
+    icon: '--icon-linkdin'
   },
   {
-    label: 'home',
+    label: 'utub',
     to: '/',
-    icon: House
+    icon: '--icon-utub'
   },
 ];
 

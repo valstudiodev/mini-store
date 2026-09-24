@@ -31,5 +31,9 @@ export const routeMap = {
     '/products/edit/:id',
     (id: string | number) => `/products/edit/${id}`
   ),
+  // admin
   admin: defineRoute('/admin'),
+  adminProducts: defineRoute('/admin/products'),
+  adminPosts: defineRoute('/admin/posts'),
+  adminComments: defineRoute('/admin/comments'),
 } as const;

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductsState } from "./types";
-import { fetchProducts } from "./productThunk";
+import { deleteProduct, fetchProducts } from "./productThunk";
 
 const initialState: ProductsState = {
   products: [],
@@ -28,6 +28,13 @@ export const productsSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false
         state.error = action.payload ?? 'Failed to fetch products'
+      })
+
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.error = null
+        state.products = state.products.filter(
+          (product) => product.id !== action.payload
+        )
       })
   }
 })

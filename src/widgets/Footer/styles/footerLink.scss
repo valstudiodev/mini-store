@@ -1,0 +1,19 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+@use '@/shared/styles/mixins/grid' as *;
+
+
+.footer-link {
+  cursor: pointer;
+
+  &__icon {
+    color: var(--color-icon);
+    transition: color 0.3s;
+    line-height: 0;
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+}

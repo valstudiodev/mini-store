@@ -1,0 +1,1 @@
+export { default as AdminDashboard } from '@/pages/Admin/AdminDashboard/AdminDashboard'

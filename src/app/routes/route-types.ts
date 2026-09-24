@@ -19,6 +19,16 @@ export type AppRouteObject = RouteObject & {
   children?: AppRouteObject[];
 };
 
+export type MenuRoute = {
+  id?: string;
+  index?: boolean;
+  path?: string;
+  meta?: {
+    isInMenu?: boolean;
+    title?: string;
+  };
+};
+
 
 // export interface AppRouteObject {
 //   path?: string;

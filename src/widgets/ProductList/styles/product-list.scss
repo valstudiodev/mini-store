@@ -23,4 +23,31 @@
     padding-block: toRem(8);
     @include adaptiveValue('padding-inline', 30, 15);
   }
+
+  &__swiper {
+
+    .swiper-wrapper {
+      @include adaptiveValue('margin-bottom', 50, 20);
+    }
+  }
+}
+
+.swiper-pagination {
+  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: toRem(20);
+
+  &-bullet {
+    width: toRem(14);
+    height: toRem(14);
+    background-color: var(--color-text-muted);
+    margin: 0;
+    cursor: pointer;
+
+    &-active {
+      background-color: var(--color-text-secondary);
+    }
+  }
 }

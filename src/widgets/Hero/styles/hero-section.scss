@@ -3,20 +3,43 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .hero-section {
-  // display: flex;
-  // align-items: center;
   background-color: var(--color-surface);
-  height: 100dvh;
+  // height: 100dvh;
   @include adaptiveValue('padding-top', 100, 50);
 
   &__container {
+    position: relative;
+    margin: 0;
+
+    .swiper-button-next {
+      color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @media (max-width: toEm(768)) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__inner {
+    max-width: toRem(1760);
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    // flex-wrap: wrap;
+    justify-content: space-between;
+    @include adaptiveValue('gap', 30, 10);
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     @include adaptiveValue('gap', 30, 10);
 
     @media (max-width: toEm(768)) {
+      // flex-direction: column;
       flex-wrap: wrap;
     }
   }
@@ -26,14 +49,29 @@
     flex-direction: column;
     @include adaptiveValue('gap', 40, 20);
     align-items: flex-start;
-    // flex-basis: toRem(666);
     flex: 0 1 toRem(666);
 
     @media (max-width: toEm(768.98)) {
       flex-grow: 1;
-      // align-items: center;
-      // text-align: center;
     }
+  }
+
+  &__slider {
+    flex: 0 1 toRem(529);
+    max-width: toRem(529);
+
+    @media (max-width: toEm(768)) {
+      max-width: 100%;
+    }
+  }
+
+  &__slide {
+    height: 100%;
+  }
+
+  &__swiper {
+    width: 100%;
+    height: toRem(612);
   }
 
   &__title {
@@ -54,19 +92,65 @@
     }
   }
 
-  &__img {
-    // flex-basis: toRem(529);
-    flex: 0 1 toRem(529);
-    aspect-ratio: 529 / 612;
+  &__wrap {
+    // aspect-ratio: 529 / 612;
 
     img {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      // object-fit: cover;
     }
 
     @media (max-width: toEm(768.98)) {
       flex-grow: 1;
     }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.btn-nav {
+  cursor: pointer;
+
+  &--prev {}
+
+  &--next {
+    rotate: 180deg;
+  }
+
+  @include hover {
+    stroke: var(--color-accent);
+  }
+}
+
+.btn-slider {
+  cursor: pointer;
+  color: var(--color-icon);
+  transition: color 0.3s;
+
+  &.prev {}
+
+  &.next {
+    rotate: 180deg;
+  }
+
+  @include hover {
+    &:not(:disabled) {
+      color: var(--color-accent);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: toEm(1150)) {
+    display: none;
   }
 }

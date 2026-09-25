@@ -1,3 +1,6 @@
 @import "tailwindcss";
 @import "./shared/styles/tailwind/base.css";
 @import "./shared/styles/tailwind/utils/tailwindutils.css";
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';

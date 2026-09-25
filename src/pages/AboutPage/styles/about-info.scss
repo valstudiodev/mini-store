@@ -9,6 +9,10 @@
     display: flex;
     align-items: center;
     @include adaptiveValue('gap', 70, 20);
+
+    @media (max-width: toEm(914)) {
+      flex-wrap: wrap;
+    }
   }
 
   &__image {
@@ -18,7 +22,11 @@
   }
 
   &__content {
-    flex: 1 0 50%;
+    flex: 0 1 50%;
+
+    @media (max-width: toEm(914)) {
+      flex-grow: 1;
+    }
   }
 
   &__title {
@@ -46,5 +54,9 @@
   &__btn {
     padding-block: toRem(16);
     padding-inline: toRem(50);
+
+    @media (max-width: toEm(600)) {
+      width: 100%;
+    }
   }
 }

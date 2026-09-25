@@ -17,7 +17,7 @@ export interface Product {
   tags: string[];
   colors: ProductColor[];
   sizes: ProductSize[];
-  brand: string;
+  brand?: string;
 }
 
 export type ProductColor =

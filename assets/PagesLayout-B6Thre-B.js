@@ -1,1 +1,0 @@
-import{r as e}from"./react-SIfiwpqq.js";import{j as t,k as n}from"./index-S7yXRUF-.js";var r=e({default:()=>a}),i=n();function a(){return(0,i.jsx)(i.Fragment,{children:(0,i.jsx)(t,{})})}export{r as t};

@@ -1,0 +1,1 @@
+import{k as e}from"./index-DlxSOhGq.js";var t=e();function n({children:e,className:n=``}){return(0,t.jsx)(`section`,{className:` ${n}`.trim(),children:e})}export{n as t};

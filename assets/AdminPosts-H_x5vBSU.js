@@ -1,0 +1,1 @@
+import{O as e,k as t}from"./index-DlxSOhGq.js";import{t as n}from"./Section-BrPYXnFE.js";import"./primitives-CWwJzLBU.js";var r=t();function i({className:t=``}){return(0,r.jsx)(n,{className:`admin-post-page ${t}`,children:(0,r.jsx)(e,{children:(0,r.jsx)(`h1`,{children:`Admin posts`})})})}export{i as default};

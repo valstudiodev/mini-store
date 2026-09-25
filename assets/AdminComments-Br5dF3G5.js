@@ -1,1 +1,0 @@
-import{O as e,k as t}from"./index-S7yXRUF-.js";import{t as n}from"./Section-D6BTnwBS.js";import"./primitives-BIMncAxM.js";var r=t();function i({className:t=``}){let i=`admin-comments-page`;return(0,r.jsx)(n,{className:`${i} ${t}`,children:(0,r.jsx)(e,{className:`${i}__container`,children:(0,r.jsx)(`h1`,{children:`Admin comments`})})})}export{i as default};

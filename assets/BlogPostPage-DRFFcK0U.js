@@ -1,0 +1,1 @@
+import{k as e}from"./index-DlxSOhGq.js";import{t}from"./Section-BrPYXnFE.js";import{t as n}from"./HeadingTitle--SY7Z3dY.js";import"./typography-HxahyclJ.js";var r=e();function i(){return(0,r.jsx)(t,{className:`blog-post-page`,children:(0,r.jsx)(n,{children:`Blog post page`})})}export{i as default};

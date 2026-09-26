@@ -1,6 +1,7 @@
 import { Section } from "@/shared/primitives";
 import Container from "@/shared/primitives/Container/Container";
 import './admin-comments.scss';
+import { Title } from "@/shared/typography";
 
 function AdminComments({
   className = ''
@@ -9,7 +10,9 @@ function AdminComments({
   return (
     <Section className={`${adminCommentsPage} ${className}`}>
       <Container className={`${adminCommentsPage}__container`}>
-        <h1>Admin comments</h1>
+        <Title as="h1">
+          Comments
+        </Title>
       </Container>
     </Section>
   );

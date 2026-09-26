@@ -7,7 +7,9 @@ import { ProductCategoryProps } from "@/entities/product/model/types";
 import { addToCart } from "@/entities/cart/model/cartSlice";
 import { deleteProduct } from "@/entities/product/model/productThunk";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { Link } from "react-router";
+import { routeMap } from "@/app/routes/routeMap";
 
 
 function ProductList({
@@ -33,7 +35,7 @@ function ProductList({
     (product) => product.category === category
   )
 
-  if (productLoading) return <div>Loading...</div>
+  if (productLoading) return <div className="text-center text-4xl">Loading...</div>
 
   if (productError) {
     return (
@@ -59,7 +61,10 @@ function ProductList({
 
   return (
     <Swiper
-      pagination={true}
+      pagination={{
+        clickable: true
+      }}
+
       breakpoints={{
         320: {
           slidesPerView: 1,
@@ -78,7 +83,7 @@ function ProductList({
           spaceBetween: 20,
         }
       }}
-      modules={[Pagination]}
+      modules={[Pagination, Autoplay]}
       className={`${productList}__swiper`}>
       <ul className={productList}>
         {filteredProducts.map((product) => (
@@ -91,12 +96,20 @@ function ProductList({
                     className={`${productList}__btn-add`}
                     onClick={() => handleAddToCart(product.id)}
                   />,
-                  <button
-                    type="button"
-                    onClick={() => handleDelete(product.id)}
-                  >
-                    Delete
-                  </button>
+                  <div className='actions-wrap flex 
+                  items-center justify-between gap-3'>
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(product.id)}
+                    >
+                      Delete
+                    </button>
+                    <Link
+                      to={routeMap.productEdit.navigate(product.id)}
+                    >
+                      Edit
+                    </Link>
+                  </div>,
                 ]}
               />
             </SwiperSlide>

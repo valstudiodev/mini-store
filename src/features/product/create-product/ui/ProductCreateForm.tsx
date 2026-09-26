@@ -165,8 +165,6 @@ function ProductCreateForm(): React.JSX.Element {
         />
       </label>
 
-
-
       {errorStatus && (
         error
       )}

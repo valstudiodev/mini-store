@@ -13,6 +13,7 @@ import {
   LazyHomePage,
   LazyPage404,
   LazyPagesLayout,
+  LazyProductEditPage,
   LazyProductPage,
   LazyShopPage
 } from "./lazy-pages";
@@ -193,6 +194,24 @@ export const routes = [
         handle: {
           breadcrumb: 'Contacts',
           title: 'Contacts'
+        }
+      },
+      {
+        path: routeMap.productEdit.path,
+        id: 'product-edit',
+        element: (
+          <Suspense>
+            <LazyProductEditPage />
+          </Suspense>
+        ),
+        meta: {
+          isInMenu: false,
+          title: 'Product-edit',
+          breadcrumbs: true,
+        },
+        handle: {
+          breadcrumb: 'Product-edit',
+          title: 'Product-edit'
         }
       },
       {

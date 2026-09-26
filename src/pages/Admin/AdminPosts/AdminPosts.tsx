@@ -1,6 +1,7 @@
 import { Section } from "@/shared/primitives";
 import Container from "@/shared/primitives/Container/Container";
 import './admin-posts.scss';
+import { Title } from "@/shared/typography";
 
 function AdminPosts({
   className = ''
@@ -10,7 +11,9 @@ function AdminPosts({
   return (
     <Section className={`${adminPostsPage} ${className}`}>
       <Container>
-        <h1>Admin posts</h1>
+        <Title as="h1">
+          Posts
+        </Title>
       </Container>
     </Section>
   );

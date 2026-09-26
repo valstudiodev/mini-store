@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductsState } from "./types";
-import { deleteProduct, fetchProducts } from "./productThunk";
+import { deleteProduct, fetchProductById, fetchProducts, updateProduct } from "./productThunk";
 
 const initialState: ProductsState = {
   products: [],
+  product: null,
   loading: false,
   error: null,
   hasLoaded: false
@@ -35,6 +36,31 @@ export const productsSlice = createSlice({
         state.products = state.products.filter(
           (product) => product.id !== action.payload
         )
+      })
+
+      .addCase(updateProduct.fulfilled, (state, action) => {
+        state.error = null
+        state.products = state.products.map(
+          (product) => product.id === action.payload.id
+            ? action.payload
+            : product
+        )
+      })
+
+      .addCase(fetchProductById.pending, (state) => {
+        state.loading = true
+        state.error = null
+        state.product = null
+      })
+      .addCase(fetchProductById.fulfilled, (state, action) => {
+        state.loading = false
+        state.error = null
+        state.product = action.payload
+      })
+      .addCase(fetchProductById.rejected, (state, action) => {
+        state.loading = false
+        state.product = null
+        state.error = action.payload ?? 'Failed to fetch product by ID'
       })
   }
 })

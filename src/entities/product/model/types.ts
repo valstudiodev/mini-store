@@ -35,6 +35,7 @@ export type ProductSize =
 
 export interface ProductsState {
   products: Product[];
+  product: Product | null;
   loading: boolean;
   error: string | null;
   hasLoaded: boolean;

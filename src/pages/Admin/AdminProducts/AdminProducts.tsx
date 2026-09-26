@@ -1,6 +1,7 @@
 import { Section } from "@/shared/primitives";
 import './admin-products.scss';
 import ProductCreateForm from "@/features/product/create-product/ui/ProductCreateForm";
+import { Title } from "@/shared/typography";
 
 function AdminProducts({
   className = ''
@@ -9,7 +10,9 @@ function AdminProducts({
 
   return (
     <Section className={`${adminProducts} ${className}`}>
-      <h1>Admin products</h1>
+      <Title as="h1">
+        Products
+      </Title>
       <ProductCreateForm />
     </Section>
   );

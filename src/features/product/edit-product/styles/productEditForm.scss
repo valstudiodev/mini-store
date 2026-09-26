@@ -1,0 +1,99 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.form-edit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: toRem(16);
+  width: min(100%, toRem(960));
+  margin-inline: auto;
+  padding: toRem(28);
+  color: var(--color-text-primary);
+  background-color: var(--color-primary);
+  border: toRem(1) solid var(--color-border);
+  border-radius: toRem(8);
+  box-shadow: 0 toRem(12) toRem(32) rgb(0 0 0 / 8%);
+
+  &__label {
+    display: block;
+    min-width: 0;
+
+    &:has(input[name='description']) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: toRem(48);
+    padding: toRem(12) toRem(14);
+    color: var(--color-text-primary);
+    background-color: var(--color-primary);
+    border: toRem(1) solid var(--color-border);
+    border-radius: toRem(5);
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+
+    &::placeholder {
+      color: var(--color-text-muted);
+      opacity: 1;
+    }
+
+    @include hover {
+      border-color: var(--color-border-hover);
+    }
+
+    &:focus-visible {
+      border-color: var(--color-accent);
+      outline: toRem(3) solid color-mix(in srgb, var(--color-accent) 28%, transparent);
+      outline-offset: toRem(1);
+    }
+  }
+
+  >button {
+    justify-self: start;
+    min-height: toRem(48);
+    padding: toRem(12) toRem(28);
+    color: var(--color-primary);
+    background-color: var(--color-button);
+    border: 0;
+    border-radius: toRem(5);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+
+    @include hover {
+      background-color: var(--color-button-hover);
+    }
+
+    &:active {
+      transform: translateY(toRem(1));
+    }
+
+    &:focus-visible {
+      outline: toRem(3) solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+      outline-offset: toRem(3);
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .form-edit {
+    grid-template-columns: minmax(0, 1fr);
+    gap: toRem(12);
+    padding: toRem(16);
+
+    &__label:has(input[name='description']) {
+      grid-column: auto;
+    }
+
+    >button {
+      justify-self: stretch;
+      width: 100%;
+    }
+  }
+}

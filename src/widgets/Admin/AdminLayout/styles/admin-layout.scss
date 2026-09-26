@@ -3,11 +3,28 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .admin-layout {
+  min-height: 100vh;
+  background-color: var(--color-surface);
 
-  &__page {}
+  &__page {
+    min-height: 100vh;
+    color: var(--color-text-primary);
+  }
 
   &__container {
-    display: flex;
-    gap: toRem(40);
+    display: grid;
+    grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    width: 100%;
+    padding-block: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  @media (max-width: 760px) {
+    &__container {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+      padding-block: 1.25rem;
+    }
   }
 }

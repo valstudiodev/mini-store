@@ -1,3 +1,18 @@
 @use '@/shared/styles/settings/settings' as *;
 @use '@/shared/styles/abstracts/input-mixins' as *;
 @use '@/shared/styles/themes/lightTheme' as *;
+
+.admin-header {
+	border-bottom: 3px solid var(--color-accent);
+	background-color: var(--color-text-primary);
+	color: var(--color-primary);
+
+	h1 {
+		width: min(100%, 1330px);
+		margin: 0 auto;
+		padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 4vw, 2rem);
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 600;
+		line-height: 1.2;
+	}
+}

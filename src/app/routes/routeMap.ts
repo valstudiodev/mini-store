@@ -28,8 +28,8 @@ export const routeMap = {
     (id: string | number) => `/product/${id}`
   ),
   productEdit: defineRoute(
-    '/products/edit/:id',
-    (id: string | number) => `/products/edit/${id}`
+    '/products/:id/edit',
+    (id: string | number) => `/products/${id}/edit`
   ),
   // admin
   admin: defineRoute('/admin'),

@@ -5,7 +5,7 @@ import '../styles/hero-section.scss';
 import Container from "@/shared/primitives/Container/Container";
 import LinkButton from "@/shared/ui/LinkButton/ui/LInkButton";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { heroImages } from "../model/hero-data";
 import 'swiper/css/navigation';
 import type { Swiper as SwiperInstance } from 'swiper'
@@ -75,7 +75,8 @@ function HeroSection(): React.JSX.Element {
                 onSwiper={(swiper) => {
                   swiperRef.current = swiper
                 }}
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 slidesPerView={1}
                 className={`${heroSection}__swiper mySwiper`}>
                 <div className={`${heroSection}__wrap`}>

@@ -1,0 +1,1 @@
+function e(e){return e===`black`||e===`white`||e===`green`||e===`orange`}function t(e){return e===`XL`||e===`L`||e===`M`||e===`S`}export{e as n,t};

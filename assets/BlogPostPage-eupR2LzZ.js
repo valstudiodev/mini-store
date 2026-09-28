@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{t}from"./Section-D_8zyxsb.js";import{t as n}from"./HeadingTitle-DnXE0Fc9.js";import"./typography-B08g8MLp.js";var r=e();function i(){return(0,r.jsx)(t,{className:`blog-post-page`,children:(0,r.jsx)(n,{children:`Blog post page`})})}export{i as default};

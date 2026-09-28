@@ -2,11 +2,10 @@ import { useAppSelector } from '@/app/store/hooks';
 import useProductEditForm from '../model/useProductEditForm';
 import '../styles/productEditForm.scss';
 import { selectProduct } from '@/entities/product/model/productSelector';
-import useToast from '@/shared/ui/Toast/model/useToast';
 import { useEffect, useState } from 'react';
-import Message from '@/shared/ui/Message/ui/Message';
 import { useNavigate } from 'react-router';
 import { routeMap } from '@/app/routes/routeMap';
+import Message from '@/shared/ui/Message/ui/Message';
 
 function ProductEditForm(): React.JSX.Element {
   const formEdit = 'form-edit'
@@ -24,49 +23,25 @@ function ProductEditForm(): React.JSX.Element {
   } = useProductEditForm({ product })
 
 
-  const { dispatch: toastDispatch } = useToast()
-
-  // const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const loading = productEditStatus === 'loading'
   const errorStatus = productEditStatus === 'failed'
 
   useEffect(() => {
-    if (productEditStatus === 'success') {
+    if (productEditStatus !== 'success') return
 
-      toastDispatch({
-        type: 'SHOW_TOAST',
-        payload: {
-          type: 'success',
-          message: 'Product created successfully!'
-        }
-      })
+    setShowSuccess(true)
 
-      const timer = setTimeout(() => {
-        navigate(routeMap.pages.path)
-      }, 2000);
+    const timer = setTimeout(() => {
+      setShowSuccess(false)
+      navigate(routeMap.pages.path)
+    }, 2000);
 
-      return () => {
-        clearTimeout(timer)
-      }
+    return () => {
+      clearTimeout(timer)
     }
-  }, [productEditStatus, toastDispatch, navigate]);
 
-  // useEffect(() => {
-  //   if (productEditStatus !== 'success') return
-
-  //   setShowSuccess(true)
-
-  //   const timer = setTimeout(() => {
-  //     setShowSuccess(false)
-  //   }, 2000);
-
-  //   return () => {
-  //     clearTimeout(timer)
-  //   }
-
-  // }, [productEditStatus]);
-
-
+  }, [productEditStatus, navigate]);
 
 
   return (
@@ -204,12 +179,11 @@ function ProductEditForm(): React.JSX.Element {
         error
       )}
 
-      {/* {showSuccess && (
+      {showSuccess && (
         <Message
           variant='success'
-          label='Product updated successfully!'
-        />
-      )} */}
+          label='Product updated successfully!' />
+      )}
 
     </form>
   );

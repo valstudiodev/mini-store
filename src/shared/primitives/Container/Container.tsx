@@ -3,7 +3,7 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function Container({
-  maxWidth = 1330,
+  maxWidth = 1360,
   className = '',
   children,
   ...props

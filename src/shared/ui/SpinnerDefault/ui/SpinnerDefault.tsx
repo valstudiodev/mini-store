@@ -8,6 +8,9 @@ function SpinnerDefault({
   label = 'Loading...',
   className = '',
 }: SpinnerProps): React.JSX.Element {
+  console.log('---spinner render---');
+
+
   const containerClasses = [
     'spinner-container',
     `spinner-container--${size}`,
@@ -18,9 +21,13 @@ function SpinnerDefault({
     .join(' ');
 
   return (
-    <div className={containerClasses} role="status" aria-label={label}>
-      <div className="spinner-container__circle" />
-    </div>
+    <>
+      <div className='spinner-container--overlay'></div>
+      <div className={containerClasses} role="status" aria-label={label}>
+        <div className="spinner-container__circle" />
+      </div>
+    </>
+
   );
 }
 

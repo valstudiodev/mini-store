@@ -12,6 +12,8 @@ function Toast({
 
   const { state } = useToast()
 
+  console.log('Toast state:', state)
+
   const classType = state?.type
 
   if (!state) return null

@@ -1,7 +1,7 @@
 import '../styles/advantages-list.scss';
-import AdvantageItem from '@/entities/advantage/ui/AdvantageItem';
-import { advantageItems } from '@/entities/advantage/model/advantage-data';
+import { AdvantageItem } from '@/widgets/AdvantageSection';
 import Container from '@/shared/primitives/Container/Container';
+import { advantageItems } from '../../AdvantagesItem/model/advantage-data';
 
 
 interface AdvantageListProps {

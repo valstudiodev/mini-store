@@ -22,6 +22,7 @@ import MainLayout from "@/widgets/MainLayout/ui/MainLayout";
 import ErrorPage from "@/pages/ErrorPage/ui/ErrorPage";
 import { routeMap } from "./routeMap";
 import { AdminLayout } from "@/widgets/Admin";
+import { SpinnerDefault } from "@/shared/ui";
 
 
 export const routes = [
@@ -34,7 +35,7 @@ export const routes = [
         index: true,
         id: 'home-page',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyHomePage />
           </Suspense>
         ),
@@ -51,7 +52,7 @@ export const routes = [
         path: routeMap.about.path,
         id: 'about',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyAboutPage />
           </Suspense>
         ),
@@ -69,7 +70,7 @@ export const routes = [
         path: routeMap.pages.path,
         id: 'pages',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyPagesLayout />
           </Suspense>
         ),
@@ -87,7 +88,7 @@ export const routes = [
             index: true,
             id: 'shop',
             element: (
-              <Suspense>
+              <Suspense fallback={<SpinnerDefault size="large" />}>
                 <LazyShopPage />
               </Suspense>
             ),
@@ -104,7 +105,7 @@ export const routes = [
             path: routeMap.cart.path,
             id: 'cart',
             element: (
-              <Suspense>
+              <Suspense fallback={<SpinnerDefault size="large" />}>
                 <LazyCartPage />
               </Suspense>
             ),
@@ -121,7 +122,7 @@ export const routes = [
             path: routeMap.checkout.path,
             id: 'checkout',
             element: (
-              <Suspense>
+              <Suspense fallback={<SpinnerDefault size="large" />}>
                 <LazyCheckoutPage />
               </Suspense>
             ),
@@ -136,7 +137,7 @@ export const routes = [
         path: routeMap.product.path,
         id: 'product',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyProductPage />
           </Suspense>
         ),
@@ -150,7 +151,7 @@ export const routes = [
         path: routeMap.blog.path,
         id: 'blog',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyBlogPage />
           </Suspense>
         ),
@@ -168,7 +169,7 @@ export const routes = [
         path: routeMap.blogPost.path,
         id: 'blog-post',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyBlogPost />
           </Suspense>
         ),
@@ -182,7 +183,7 @@ export const routes = [
         path: routeMap.contacts.path,
         id: 'contacts',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyContactsPage />
           </Suspense>
         ),
@@ -200,7 +201,7 @@ export const routes = [
         path: routeMap.productEdit.path,
         id: 'product-edit',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyProductEditPage />
           </Suspense>
         ),
@@ -217,7 +218,7 @@ export const routes = [
       {
         path: '*',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyPage404 />
           </Suspense>
         ),
@@ -236,7 +237,7 @@ export const routes = [
         index: true,
         id: 'admin',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyAdminDashboard />
           </Suspense>
         ),
@@ -245,7 +246,7 @@ export const routes = [
         path: 'products',
         id: 'admin-products',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyAdminProducts />
           </Suspense>
         ),
@@ -254,7 +255,7 @@ export const routes = [
         path: 'posts',
         id: 'admin-posts',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyAdminPosts />
           </Suspense>
         ),
@@ -263,7 +264,7 @@ export const routes = [
         path: 'comments',
         id: 'admin-comments',
         element: (
-          <Suspense>
+          <Suspense fallback={<SpinnerDefault size="large" />}>
             <LazyAdminComments />
           </Suspense>
         ),

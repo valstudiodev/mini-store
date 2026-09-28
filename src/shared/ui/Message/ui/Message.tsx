@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import '../styles/message.scss';
 
 type MessageType = 'success' | 'error' | 'info' | 'warning' | null
@@ -14,6 +15,14 @@ function Message({
   className = '',
 }: MessageProps): React.JSX.Element {
   const message = 'message'
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, []);
 
   return (
     <>

@@ -1,0 +1,2 @@
+export { default as AdvantageItem } from '@/widgets/AdvantageSection/AdvantagesItem/ui/AdvantageItem'
+export { default as AdvantagesList } from '@/widgets/AdvantageSection/AdvantagesList/ui/AdvantagesList'  

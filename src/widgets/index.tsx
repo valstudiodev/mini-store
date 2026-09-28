@@ -1,4 +1,4 @@
-export { default as AdvantagesList } from '@/widgets/AdvantageList/ui/AdvantagesList'
+export { default as AdvantagesList } from '@/widgets/AdvantageSection/AdvantagesList/ui/AdvantagesList'
 export { default as Banner } from '@/widgets/Banner/ui/Banner'
 export { default as Headline } from '@/widgets/Headline/ui/Headline'
 export { default as HeroSectio } from '@/widgets/Hero/ui/HeroSection'

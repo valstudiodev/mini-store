@@ -19,54 +19,5 @@
     line-height: 1.15;
   }
 
-  .create-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: clamp(0.75rem, 2vw, 1.25rem);
-    padding: clamp(1rem, 3vw, 2rem);
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    background-color: var(--color-primary);
-    box-shadow: 0 8px 28px rgb(39 39 39 / 6%);
-
-    label {
-      min-width: 0;
-    }
-
-    input {
-      min-height: 48px;
-      border-radius: 4px;
-      background-color: var(--color-primary);
-      color: var(--color-text-primary);
-      transition: border-color 160ms ease, box-shadow 160ms ease;
-
-      &::placeholder {
-        color: var(--color-text-muted);
-      }
-
-      &:focus-visible {
-        border-color: var(--color-accent);
-        outline: 0;
-        box-shadow: 0 0 0 3px rgb(114 174 200 / 20%);
-      }
-    }
-
-    &__btn-add {
-      min-height: 48px;
-      justify-self: start;
-      border-radius: 4px;
-      color: var(--color-primary);
-      font-weight: 600;
-      transition: background-color 160ms ease, opacity 160ms ease;
-
-      &:hover:not(:disabled) {
-        background-color: var(--color-accent-hover);
-      }
-
-      &:disabled {
-        cursor: wait;
-        opacity: 0.65;
-      }
-    }
-  }
+  .create-form {}
 }

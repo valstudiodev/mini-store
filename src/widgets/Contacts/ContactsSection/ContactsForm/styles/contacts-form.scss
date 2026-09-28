@@ -1,0 +1,84 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.contacts-form {
+
+
+  &__header {}
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include adaptiveValue('gap', 30, 15);
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    @include adaptiveValue('gap', 20, 10);
+
+    @media (max-width: toEm($mobile)) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: toEm(1103)) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  input,
+  &__textarea {
+    width: 100%;
+    border: toRem(1) solid var(--color-border);
+    @include adaptiveValue('padding-block', 20, 10);
+    padding-left: toRem(20);
+
+    &::placeholder {
+      font-weight: 300;
+      color: var(--color-button-hover);
+      letter-spacing: toRem(0.48);
+      line-height: 1.38;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    &:focus-visible {
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__btn-submit {
+    background-color: var(--color-button);
+    padding-block: toRem(16);
+    padding-inline: toRem(50);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: toRem(14);
+    font-weight: 500;
+    line-height: 1.48;
+    letter-spacing: toRem(1.4);
+    transition: background-color 0.3s;
+    align-self: flex-start;
+    cursor: pointer;
+
+    @include hover {
+      background-color: var(--color-button-hover);
+    }
+
+    @media (max-width: toEm(642)) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: toEm(1103)) {
+    flex: 0 1 70%;
+  }
+
+  @media (max-width: toEm(800)) {
+    width: 100%;
+  }
+}

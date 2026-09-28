@@ -1,9 +1,10 @@
 import Container from "@/shared/primitives/Container/Container";
 import Section from "@/shared/primitives/Section/Section";
 import '../styles/aboutPage.scss';
-import { AdvantagesList, SubscribeSection } from "@/widgets";
+import { SubscribeSection } from "@/widgets";
 import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
 import AboutInfo from "./AboutInfo";
+import AdvantagesSection from "@/widgets/AdvantageSection/ui/AdvantagesSection";
 
 function AboutPage(): React.JSX.Element {
   const classAboutPage = 'about-page'
@@ -11,7 +12,7 @@ function AboutPage(): React.JSX.Element {
   return (
     <Section className={classAboutPage}>
       <Container className={`${classAboutPage}__container`}>
-        <AdvantagesList />
+        <AdvantagesSection />
         <AboutInfo />
         <SubscribeSection />
         <InstaLinks />

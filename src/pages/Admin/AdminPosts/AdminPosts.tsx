@@ -2,6 +2,7 @@ import { Section } from "@/shared/primitives";
 import Container from "@/shared/primitives/Container/Container";
 import './admin-posts.scss';
 import { Title } from "@/shared/typography";
+import CreatePostForm from "@/features/post/create-post/ui/CreatePostForm";
 
 function AdminPosts({
   className = ''
@@ -14,6 +15,7 @@ function AdminPosts({
         <Title as="h1">
           Posts
         </Title>
+        <CreatePostForm />
       </Container>
     </Section>
   );

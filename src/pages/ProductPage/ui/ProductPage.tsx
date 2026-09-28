@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Product } from "@/entities/product/model/types";
 import { SubscribeSection } from "@/widgets";
 import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
+import { SpinnerDefault } from "@/shared/ui";
 
 function ProductPage() {
   const classProductPage = 'product-page'
@@ -40,9 +41,8 @@ function ProductPage() {
       <Container className={`${classProductPage}__container`}>
         {product
           ? <ProductDetails product={product} />
-          : <div>Loading...</div>
+          : <SpinnerDefault size="large" />
         }
-
         <SubscribeSection />
         <InstaLinks />
       </Container>

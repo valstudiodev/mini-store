@@ -3,23 +3,62 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .create-form {
-  display: flex;
-  flex-direction: column;
-  gap: toRem(20);
-  background-color: var(--color-surface);
-  padding: toRem(20);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-primary);
+  box-shadow: 0 8px 28px rgb(39 39 39 / 6%);
 
   input {
     border: toRem(1) solid var(--color-border);
     width: 100%;
     padding: toRem(10);
+    background-color: var(--color-surface);
+  }
+
+  &__input {
+    width: 100%;
+    min-height: toRem(44);
+    padding: toRem(10) toRem(12);
+    border: toRem(1) solid var(--color-border);
+    background-color: var(--color-surface);
+    color: inherit;
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+
+    &::placeholder {
+      color: currentColor;
+      opacity: 0.55;
+    }
+
+    &:focus-visible {
+      border-color: var(--color-accent);
+      outline: none;
+      box-shadow: 0 0 0 toRem(2) var(--color-accent);
+    }
   }
 
   &__btn-add {
     background-color: var(--color-accent);
     padding-inline: toRem(20);
     cursor: pointer;
+    font-weight: 600;
+    color: var(--color-primary);
     padding-block: toRem(10);
     width: 100%;
+
+    @include hover {
+      &:not(:disabled) {
+        background-color: var(--color-accent-hover);
+      }
+    }
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
   }
 }

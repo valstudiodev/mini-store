@@ -55,113 +55,124 @@ function ProductCreateForm(): React.JSX.Element {
       className={clCreateForm}
       onSubmit={handleSubmit}
     >
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='title'
           type="text"
           value={formValues.title}
           onChange={handleChange}
           placeholder='Add title...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='price'
           type="number"
           value={formValues.price}
           onChange={handleChange}
           placeholder='Add price...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='imageUrl'
           type="url"
           value={formValues.imageUrl}
           onChange={handleChange}
           placeholder='Add an image...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='category'
           type='text'
           value={formValues.category}
           onChange={handleChange}
           placeholder='Type a category...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='rating'
           type='number'
           value={formValues.rating}
           onChange={handleChange}
           placeholder='Type rating...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='description'
           type='text'
           value={formValues.description}
           onChange={handleChange}
           placeholder='Type a description...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='stock'
           type='number'
           value={formValues.stock}
           onChange={handleChange}
           placeholder='Type a stock...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='sku'
           type='text'
           value={formValues.sku}
           onChange={handleChange}
           placeholder='Type a SKU...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='tags'
           type='text'
           value={formValues.tags}
           onChange={handleChange}
           placeholder='Type tags...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='colors'
           type='text'
           value={formValues.colors}
           onChange={handleChange}
           placeholder='Type colors...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 
-      <label>
+      <label className={`${clCreateForm}__field`}>
         <input
           name='sizes'
           type='text'
           value={formValues.sizes}
           onChange={handleChange}
           placeholder='Type sizes...'
+          className={`${clCreateForm}__input`}
         />
       </label>
 

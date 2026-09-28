@@ -5,9 +5,6 @@ import { isProductColor } from "@/entities/product/model/isProductColor";
 import { isProductSize } from "@/entities/product/model/isProductSize";
 import { updateProduct } from "@/entities/product/model/productThunk";
 import { useAppDispatch } from "@/app/store/hooks";
-import { useNavigate } from "react-router";
-import { routeMap } from "@/app/routes/routeMap";
-import useToast from "@/shared/ui/Toast/model/useToast";
 
 interface UseProductEditFormProps {
   product: Product | null;
@@ -16,7 +13,6 @@ interface UseProductEditFormProps {
 function useProductEditForm({
   product,
 }: UseProductEditFormProps) {
-  const navigate = useNavigate()
 
   const initialState: ProductEditFormValues = {
     title: '',

@@ -1,0 +1,23 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.contact-header {
+  @include adaptiveValue('margin-bottom', 30, 15);
+
+  &__title {
+    font-family: var(--font-secondary);
+    @include adaptiveValue('font-size', 30, 24);
+    line-height: 1.14;
+    letter-spacing: toRem(1.8);
+    margin-bottom: toRem(10);
+    text-transform: uppercase;
+  }
+
+  &__text {
+    color: var(--color-button-hover);
+    font-weight: 300;
+    letter-spacing: toRem(0.48);
+    @include adaptiveValue('font-size', 16, 14);
+  }
+}

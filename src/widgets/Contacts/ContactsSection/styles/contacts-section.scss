@@ -1,0 +1,27 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.contacts-section {
+  @include adaptiveValue('padding-top', 120, 40);
+  @include adaptiveValue('padding-bottom', 60, 30);
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: toRem(20);
+
+    @media (max-width: toEm(800)) {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    // flex: 0 1 50%;
+
+  }
+
+  &__form {
+    flex-grow: 1;
+  }
+}

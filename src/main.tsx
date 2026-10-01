@@ -3,6 +3,7 @@ import './index.css';
 import './shared/styles/index.scss';
 import App from './App.tsx';
 import StoreProvider from './app/providers/StoreProvider.tsx';
+import { AuthProvider } from './app/providers/AuthProvider.tsx';
 
 
 const appContainer = document.getElementById('root')
@@ -12,6 +13,8 @@ if (!appContainer) {
 
 createRoot(appContainer).render(
   <StoreProvider>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </StoreProvider>
 )

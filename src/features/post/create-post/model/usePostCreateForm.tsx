@@ -4,15 +4,14 @@ import { CreatePostPayload } from "@/entities/post/model/post-types";
 import { createPost } from "../api/createPost";
 import { validatePostForm } from "./validatePostForm";
 
+const initialState: PostFormValues = {
+  title: '',
+  imageUrl: '',
+  date: '',
+  category: '',
+}
 
 function usePostCreateForm() {
-
-  const initialState: PostFormValues = {
-    title: '',
-    imageUrl: '',
-    date: '',
-    category: '',
-  }
 
   const [formValues, setFormValues] = useState<PostFormValues>(initialState);
   const [postCreateStatus, setPostCreateStatus] = useState<RequestStatus>('idle');
@@ -48,8 +47,6 @@ function usePostCreateForm() {
       setPostCreateStatus('error')
       return
     }
-
-
 
     try {
       const payload: CreatePostPayload = {

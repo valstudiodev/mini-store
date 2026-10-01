@@ -23,6 +23,8 @@ function App(): React.JSX.Element {
     }
   }, [dispatch, hasLoaded]);
 
+
+
   return (
     <ToastProvider>
       <RouterProvider router={router} />

@@ -1,0 +1,122 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  color: var(--color-text-primary, #272727);
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  &__label {
+    color: var(--color-text-secondary, #4a4a4a);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 2.875rem;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border, #e1e1e1);
+    border-radius: 0.35rem;
+    background-color: var(--color-primary, #fff);
+    color: var(--color-text-primary, #272727);
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+
+    @include hover {
+      border-color: var(--color-border-hover, #d5d5d5);
+    }
+
+    &:focus-visible {
+      border-color: var(--color-accent, #72aec8);
+      outline: 0;
+      box-shadow: 0 0 0 3px rgb(114 174 200 / 22%);
+    }
+  }
+
+  &__btn,
+  &__btn-login,
+  &__btn-signup {
+    min-height: 2.75rem;
+    border: 0;
+    border-radius: 0.35rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-accent, #72aec8);
+      outline-offset: 3px;
+    }
+  }
+
+  &__btn--submit {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.7rem 1rem;
+    background-color: var(--color-button, #272727);
+    color: var(--color-primary, #fff);
+
+    @include hover {
+      background-color: var(--color-button-hover, #3a3a3a);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &__sign-up,
+  &__login {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem 0.4rem;
+    color: var(--color-text-secondary, #4a4a4a);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  &__btn-login,
+  &__btn-signup {
+    min-height: 2rem;
+    padding: 0.2rem 0.35rem;
+    background: transparent;
+    color: var(--color-info, #679bb5);
+
+    &:hover {
+      color: var(--color-info-hover, #568aa5);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+  }
+}
+
+@media (max-width: 30rem) {
+  .auth-form {
+    gap: 0.875rem;
+
+    &__input {
+      min-height: 3rem;
+    }
+
+    &__btn--submit {
+      min-height: 3rem;
+    }
+  }
+}

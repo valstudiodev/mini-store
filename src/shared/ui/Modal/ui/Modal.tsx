@@ -1,54 +1,78 @@
-import { ModalProps } from "../model/types";
-import { useEffect } from "react";
-import { ModalHeader, ModalContent, ModalCloseButton } from "./index";
+import { useEffect } from 'react'
+import '../model/modalStyles.scss'
 
-export default function Modal({ title, isOpen, onClose, className, children }: ModalProps): React.JSX.Element {
+import ModalHeader from './ModalHeader'
+import ModalContent from './ModalContent'
+import ModalCloseButton from './ModalCloseButton'
 
+import type { ModalProps } from '../model/types'
+
+export default function Modal({
+  title,
+  isOpen,
+  onClose,
+  className = '',
+  children,
+}: ModalProps): React.JSX.Element {
+  const modal = 'modal'
+
+  // Lock page scroll while modal is open
   useEffect(() => {
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
-
-    if (isOpen) {
-      document.body.classList.add('scroll-lock')
-      document.body.style.paddingRight = `${scrollBarWidth}px`
+    if (!isOpen) {
+      return
     }
 
-    return () => {
-      document.body.classList.remove('scroll-lock')
-      document.body.style.paddingRight = ''
-    };
-  }, [isOpen]);
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
 
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [isOpen])
+
+  // Close modal with Escape
   useEffect(() => {
+    if (!isOpen) {
+      return
+    }
+
     function handleKeyDown(e: KeyboardEvent): void {
       if (e.key === 'Escape') {
         onClose()
       }
     }
 
-    if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown)
-    }
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
-    };
-  }, [isOpen, onClose]);
+    }
+  }, [isOpen, onClose])
 
+  if (!isOpen) {
+    return <></>
+  }
 
   return (
     <>
-      {isOpen && (
-        <div className="overlay modal-overlay" onClick={onClose}>
-          <div className={className}
-            onClick={(e) => e.stopPropagation()}>
-            <ModalHeader title={title} />
-            <ModalContent>
-              {children}
-            </ModalContent>
-            <ModalCloseButton title="Close" onClick={onClose} />
-          </div>
-        </div>
-      )}
+      <div
+        className={`${modal}__overlay`}
+        onClick={onClose}
+      />
+
+      <div className={`${modal} ${className}`}>
+        <ModalHeader title={title} />
+
+        <ModalContent>
+          {children}
+        </ModalContent>
+
+        <ModalCloseButton
+          onClick={onClose}
+          ariaLabel='close modal window'
+          className={`${modal}__btn-close`}
+        />
+      </div>
     </>
   )
 }

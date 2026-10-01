@@ -1,0 +1,73 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.post-card {
+  width: 100%;
+  // overflow: hidden;
+  background-color: var(--color-primary, #fff);
+  color: var(--color-text-primary, #272727);
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 420 / 298;
+    // overflow: hidden;
+    background-color: var(--color-surface, #edf1f3);
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem 1.125rem 1.125rem;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: toRem(5);
+  }
+
+  &__date,
+  &__category {
+    text-transform: uppercase;
+    letter-spacing: toRem(0.78);
+    color: var(--color-text-muted);
+    @include adaptiveValue('font-size', 13, 11);
+    font-family: var(--font-secondary);
+  }
+
+  &__category {}
+
+  &__title {
+    margin: 0;
+    color: var(--color-text-primary, #272727);
+    @include adaptiveValue('font-size', 20, 18);
+    line-height: 1.44;
+    text-transform: uppercase;
+    font-family: var(--font-secondary);
+    overflow-wrap: anywhere;
+    letter-spacing: toRem(1.2);
+  }
+}
+
+@media (max-width: 30rem) {
+  .post-card {
+    &__content {
+      gap: 0.625rem;
+      padding: 0.875rem;
+    }
+
+    &__title {
+      font-size: 1rem;
+    }
+  }
+}

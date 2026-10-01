@@ -35,7 +35,7 @@ function ProductList({
     (product) => product.category === category
   )
 
-  if (productLoading) return <div className="text-center text-4xl">Loading...</div>
+  if (productLoading) return <div className="text-center text-4xl">Loading dfddfdf...</div>
 
   if (productError) {
     return (

@@ -1,14 +1,16 @@
 export interface ModalProps {
   title: string;
   isOpen: boolean;
-  className: string;
+  className?: string;
   onClose: () => void;
   children: React.ReactNode;
 }
 
 export interface ModalCloseButtonProps {
-  title: string;
+  title?: string;
   onClick: () => void;
+  ariaLabel?: string;
+  className?: string;
 }
 
 export interface ModalHeaderProps {

@@ -3,11 +3,13 @@ interface ButtonBaseProps {
   children: React.ReactNode;
   className?: string;
   to?: string;
+  onClick?: () => void;
 }
 
 function ButtonBase({
   className = '',
   children,
+  onClick,
   ...props
 }: ButtonBaseProps) {
   const classBtnBase = 'btn-base'
@@ -24,7 +26,7 @@ function ButtonBase({
       className={`${classBtnBase} ${baseStyles}`}
       type="button"
       {...props}
-
+      onClick={onClick}
     >
       {children}
     </button>

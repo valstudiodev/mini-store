@@ -22,7 +22,7 @@ function CreatePostForm({
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
 
   const loading = postCreateStatus === 'loading'
-  const errorStatus = postCreateStatus === 'error'
+  // const errorStatus = postCreateStatus === 'error'
 
 
   useEffect(() => {

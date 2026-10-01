@@ -1,0 +1,1 @@
+export { default as PostLIst } from '@/widgets/Post/PostLIst/ui/PostLIst'

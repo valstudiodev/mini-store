@@ -7,6 +7,7 @@ import Banner from '@/widgets/Banner/ui/Banner';
 import { SubscribeSection } from '@/widgets';
 import InstaLinks from '@/widgets/Insta-links/ui/InstaLinks';
 import AdvantagesSection from '@/widgets/AdvantageSection/ui/AdvantagesSection';
+import PostSection from '@/widgets/Post/PostSection/ui/PostSection';
 
 function HomePage(): React.JSX.Element {
   const classHomePage = 'home-page'
@@ -18,6 +19,7 @@ function HomePage(): React.JSX.Element {
       <MobileProducts />
       <SmartWatches />
       <Banner />
+      <PostSection />
       <SubscribeSection />
       <InstaLinks />
     </Section>

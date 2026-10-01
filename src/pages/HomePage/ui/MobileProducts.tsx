@@ -34,7 +34,6 @@ function MobileProducts({
             <ProductList category="phones" />
           </>
         )}
-
       </Container>
     </Section>
   );

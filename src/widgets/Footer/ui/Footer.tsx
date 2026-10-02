@@ -11,7 +11,7 @@ function Footer(): React.JSX.Element {
   return (
     <footer className={clFooter}>
       <Container className={`${clFooter}__container`}>
-        <div className={`${clFooter}__wrap`}>
+        <div className={`${clFooter}__body`}>
           <FooterBrand className={`${clFooter}__brand`} />
           <FooterMenu className={`${clFooter}__menu`} />
         </div>

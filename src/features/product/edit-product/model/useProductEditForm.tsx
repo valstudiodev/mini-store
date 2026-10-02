@@ -3,8 +3,8 @@ import { ProductEditFormValues } from "./productEdit.types";
 import { CreateProductPayload, Product, RequestStatus } from "@/entities/product/model/types";
 import { isProductColor } from "@/entities/product/model/isProductColor";
 import { isProductSize } from "@/entities/product/model/isProductSize";
-import { updateProduct } from "@/entities/product/model/productThunk";
 import { useAppDispatch } from "@/app/store/hooks";
+import { updateProduct } from "./updateProductThunk";
 
 interface UseProductEditFormProps {
   product: Product | null;

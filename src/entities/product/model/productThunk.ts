@@ -1,8 +1,7 @@
 
-
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { CreateProductPayload, Product } from "./types";
-import { deleteProductById, getProductById, getProducts, updateProductById } from "../api/productServise";
+import { Product } from "./types";
+import { getProductById, getProducts } from "../api/productServise";
 
 
 export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: string }>(
@@ -32,26 +31,3 @@ export const fetchProductById = createAsyncThunk<Product | null, { productId: st
   }
 )
 
-export const deleteProduct = createAsyncThunk<string, string, { rejectValue: string }>(
-  'products/deleteProduct',
-  async (productId, thunkApi) => {
-    try {
-      await deleteProductById(productId)
-      return productId
-    } catch (error) {
-      return thunkApi.rejectWithValue('Failed to delete product')
-    }
-  }
-)
-
-export const updateProduct = createAsyncThunk<Product, { productId: string, productData: CreateProductPayload }, { rejectValue: string }>(
-  'products/updateProduct',
-  async ({ productId, productData }, thunkApi) => {
-    try {
-      const updatedProduct = await updateProductById(productId, productData)
-      return updatedProduct
-    } catch (error) {
-      return thunkApi.rejectWithValue('Failed to update product')
-    }
-  }
-)

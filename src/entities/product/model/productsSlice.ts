@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductsState } from "./types";
-import { deleteProduct, fetchProductById, fetchProducts, updateProduct } from "./productThunk";
+import { fetchProductById, fetchProducts } from "./productThunk";
+import { deleteProduct } from "@/features/product/delete-product/model/delete-product";
+import { updateProduct } from "@/features/product/edit-product/model/updateProductThunk";
 
 const initialState: ProductsState = {
   products: [],

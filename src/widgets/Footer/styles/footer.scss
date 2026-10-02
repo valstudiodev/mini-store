@@ -3,15 +3,16 @@
 @use '@/shared/styles/themes/lightTheme' as *;
 
 .footer {
-  @include adaptiveValue('padding-bottom', 80, 30);
+
   @include adaptiveValue('padding-top', 50, 20);
 
   &__container {}
 
-  &__wrap {
+  &__body {
     display: flex;
     align-items: center;
     @include adaptiveValue('gap', 140, 30);
+    @include adaptiveValue('padding-bottom', 80, 30);
 
     @media (max-width: toEm(990)) {
       flex-direction: column;

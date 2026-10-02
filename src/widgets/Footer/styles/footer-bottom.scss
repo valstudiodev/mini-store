@@ -4,17 +4,34 @@
 @use '@/shared/styles/mixins/grid' as *;
 
 .footer-bottom {
-  &__info {}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include adaptiveValue('gap', 30, 10);
+  @include adaptiveValue('padding-block', 20, 10);
+  border-top: toRem(1) solid var(--color-border);
 
-  &__ship {}
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include adaptiveValue('gap', 10, 5);
+  }
+
+  &__item {}
 
   &__title {}
 
-  &__logo {}
+  &__icon {
+    color: var(--color-icon);
+  }
 
-  &__payment {}
+  &__column {
+    display: flex;
+  }
 
   &__copyright {}
 
   &__copyright-text {}
+
 }

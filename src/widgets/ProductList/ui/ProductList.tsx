@@ -5,17 +5,23 @@ import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
 import { ProductCategoryProps } from "@/entities/product/model/types";
 import { addToCart } from "@/entities/cart/model/cartSlice";
-import { deleteProduct } from "@/entities/product/model/productThunk";
+import { deleteProduct } from "@/features/product/delete-product/model/delete-product";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { Link } from "react-router";
 import { routeMap } from "@/app/routes/routeMap";
+import useRole from "@/shared/config/auth/useRole";
+import { SpinnerDefault } from "@/shared/ui";
+import DeleteButton from "@/features/product/delete-product/ui/DeleteButton";
+import UpdateButton from "@/features/product/edit-product/ui/UpdateButton";
 
 
 function ProductList({
   category
 }: ProductCategoryProps): React.JSX.Element {
   const productList = 'product-list'
+
+  const { hasRole } = useRole()
 
   const products = useAppSelector(selectProducts)
   const productLoading = useAppSelector(selectProductloading)
@@ -35,7 +41,7 @@ function ProductList({
     (product) => product.category === category
   )
 
-  if (productLoading) return <div className="text-center text-4xl">Loading dfddfdf...</div>
+  if (productLoading) return <SpinnerDefault />
 
   if (productError) {
     return (
@@ -57,7 +63,6 @@ function ProductList({
 
     }
   }
-
 
   return (
     <Swiper
@@ -87,7 +92,9 @@ function ProductList({
       className={`${productList}__swiper`}>
       <ul className={productList}>
         {filteredProducts.map((product) => (
-          <li className={`${productList}__item`}>
+          <li
+            key={product.id}
+            className={`${productList}__item`}>
             <SwiperSlide>
               <ProductCard
                 product={product}
@@ -96,20 +103,28 @@ function ProductList({
                     className={`${productList}__btn-add`}
                     onClick={() => handleAddToCart(product.id)}
                   />,
-                  <div className='actions-wrap flex 
-                  items-center justify-between gap-3'>
-                    <button
-                      type="button"
-                      onClick={() => handleDelete(product.id)}
-                    >
-                      Delete
-                    </button>
-                    <Link
-                      to={routeMap.productEdit.navigate(product.id)}
-                    >
-                      Edit
-                    </Link>
-                  </div>,
+                  <>
+                    {hasRole('admin') && (
+                      <div className='actions-wrap flex 
+                        items-center justify-between gap-3'>
+                        <DeleteButton
+                          onClick={() => handleDelete(product.id)}
+                        >
+                          Delete
+                        </DeleteButton>
+                        {/* <Link
+                          to={routeMap.productEdit.navigate(product.id)}
+                        >
+                          Edit
+                        </Link> */}
+                        <UpdateButton
+                          to={routeMap.productEdit.navigate(product.id)}
+                        >
+                          Edit
+                        </UpdateButton>
+                      </div>
+                    )}
+                  </>
                 ]}
               />
             </SwiperSlide>

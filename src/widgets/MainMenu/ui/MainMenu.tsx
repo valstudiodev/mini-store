@@ -8,20 +8,21 @@ import { useEffect, useState } from 'react';
 import MobileMenu from '@/shared/ui/BurgerButton/ui/MobileMenu';
 import Logo from '@/shared/typography/Logo/Logo';
 import { routeMap } from '@/app/routes/routeMap';
-// import LinkButton from '@/shared/ui/LinkButton/ui/LInkButton';
 import { useAppSelector } from '@/app/store/hooks';
 import { selectCartTotalQuantity } from '@/entities/cart/model/cartSelector';
 import { MenuRoute } from '@/app/routes/route-types';
 import AuthModal from '@/widgets/Authorization/AuthModal/ui/AuthModal';
 import { useAuth } from '@/app/providers/useAuth';
 import { logout } from '@/features/auth/logout/model/logout';
-import { LogOut } from "lucide-react";
-
+import { LogOut, UserShield } from "lucide-react";
+import useRole from '@/shared/config/auth/useRole';
 
 function MainMenu({
   className = ''
 }: MainMenuProps): React.JSX.Element {
   const classMainMenu = 'main-menu'
+
+  const { hasRole } = useRole()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -29,7 +30,8 @@ function MainMenu({
 
   const totalQuantity = useAppSelector(selectCartTotalQuantity)
 
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
+  console.log('AUTH USER:', user)
 
   useEffect(() => {
     document.documentElement.dataset.menuOpen = String(isMenuOpen)
@@ -49,6 +51,10 @@ function MainMenu({
 
   const closeMenu = (): void => {
     setIsMenuOpen(false)
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
   }
 
   return (
@@ -115,6 +121,16 @@ function MainMenu({
           </ButtonBase>
           <span>({totalQuantity})</span>
         </Link>
+
+        {hasRole('admin') && (
+          <Link
+            to={routeMap.admin.path}
+          >
+            <span>
+              <UserShield size={22} />
+            </span>
+          </Link>
+        )}
       </div>
 
 

@@ -5,9 +5,11 @@ import type { User } from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth'
 
 import { auth } from '@/shared/config/firebase/firebase-config'
+import { AuthUser } from '@/shared/types/Role'
+import { createAuthUser } from '@/features/auth/model/createAuthUser'
 
 interface AuthContextValue {
-  user: User | null
+  user: AuthUser | null
   loading: boolean
 }
 
@@ -20,13 +22,20 @@ interface AuthProviderProps {
 export function AuthProvider({
   children,
 }: AuthProviderProps): React.JSX.Element {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<AuthUser | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     // Firebase повідомляє про login/logout та відновлення session.
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser === null) {
+        setUser(null)
+      }
+      else {
+        const authUser = createAuthUser(firebaseUser)
+        setUser(authUser)
+      }
+
       setLoading(false)
     })
 

@@ -30,7 +30,11 @@ function FooterBottom(): React.JSX.Element {
         ))}
       </div>
 
-      <div className={`${footerBottom}__column`}></div>
+      <div className={`${footerBottom}__copyright`}>
+        <p className={`${footerBottom}__copyright-text`}>
+          © Copyright 2023 MiniStore. Design by <span>TemplatesJungle</span>
+        </p>
+      </div>
 
     </div>
   );

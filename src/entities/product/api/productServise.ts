@@ -1,15 +1,6 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore"
-import { CreateProductPayload, Product } from "../model/types"
+import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { Product } from "../model/types"
 import db from "@/shared/config/firebase/firebase-config"
-
-
-export async function createProduct(productData: CreateProductPayload): Promise<string> {
-  const productsCollection = collection(db, 'products')
-
-  const docRef = await addDoc(productsCollection, productData)
-
-  return docRef.id
-}
 
 export async function getProducts(): Promise<Product[]> {
   const productsCollection = collection(db, 'products')
@@ -46,19 +37,5 @@ export async function getProductById(productId: string): Promise<Product | null>
   }
 }
 
-export async function deleteProductById(productId: string): Promise<void> {
-  const productDocRef = doc(db, 'products', productId)
 
-  await deleteDoc(productDocRef)
-}
 
-export async function updateProductById(productId: string, productData: CreateProductPayload): Promise<Product> {
-  const productDocRef = doc(db, 'products', productId)
-
-  await updateDoc(productDocRef, { ...productData })
-
-  return {
-    id: productId,
-    ...productData
-  }
-}

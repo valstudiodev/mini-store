@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ProductCreateStatus, ProductFormValues } from "./types";
-import { createProduct } from "@/entities/product/api/productServise";
 import { CreateProductPayload } from "@/entities/product/model/types";
 import { isProductColor } from "@/entities/product/model/isProductColor";
 import { isProductSize } from "@/entities/product/model/isProductSize";
+import { createProduct } from "../api/createProductService";
 
 
 function useProductCreateForm() {

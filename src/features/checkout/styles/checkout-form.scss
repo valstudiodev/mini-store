@@ -1,0 +1,30 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.checkout-form {
+  display: flex;
+  align-items: flex-start;
+  @include adaptiveValue('gap', 30, 15);
+  @include adaptiveValue('padding-block', 120, 40);
+
+  &__section {
+    flex: 0 1 50%;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include adaptiveValue('gap', 30, 15);
+  }
+
+  &__title {
+    @include adaptiveValue('font-size', 30, 24);
+    line-height: 1.14;
+    text-transform: uppercase;
+    letter-spacing: toRem(1.8);
+    font-family: var(--font-secondary);
+    @include adaptiveValue('margin-bottom', 30, 15);
+  }
+}

@@ -4,14 +4,12 @@
 
 .post-card {
   width: 100%;
-  // overflow: hidden;
   background-color: var(--color-primary, #fff);
   color: var(--color-text-primary, #272727);
 
   &__image {
     width: 100%;
     aspect-ratio: 420 / 298;
-    // overflow: hidden;
     background-color: var(--color-surface, #edf1f3);
 
     img {

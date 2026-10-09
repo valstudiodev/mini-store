@@ -3,6 +3,7 @@ import {
   LazyAboutPage,
   LazyAdminComments,
   LazyAdminDashboard,
+  LazyAdminLayout,
   LazyAdminPosts,
   LazyAdminProducts,
   LazyBlogPage,
@@ -21,8 +22,8 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "@/widgets/MainLayout/ui/MainLayout";
 import ErrorPage from "@/pages/ErrorPage/ui/ErrorPage";
 import { routeMap } from "./routeMap";
-import { AdminLayout } from "@/widgets/Admin";
 import { SpinnerDefault } from "@/shared/ui";
+import ProtectedRoute from "@/widgets/Auth/ProtectedRoute/ui/ProtectedRoute";
 
 
 export const routes = [
@@ -62,8 +63,8 @@ export const routes = [
           breadcrumbs: true,
         },
         handle: {
-          breadcrumb: 'About',
-          title: 'About',
+          breadcrumb: 'breadcrumbs.about',
+          title: 'titles.about',
         }
       },
       {
@@ -97,38 +98,47 @@ export const routes = [
               title: 'Shop',
             },
             handle: {
-              breadcrumb: 'Shop',
-              title: 'Shop',
+              breadcrumb: 'breadcrumbs.shop',
+              title: 'titles.shop',
             },
           },
           {
             path: routeMap.cart.path,
             id: 'cart',
             element: (
-              <Suspense fallback={<SpinnerDefault size="large" />}>
-                <LazyCartPage />
-              </Suspense>
+              <ProtectedRoute requiresAuth allowedRoles={['admin', 'user']}>
+                <Suspense fallback={<SpinnerDefault size="large" />}>
+                  <LazyCartPage />
+                </Suspense>
+              </ProtectedRoute>
+
             ),
             meta: {
               isInMenu: false,
               title: 'Cart',
             },
             handle: {
-              breadcrumb: 'Cart',
-              title: 'Cart'
+              breadcrumb: 'breadcrumbs.cart',
+              title: 'titles.cart'
             }
           },
           {
             path: routeMap.checkout.path,
             id: 'checkout',
             element: (
-              <Suspense fallback={<SpinnerDefault size="large" />}>
-                <LazyCheckoutPage />
-              </Suspense>
+              <ProtectedRoute requiresAuth allowedRoles={['user', 'admin']}>
+                <Suspense fallback={<SpinnerDefault size="large" />}>
+                  <LazyCheckoutPage />
+                </Suspense>
+              </ProtectedRoute>
             ),
             meta: {
               isInMenu: false,
-              title: 'Checkout'
+              title: 'Checkout',
+            },
+            handle: {
+              breadcrumb: 'breadcrumbs.checkout',
+              title: 'titles.checkout'
             }
           }
         ]
@@ -161,8 +171,8 @@ export const routes = [
           breadcrumbs: true,
         },
         handle: {
-          breadcrumb: 'Blog',
-          title: 'Blog'
+          breadcrumb: 'breadcrumbs.blog',
+          title: 'titles.blog'
         }
       },
       {
@@ -193,8 +203,8 @@ export const routes = [
           breadcrumbs: true,
         },
         handle: {
-          breadcrumb: 'Contacts',
-          title: 'Contacts'
+          breadcrumb: 'breadcrumbs.contacts',
+          title: 'titles.contacts'
         }
       },
       {
@@ -230,7 +240,13 @@ export const routes = [
   },
   {
     path: 'admin',
-    Component: AdminLayout,
+    element: (
+      <ProtectedRoute requiresAuth allowedRoles={['admin']}>
+        <Suspense>
+          <LazyAdminLayout />
+        </Suspense>
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -272,6 +288,8 @@ export const routes = [
     ]
   }
 ]
+
+
 
 const router = createBrowserRouter(routes, {
   basename: import.meta.env.BASE_URL.replace(/\/$/, ''),

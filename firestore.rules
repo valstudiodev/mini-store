@@ -1,0 +1,33 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+
+      // User can read only their own document.
+      allow read: if
+        request.auth != null
+        &&
+        request.auth.uid == userId;
+
+      // User can create only their own document
+      // and only with the "user" role.
+      allow create: if
+        request.auth != null
+        &&
+        request.auth.uid == userId
+        &&
+        request.resource.data.role == "user";
+
+      // User can update their own document,
+      // but cannot change their role.
+      allow update: if
+        request.auth != null
+        &&
+        request.auth.uid == userId
+        &&
+        request.resource.data.role == resource.data.role;
+    }
+  }
+}

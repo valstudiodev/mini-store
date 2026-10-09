@@ -1,1 +1,0 @@
-export const TEMP_ADMIN_EMAIL = 'tkachenko6591@gmail.com'

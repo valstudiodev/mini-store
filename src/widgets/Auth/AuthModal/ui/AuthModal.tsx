@@ -1,6 +1,6 @@
 import { Modal } from "@/shared/ui";
 import { useState } from "react";
-import { AuthFormValues, AuthModalProps, ModeType, RequestStatus } from "../model/auth-modal.types";
+import { AuthFormValues, ModeType, RequestStatus } from "../model/auth-modal.types";
 import '../styles/auth-modal.scss';
 import AuthForm from "../../AuthForm/ui/AuthForm";
 import { login } from "@/features/auth/login/model/login";
@@ -8,6 +8,9 @@ import { signUp } from "@/features/auth/signup/model/signup";
 import { FirebaseError } from "firebase/app";
 import getAuthErrorMessage from "../../AuthMessage/ui/getAuthErrorMessage";
 import { googleSignIn } from "@/features/auth/google/model/googleSignIn";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { selectIsAuthModalOpen } from "@/features/auth/model/authSelector";
+import { closeAuthModal } from "@/features/auth/model/authModalSlice";
 
 const initialValues: AuthFormValues = {
   email: '',
@@ -15,10 +18,7 @@ const initialValues: AuthFormValues = {
   confirmPassword: '',
 }
 
-function AuthModal({
-  isOpen,
-  onClose
-}: AuthModalProps) {
+function AuthModal() {
   const authModal = 'auth-modal'
 
   const [mode, setMode] = useState<ModeType>('login');
@@ -26,6 +26,9 @@ function AuthModal({
 
   const [status, setStatus] = useState<RequestStatus>('idle');
   const [error, setError] = useState<string | null>(null);
+
+  const dispatch = useAppDispatch()
+  const isOpen = useAppSelector(selectIsAuthModalOpen)
 
   const isLogin = mode === 'login'
   const isSignUp = mode === 'signup'
@@ -94,7 +97,7 @@ function AuthModal({
     setFormValues(initialValues)
     setStatus('idle')
     setError(null)
-    onClose()
+    dispatch(closeAuthModal())
   }
 
   const handleGoogleSignIn = async (): Promise<void> => {

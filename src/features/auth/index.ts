@@ -1,0 +1,1 @@
+export { default as subscribeToAuthState } from '@/features/auth/api/authApi'

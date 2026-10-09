@@ -35,7 +35,7 @@
   &:not(:disabled) {
     @include hover {
       border-color: var(--color-border-hover, #d5d5d5);
-      background-color: #fafafa;
+      background-color: var(--color-surface);
       box-shadow: 0 3px 10px rgb(39 39 39 / 8%);
       transform: translateY(-1px);
     }

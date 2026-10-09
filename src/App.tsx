@@ -7,11 +7,11 @@ import { useAppDispatch, useAppSelector } from "./app/store/hooks";
 import { selectHasLoaded } from "./entities/product/model/productSelector";
 import { useEffect } from "react";
 import { fetchProducts } from "./entities/product/model/productThunk";
+import ThemeProvider from "./app/providers/theme/ThemeProvider";
 
 function App(): React.JSX.Element {
 
   useInputDetection()
-
 
   const dispatch = useAppDispatch()
 
@@ -23,12 +23,12 @@ function App(): React.JSX.Element {
     }
   }, [dispatch, hasLoaded]);
 
-
-
   return (
     <ToastProvider>
-      <RouterProvider router={router} />
-      <Toast />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+        <Toast />
+      </ThemeProvider>
     </ToastProvider>
   )
 }

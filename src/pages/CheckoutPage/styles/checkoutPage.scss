@@ -1,1 +1,20 @@
 @use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.checkout-page {
+
+  &__container {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: toRem(20);
+  }
+
+  &__wrapper {
+    flex: 0 1 50%;
+  }
+
+  &__info {
+    flex: 0 1 50%;
+  }
+}

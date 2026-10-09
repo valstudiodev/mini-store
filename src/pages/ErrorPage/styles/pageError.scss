@@ -1,0 +1,137 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.error-page {
+  display: grid;
+  min-height: clamp(28rem, 62vh, 42rem);
+  place-items: center;
+  padding: clamp(1.5rem, 5vw, 4rem) 1rem;
+  color: var(--color-text-primary);
+
+  &__panel {
+    display: grid;
+    width: min(100%, 52rem);
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-error);
+    border-radius: 0.75rem;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    background-color: var(--color-primary);
+    box-shadow: 0 1.25rem 3.5rem rgb(0 0 0 / 8%);
+  }
+
+  &__indicator {
+    display: grid;
+    width: clamp(3.5rem, 10vw, 5rem);
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 1rem;
+    background-color: color-mix(in srgb, var(--color-error) 12%, var(--color-primary));
+    color: var(--color-error);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__label {
+    margin: 0 0 0.75rem;
+    color: var(--color-error);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.12;
+  }
+
+  &__description {
+    max-width: 34rem;
+    margin: 1rem 0 0;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  &__action {
+    display: inline-flex;
+    min-height: 2.875rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.125rem;
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    &--primary {
+      background-color: var(--color-button);
+      color: var(--color-primary);
+
+      @include hover {
+        background-color: var(--color-button-hover);
+      }
+    }
+
+    &--secondary {
+      border-color: var(--color-border);
+      background-color: var(--color-primary);
+      color: var(--color-text-primary);
+
+      @include hover {
+        border-color: var(--color-border-hover);
+        background-color: var(--color-surface);
+      }
+    }
+  }
+}
+
+@media (max-width: 34rem) {
+  .error-page {
+    min-height: 24rem;
+    align-items: start;
+    padding-top: clamp(2rem, 12vh, 5rem);
+
+    &__panel {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      padding: 1.5rem;
+    }
+
+    &__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}

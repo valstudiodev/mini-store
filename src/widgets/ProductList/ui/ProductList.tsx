@@ -8,12 +8,11 @@ import { addToCart } from "@/entities/cart/model/cartSlice";
 import { deleteProduct } from "@/features/product/delete-product/model/delete-product";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import { Link } from "react-router";
 import { routeMap } from "@/app/routes/routeMap";
-import useRole from "@/shared/config/auth/useRole";
 import { SpinnerDefault } from "@/shared/ui";
 import DeleteButton from "@/features/product/delete-product/ui/DeleteButton";
 import UpdateButton from "@/features/product/edit-product/ui/UpdateButton";
+import { selectAuthUser } from "@/features/auth/model/authSelector";
 
 
 function ProductList({
@@ -21,12 +20,14 @@ function ProductList({
 }: ProductCategoryProps): React.JSX.Element {
   const productList = 'product-list'
 
-  const { hasRole } = useRole()
-
   const products = useAppSelector(selectProducts)
   const productLoading = useAppSelector(selectProductloading)
   const productError = useAppSelector(selectProductError)
   const hasLoaded = useAppSelector(selectHasLoaded)
+  const user = useAppSelector(selectAuthUser)
+
+  const isAdmin = user?.role === 'admin'
+  const isAuthenticated = user !== null
 
   const dispatch = useAppDispatch()
 
@@ -99,12 +100,17 @@ function ProductList({
               <ProductCard
                 product={product}
                 actions={[
-                  <AddToCartButton
-                    className={`${productList}__btn-add`}
-                    onClick={() => handleAddToCart(product.id)}
-                  />,
-                  <>
-                    {hasRole('admin') && (
+                  ...(isAuthenticated
+                    ? [
+                      <AddToCartButton
+                        className={`${productList}__btn-add`}
+                        onClick={() => handleAddToCart(product.id)}
+                      />,
+                    ]
+                    : []),
+
+                  ...(isAdmin
+                    ? [
                       <div className='actions-wrap flex 
                         items-center justify-between gap-3'>
                         <DeleteButton
@@ -112,26 +118,21 @@ function ProductList({
                         >
                           Delete
                         </DeleteButton>
-                        {/* <Link
-                          to={routeMap.productEdit.navigate(product.id)}
-                        >
-                          Edit
-                        </Link> */}
                         <UpdateButton
                           to={routeMap.productEdit.navigate(product.id)}
                         >
                           Edit
                         </UpdateButton>
                       </div>
-                    )}
-                  </>
+                    ]
+                    : [])
                 ]}
               />
             </SwiperSlide>
           </li>
         ))}
       </ul>
-    </Swiper>
+    </Swiper >
   );
 }
 

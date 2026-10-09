@@ -17,6 +17,7 @@ export const LazyShopPage = lazy(() => import('@/pages/ShopPage/ui/ShopPage'));
 
 
 // admin
+export const LazyAdminLayout = lazy(() => import('@/widgets/Admin/AdminLayout/ui/AdminLayout'));
 export const LazyAdminDashboard = lazy(() => import('@/pages/Admin/AdminDashboard/AdminDashboard'));
 export const LazyAdminProducts = lazy(() => import('@/pages/Admin/AdminProducts/AdminProducts'));
 export const LazyAdminPosts = lazy(() => import('@/pages/Admin/AdminPosts/AdminPosts'));

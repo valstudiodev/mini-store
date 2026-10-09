@@ -1,5 +1,7 @@
 import { Link, UIMatch, useMatches } from 'react-router';
 import '../styles/breadcrumbs.scss';
+import { Title } from '@/shared/typography';
+import { useTranslation } from 'react-i18next';
 
 
 export interface RouteMeta {
@@ -16,9 +18,10 @@ function useAppMatches(): UIMatch<unknown, RouteHandle>[] {
   return useMatches() as UIMatch<unknown, RouteHandle>[];
 }
 
-
 function Breadcrumbs(): React.JSX.Element | null {
   const breadcrumbs = 'breadcrumbs';
+
+  const { t } = useTranslation()
 
   const matches = useAppMatches();
   const currentMatch = matches[matches.length - 1];
@@ -31,15 +34,18 @@ function Breadcrumbs(): React.JSX.Element | null {
 
   const currentTitle = currentMatch.handle?.title
 
-  if (!currentPage) {
+  if (!currentPage || !currentTitle) {
     return null;
   }
 
   return (
     <article className={`${breadcrumbs}`}>
-      <h1 className={`${breadcrumbs}__title`}>
-        {currentTitle}
-      </h1>
+      <Title
+        className={`${breadcrumbs}__title`}
+        as='h1'
+      >
+        {t(currentTitle)}
+      </Title>
       <nav
         aria-label="Breadcrumb"
         className={`${breadcrumbs}__nav`}
@@ -49,7 +55,7 @@ function Breadcrumbs(): React.JSX.Element | null {
             <Link
               className={`${breadcrumbs}__link`}
               to="/">
-              Home
+              {t('breadcrumbs.home')}
             </Link>
           </li>
 
@@ -59,7 +65,7 @@ function Breadcrumbs(): React.JSX.Element | null {
             <span
               className={`${breadcrumbs}__active`}
               aria-current="page">
-              {currentPage}
+              {t(currentPage)}
             </span>
           </li>
         </ul>

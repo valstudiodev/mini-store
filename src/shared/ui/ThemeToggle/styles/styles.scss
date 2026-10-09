@@ -1,0 +1,13 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.theme-toggle {
+  color: var(--color-text-primary);
+  background-color: var(--color-primary);
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+}

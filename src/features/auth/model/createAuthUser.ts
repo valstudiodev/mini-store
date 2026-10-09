@@ -1,14 +1,15 @@
-import { TEMP_ADMIN_EMAIL } from "@/shared/config/auth/authConfig";
 import { AuthUser, Role } from "@/shared/types/Role";
 import { User } from "firebase/auth";
 
 
-export function createAuthUser(firebaseUser: User): AuthUser {
+export async function createAuthUser(firebaseUser: User): Promise<AuthUser> {
   const uid = firebaseUser.uid
 
   const email = firebaseUser.email ?? ''
 
-  const role: Role = email === TEMP_ADMIN_EMAIL ? 'admin' : 'user'
+  const tokenResult = await firebaseUser.getIdTokenResult(true)
+
+  const role: Role = tokenResult.claims.role === 'admin' ? 'admin' : 'user'
 
   return {
     uid,

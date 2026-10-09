@@ -2,36 +2,35 @@ import { routes } from '@/app/routes/routes';
 import '../styles/mainMenu.scss';
 import { Link, NavLink } from 'react-router';
 import { MainMenuProps } from '../model/mainMenuTypes';
-import { Search, User, ShoppingCart } from "lucide-react";
+import { Search, User, ShoppingCart, SunMoon } from "lucide-react";
 import ButtonBase from '@/shared/ui/ButtonBase/ui/ButtonBase';
 import { useEffect, useState } from 'react';
 import MobileMenu from '@/shared/ui/BurgerButton/ui/MobileMenu';
 import Logo from '@/shared/typography/Logo/Logo';
 import { routeMap } from '@/app/routes/routeMap';
-import { useAppSelector } from '@/app/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { selectCartTotalQuantity } from '@/entities/cart/model/cartSelector';
 import { MenuRoute } from '@/app/routes/route-types';
-import AuthModal from '@/widgets/Authorization/AuthModal/ui/AuthModal';
-import { useAuth } from '@/app/providers/useAuth';
+import AuthModal from '@/widgets/Auth/AuthModal/ui/AuthModal';
 import { logout } from '@/features/auth/logout/model/logout';
 import { LogOut, UserShield } from "lucide-react";
-import useRole from '@/shared/config/auth/useRole';
+import { selectAuthInitialized, selectAuthUser } from '@/features/auth/model/authSelector';
+import { openAuthModal } from '@/features/auth/model/authModalSlice';
+import ThemeToggle from '@/shared/ui/ThemeToggle/ui/ThemeToggle';
 
 function MainMenu({
   className = ''
 }: MainMenuProps): React.JSX.Element {
   const classMainMenu = 'main-menu'
 
-  const { hasRole } = useRole()
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+  const dispatch = useAppDispatch()
 
   const totalQuantity = useAppSelector(selectCartTotalQuantity)
 
-  const { user, loading } = useAuth()
-  console.log('AUTH USER:', user)
+  const user = useAppSelector(selectAuthUser)
+  const initialized = useAppSelector(selectAuthInitialized)
 
   useEffect(() => {
     document.documentElement.dataset.menuOpen = String(isMenuOpen)
@@ -53,8 +52,8 @@ function MainMenu({
     setIsMenuOpen(false)
   }
 
-  if (loading) {
-    return <div>Loading...</div>
+  if (!initialized) {
+    return <div>LOADING MAIN MENU...</div>
   }
 
   return (
@@ -101,7 +100,7 @@ function MainMenu({
         ) : (
           <>
             <ButtonBase
-              onClick={() => setIsAuthModalOpen(true)}
+              onClick={() => dispatch(openAuthModal())}
             >
               <User
                 className={`${classMainMenu}__icon`}
@@ -122,15 +121,23 @@ function MainMenu({
           <span>({totalQuantity})</span>
         </Link>
 
-        {hasRole('admin') && (
-          <Link
-            to={routeMap.admin.path}
-          >
-            <span>
-              <UserShield size={22} />
-            </span>
-          </Link>
-        )}
+        <Link
+          to={routeMap.admin.path}
+        >
+          <span>
+            <UserShield size={22} />
+          </span>
+        </Link>
+
+        <ThemeToggle
+          title="Switch theme"
+          className="cursor-pointer
+        rounded-full p-2"
+        >
+          <SunMoon
+            size={30}
+          />
+        </ThemeToggle>
       </div>
 
 
@@ -139,10 +146,7 @@ function MainMenu({
         onToggle={toggleMenu}
       />
 
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-      />
+      <AuthModal />
     </nav>
   );
 }

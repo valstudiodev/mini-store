@@ -1,0 +1,19 @@
+{
+  "breadcrumbs": {
+    "home": "Home",
+    "about": "About",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contacts": "Contacts",
+    "checkout": "Checkout",
+    "cart": "Cart"
+  },
+  "titles": {
+    "about": "About",
+    "shop": "Shop",
+    "blog": "Blog",
+    "contacts": "Contacts",
+    "checkout": "Checkout",
+    "cart": "Cart"
+  }
+}

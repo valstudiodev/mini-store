@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import ContactHeader from "../../ContactsHeader/ui/ContactHeader";
 import { ContactsFormData, RequestStatusType } from "../model/contacts-form.types"
-import { getFormValue } from "../model/getFormValue"
+// import { getFormValue } from "../model/getFormValue"
 import '../styles/contacts-form.scss';
 import Message from "@/shared/ui/Message/ui/Message";
 import { createContact } from "@/entities/contact/api/contactServise";
+import { useForm } from "react-hook-form";
+import { emailRules, messageRules, nameRules, phoneRules } from "@/entities/contact/model/validation";
 
 function ContactsForm({
   className = ''
@@ -13,33 +15,25 @@ function ContactsForm({
 
   const [status, setStatus] = useState<RequestStatusType>('idle');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<ContactsFormData>()
+  console.log(errors)
+
+  const onSubmit = async (data: ContactsFormData): Promise<void> => {
 
     setStatus('loading')
-
-    const form = e.currentTarget
-
-    const formData = new FormData(form)
-
-    const data: ContactsFormData = {
-      name: getFormValue(formData, 'name'),
-      email: getFormValue(formData, 'email'),
-      phone: getFormValue(formData, 'phone'),
-      subject: getFormValue(formData, 'subject'),
-      message: getFormValue(formData, 'message'),
-    }
 
     try {
       await createContact(data)
       setStatus('success')
-      form.reset()
+      reset()
     } catch (error) {
       setStatus('error')
     }
-
-    console.log(data);
-
   }
 
   useEffect(() => {
@@ -63,60 +57,67 @@ function ContactsForm({
       />
       <form
         className={`${contactsForm}__form`}
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className={`${contactsForm}__wrap`}>
           <label className={`${contactsForm}__field`}>
             <input
-              name="name"
-              className={`${contactsForm}__input`}
-              type="text"
               placeholder="Your full name *"
-              required
-              minLength={2}
+              type="text"
+              id="name"
+              {...register('name', nameRules)}
             />
+            {errors.name && <p className='text-red-700'>{errors.name.message}</p>}
           </label>
 
           <label className={`${contactsForm}__field`}>
             <input
-              name="email"
               className={`${contactsForm}__input`}
               type="email"
               placeholder="Write your email here *"
-              required
+              id="email"
+              {...register('email', emailRules)}
             />
+            {errors.email && <p className='text-red-700'>{errors.email.message}</p>}
           </label>
         </div>
 
         <label className={`${contactsForm}__field`}>
           <input
-            name="phone"
             className={`${contactsForm}__input`}
             type="tel"
             placeholder="Phone number"
-            required
-            pattern="^\+?[0-9\s()-]{10,20}$"
+            {...register('phone', phoneRules)}
           />
+          {errors.phone && <p className='text-red-700'>{errors.phone.message}</p>}
         </label>
 
         <label className={`${contactsForm}__field`}>
           <input
-            name="subject"
             className={`${contactsForm}__input`}
             type="text"
             placeholder="Write your subject here"
-            required
             minLength={10}
+            {...register('subject', {
+              required: 'The subject text is nesessary!',
+              minLength: {
+                value: 10,
+                message: 'The subject text is too short!'
+              }
+            })}
           />
+          {errors.subject && <p className='text-red-700'>{errors.subject.message}</p>}
         </label>
 
-        <textarea
-          name="message"
-          className={`${contactsForm}__textarea`}
-          placeholder="Write your message here *"
-          required
-          minLength={15}
-        />
+        <div>
+          <textarea
+            className={`${contactsForm}__textarea`}
+            placeholder="Write your message here *"
+            {...register('message', messageRules)}
+          />
+          {errors.message && <p className='text-red-700'>{errors.message.message}</p>}
+        </div>
+
 
         <button
           type="submit"

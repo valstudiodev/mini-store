@@ -1,9 +1,10 @@
 import { createRoot } from 'react-dom/client';
+import "@/app/i18n/i18n.ts";
 import './index.css';
 import './shared/styles/index.scss';
 import App from './App.tsx';
 import StoreProvider from './app/providers/StoreProvider.tsx';
-import { AuthProvider } from './app/providers/AuthProvider.tsx';
+import InitAuth from './app/auth/InitAuth.tsx';
 
 
 const appContainer = document.getElementById('root')
@@ -13,8 +14,8 @@ if (!appContainer) {
 
 createRoot(appContainer).render(
   <StoreProvider>
-    <AuthProvider>
+    <InitAuth>
       <App />
-    </AuthProvider>
+    </InitAuth>
   </StoreProvider>
 )

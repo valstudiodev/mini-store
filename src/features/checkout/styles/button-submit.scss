@@ -1,0 +1,24 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.button-submit {
+  background-color: var(--color-button);
+  padding-block: toRem(16);
+  padding-inline: toRem(50);
+  text-transform: uppercase;
+  line-height: 1.48;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: toRem(1.4);
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  @include hover {
+    background-color: var(--color-button-hover);
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

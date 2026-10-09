@@ -34,6 +34,10 @@
     flex-direction: column;
     gap: toRem(20);
     align-items: flex-start;
+
+    @media (max-width: toEm(768)) {
+      width: 100%;
+    }
   }
 
   &__title {

@@ -16,6 +16,7 @@
     letter-spacing: 1.8px;
     line-height: 1.14;
     font-family: var(--font-secondary);
+    color: var(--color-text-primary);
   }
 
   &__link {
@@ -24,6 +25,7 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1.4px;
+    color: var(--color-text-muted);
     border-bottom: toRem(3) solid var(--color-border);
     padding-bottom: toRem(2);
     transition: color 0.3s, border-color 0.3s;

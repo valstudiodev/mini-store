@@ -1,7 +1,4 @@
-
-
 import { createContext, useEffect, useState } from 'react'
-import type { User } from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth'
 
 import { auth } from '@/shared/config/firebase/firebase-config'
@@ -27,12 +24,12 @@ export function AuthProvider({
 
   useEffect(() => {
     // Firebase повідомляє про login/logout та відновлення session.
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser === null) {
         setUser(null)
       }
       else {
-        const authUser = createAuthUser(firebaseUser)
+        const authUser = await createAuthUser(firebaseUser)
         setUser(authUser)
       }
 

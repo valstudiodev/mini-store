@@ -2,10 +2,10 @@ import db from "@/shared/config/firebase/firebase-config";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 
-export function addSubscriber(email: string) {
+export async function addSubscriber(email: string) {
   const subscribersCollectionRef = collection(db, 'subscribers')
 
-  const docRef = addDoc(subscribersCollectionRef,
+  const docRef = await addDoc(subscribersCollectionRef,
     {
       email,
       createdAt: serverTimestamp()

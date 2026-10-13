@@ -1,0 +1,8 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.blog-post-page {
+  @include adaptiveValue('padding-top', 120, 40);
+  @include adaptiveValue('padding-bottom', 50, 25);
+}

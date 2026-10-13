@@ -24,7 +24,6 @@ function CreatePostForm({
   const loading = postCreateStatus === 'loading'
   // const errorStatus = postCreateStatus === 'error'
 
-
   useEffect(() => {
     if (postCreateStatus !== 'success') return
 
@@ -82,6 +81,8 @@ function CreatePostForm({
         <select
           name='category'
           className={`${createPostForm}__select`}
+          onChange={handleChange}
+          value={formValues.category}
         >
           <option value="">Select category</option>
           <option value="news">news</option>

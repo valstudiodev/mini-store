@@ -4,6 +4,7 @@ import cartReducer from "@/entities/cart/model/cartSlice";
 import postsReducer from "@/entities/post/model/postSlice";
 import authReducer from "@/features/auth/model/authSlice";
 import authModalReducer from "@/features/auth/model/authModalSlice";
+import commentsReducer from "@/entities/comment/model/commentsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     cart: cartReducer,
     posts: postsReducer,
     users: authReducer,
-    authModal: authModalReducer
+    authModal: authModalReducer,
+    comments: commentsReducer
   }
 })
 

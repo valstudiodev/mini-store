@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { selectHasLoaded, selectProductError, selectProductloading, selectProducts } from "@/entities/product/model/productSelector";
-import ProductCard from "@/entities/product/ui/ProductCard";
+import { ProductCard } from "@/entities";
 import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
 import { ProductCategoryProps } from "@/entities/product/model/types";
@@ -10,9 +10,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { routeMap } from "@/app/routes/routeMap";
 import { SpinnerDefault } from "@/shared/ui";
-import DeleteButton from "@/features/product/delete-product/ui/DeleteButton";
-import UpdateButton from "@/features/product/edit-product/ui/UpdateButton";
+import { DeleteButton, UpdateButton } from "@/features/product";
 import { selectAuthUser } from "@/features/auth/model/authSelector";
+import WarningMessage from "@/shared/ui/WarningMessage/ui/WarningMessage";
 
 
 function ProductList({
@@ -53,7 +53,7 @@ function ProductList({
   }
 
   if (hasLoaded && filteredProducts.length === 0) {
-    return <div>Products is not found.</div>
+    return <WarningMessage text="No products found." />
   }
 
   const handleDelete = async (productId: string): Promise<void> => {

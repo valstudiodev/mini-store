@@ -1,0 +1,41 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.warning-message {
+  display: flex;
+  align-items: center;
+  gap: toRem(14);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: toRem(720);
+  margin: clamp(toRem(24), 5vw, toRem(48)) auto;
+  padding: clamp(toRem(18), 4vw, toRem(28));
+  border: toRem(1) solid color-mix(in srgb, var(--color-warning) 35%, transparent);
+  border-radius: toRem(16);
+  background-color: color-mix(in srgb, var(--color-warning) 8%, var(--color-primary));
+  box-shadow: 0 toRem(8) toRem(24) rgb(39 39 39 / 6%);
+  color: var(--color-text-secondary);
+  font-size: clamp(toRem(15), 2vw, toRem(18));
+  line-height: 1.5;
+
+  &__icon {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: clamp(toRem(32), 7vw, toRem(40));
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--color-warning);
+    color: var(--color-text-primary);
+    font-size: toRem(20);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__text {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}

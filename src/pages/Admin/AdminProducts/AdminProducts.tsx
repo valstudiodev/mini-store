@@ -1,6 +1,6 @@
 import { Section } from "@/shared/primitives";
 import './admin-products.scss';
-import ProductCreateForm from "@/features/product/create-product/ui/ProductCreateForm";
+import { ProductCreateForm } from "@/features/product";
 import { Title } from "@/shared/typography";
 
 function AdminProducts({

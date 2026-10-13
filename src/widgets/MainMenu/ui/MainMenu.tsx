@@ -32,6 +32,9 @@ function MainMenu({
   const user = useAppSelector(selectAuthUser)
   const initialized = useAppSelector(selectAuthInitialized)
 
+  const isAdmin = user?.role === 'admin'
+  const isAuthenticated = user !== null
+
   useEffect(() => {
     document.documentElement.dataset.menuOpen = String(isMenuOpen)
 
@@ -121,21 +124,22 @@ function MainMenu({
           <span>({totalQuantity})</span>
         </Link>
 
-        <Link
-          to={routeMap.admin.path}
-        >
-          <span>
-            <UserShield size={22} />
-          </span>
-        </Link>
+        {isAdmin && (
+          <Link
+            to={routeMap.admin.path}
+          >
+            <span>
+              <UserShield size={22} />
+            </span>
+          </Link>
+        )}
+
 
         <ThemeToggle
           title="Switch theme"
-          className="cursor-pointer
-        rounded-full p-2"
         >
           <SunMoon
-            size={30}
+            size={26}
           />
         </ThemeToggle>
       </div>

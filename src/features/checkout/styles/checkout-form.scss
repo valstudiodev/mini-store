@@ -4,12 +4,28 @@
 
 .checkout-form {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   @include adaptiveValue('gap', 30, 15);
   @include adaptiveValue('padding-block', 120, 40);
 
   &__section {
     flex: 0 1 50%;
+
+    @media (max-width: toEm(800)) {
+      width: 100%;
+    }
+  }
+
+  &__body {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: toRem(20);
+
+    @media (max-width: toEm(800)) {
+      flex-direction: column;
+    }
   }
 
   &__wrap {
@@ -26,5 +42,13 @@
     letter-spacing: toRem(1.8);
     font-family: var(--font-secondary);
     @include adaptiveValue('margin-bottom', 30, 15);
+  }
+
+  &__btn {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: toRem(14);
+    line-height: 1.48;
+    letter-spacing: toRem(1.4);
   }
 }

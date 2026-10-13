@@ -1,0 +1,1 @@
+export { default as CreateComment } from '@/features/comment/create-comment/ui/CreateComment'

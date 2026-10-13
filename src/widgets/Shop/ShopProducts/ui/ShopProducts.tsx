@@ -1,23 +1,26 @@
 import '../styles/shop-products.scss';
 import { ShopProductsProps } from '../model/shop-products.types';
-import ProductGrid from '@/entities/product/ui/ProductGrid';
-import Pagination from '@/widgets/Pagination/ui/Pagination';
+import ProductGrid from '@/entities/product/product-grid/ui/ProductGrid';
+import { Pagination } from '@/shared/ui';
+import WarningMessage from '@/shared/ui/WarningMessage/ui/WarningMessage';
 
 function ShopProducts({
   products,
   className = '',
   currentPage,
   onPageChange,
+  totalResults,
   totalPages
 }: ShopProductsProps): React.JSX.Element {
   const shopProducts = 'shop-products'
 
   return (
     <div className={`${shopProducts} ${className}`}>
-      {/* ProductGrid */}
-      <ProductGrid products={products} />
+      {totalResults === 0
+        ? <WarningMessage text='No posts found in this category.' />
+        : <ProductGrid products={products} />
+      }
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <Pagination
           currentPage={currentPage}

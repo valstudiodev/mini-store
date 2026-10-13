@@ -1,7 +1,7 @@
 import db from "@/shared/config/firebase/firebase-config";
 import { AuthUser } from "@/shared/types/Role";
 import { User } from "firebase/auth";
-import { addDoc, collection, doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 
 export async function createUserProfile(firebaseUser: User) {

@@ -9,5 +9,5 @@ export { default as SearchInput } from '@/shared/ui/Search/ui/Search'
 export { default as SpinnerDefault } from '@/shared/ui/SpinnerDefault/ui/SpinnerDefault'
 export { default as SpinnerOpen } from '@/shared/ui/SpinnerOpen/ui/SpinnerOpen'
 export { default as Toast } from '@/shared/ui/Toast/ui/Toast'
-
+export { default as Pagination } from '@/shared/ui/Pagination/ui/Pagination'
 

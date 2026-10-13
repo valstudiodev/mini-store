@@ -2,7 +2,7 @@ import Container from "@/shared/primitives/Container/Container";
 import Section from "@/shared/primitives/Section/Section";
 import '../styles/productPage.scss';
 import { useParams } from "react-router";
-import ProductDetails from "@/entities/product/ui/ProductDetails";
+import { ProductDetails } from "@/entities";
 import { getProductById } from "@/entities/product/api/productServise";
 import { useEffect, useState } from "react";
 import { Product } from "@/entities/product/model/types";

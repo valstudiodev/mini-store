@@ -1,7 +1,7 @@
 import { Section } from '@/shared/primitives';
 import '../styles/shop-page.scss';
 import Container from '@/shared/primitives/Container/Container';
-import ShopFilter from './ShopFilter';
+import ShopFilter from '../../../features/shop/shop-filter/ui/ShopFilter';
 import { SubscribeSection } from '@/widgets';
 import InstaLinks from '@/widgets/Insta-links/ui/InstaLinks';
 

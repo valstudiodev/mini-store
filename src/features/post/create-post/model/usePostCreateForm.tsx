@@ -17,7 +17,7 @@ function usePostCreateForm() {
   const [postCreateStatus, setPostCreateStatus] = useState<RequestStatus>('idle');
   const [errors, setErrors] = useState<PostFormErrors>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const name = e.target.name
     const value = e.target.value
 
@@ -31,6 +31,9 @@ function usePostCreateForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
+
+    console.log('---Submiting');
+
 
     const validationErrors = validatePostForm(formValues)
 

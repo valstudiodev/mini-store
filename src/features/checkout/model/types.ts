@@ -10,6 +10,7 @@ export interface CheckoutFormData {
   zipCode: string;
   phone: string;
   email: string;
+  notes?: string;
 }
 
 export interface CheckoutFieldConfig {

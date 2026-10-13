@@ -1,0 +1,16 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.comment-list {
+  @include adaptiveValue('margin-bottom', 40, 20);
+  display: flex;
+  flex-direction: column;
+  gap: toRem(20);
+
+  &__item {
+    &:nth-child(even) {
+      margin-left: toRem(80);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.blog-filter-header {
+  margin-bottom: toRem(20);
+  font-weight: 300;
+  letter-spacing: toRem(0.48);
+  line-height: 1.38;
+  color: var(--color-button-hover);
+
+  &__result {
+    display: flex;
+    align-items: center;
+    gap: toRem(4);
+  }
+}

@@ -1,4 +1,3 @@
-import '../styles/shop-filterHeader.scss';
 interface ShopFilterHeaderProps {
   firstItem: number;
   lastItem: number;

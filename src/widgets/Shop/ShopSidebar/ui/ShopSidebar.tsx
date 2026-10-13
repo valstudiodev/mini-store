@@ -1,7 +1,7 @@
 import ProductFilter from '@/features/shop/product-filter/ui/ProductFilter';
 import '../styles/shop-sidebar.scss';
 import { CategoryFilterType } from '@/features/shop/product-filter/model/product-filter.types';
-import ProductSearch from '@/features/shop/product-search/ui/ProductSearch';
+import { ProductSearch } from '@/entities';
 
 interface ShopSidebarProps {
   category: CategoryFilterType;

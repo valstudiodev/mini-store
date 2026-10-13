@@ -2,7 +2,8 @@ import Container from "@/shared/primitives/Container/Container";
 import Section from "@/shared/primitives/Section/Section";
 import '../styles/checkoutPage.scss';
 import CheckoutForm from "@/features/checkout/ui/CheckoutForm";
-import ButtonSubmit from "@/features/checkout/ui/ButtonSubmit";
+import { SubscribeSection } from "@/widgets";
+import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
 
 function CheckoutPage(): React.JSX.Element {
   const classCheckoutPage = 'checkout-page'
@@ -10,12 +11,9 @@ function CheckoutPage(): React.JSX.Element {
   return (
     <Section className={classCheckoutPage}>
       <Container className={`${classCheckoutPage}__container`}>
-        <>
-          <CheckoutForm />
-          <ButtonSubmit>
-            Place an order
-          </ButtonSubmit>
-        </>
+        <CheckoutForm />
+        <SubscribeSection />
+        <InstaLinks />
       </Container>
     </Section>
   );

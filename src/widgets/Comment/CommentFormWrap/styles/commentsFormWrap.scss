@@ -1,0 +1,24 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.comments-form-wrap {
+
+  &__title {
+    @include adaptiveValue('font-size', 30, 22);
+    line-height: 1.14;
+    font-family: var(--font-secondary);
+    letter-spacing: toRem(1.8);
+    text-transform: uppercase;
+    @include adaptiveValue('margin-bottom', 30, 15);
+  }
+
+  &__text {
+    @include adaptiveValue('font-size', 16, 14);
+    color: var(--color-button-hover);
+    font-weight: 300;
+    line-height: 1.38;
+    letter-spacing: toRem(0.48);
+    @include adaptiveValue('margin-bottom', 20, 10);
+  }
+}

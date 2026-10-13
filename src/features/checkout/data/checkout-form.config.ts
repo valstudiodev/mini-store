@@ -87,7 +87,7 @@ export const checkoutFormSections: CheckoutFormSectionProps[] = [
     title: 'Additional Information',
     fields: [
       {
-        name: 'firstName',
+        name: 'notes',
         label: 'Order notes (optional)',
         type: 'text',
         required: false,
@@ -97,11 +97,3 @@ export const checkoutFormSections: CheckoutFormSectionProps[] = [
   },
 ]
 
-// export const checkoutAdditionalInfo: CheckoutFieldConfig =
-// {
-//   name: 'firstName',
-//   label: 'Order notes (optional)',
-//   type: 'text',
-//   required: false,
-//   placeholder: 'Notes about your order. Like special notes for delivery.',
-// }

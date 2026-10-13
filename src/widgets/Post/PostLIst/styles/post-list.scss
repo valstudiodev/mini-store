@@ -9,11 +9,6 @@
 
   &__item {
     width: 100%;
-    transition: box-shadow 0.3s;
-
-    @include hover {
-      box-shadow: 0 3px 10px rgb(39 39 39 / 8%);
-    }
   }
 
   &__link {}

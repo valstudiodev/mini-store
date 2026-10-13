@@ -50,7 +50,7 @@ function Subscribe({
       )}
 
       {error && (
-        <p className={`${subscribeForm}__error`}>{error}</p>
+        <p className={`${subscribeForm}__error text-red-600`}>{error}</p>
       )}
 
     </form>

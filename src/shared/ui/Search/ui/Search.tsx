@@ -14,6 +14,7 @@ export default function SearchInput({
   placeholder = 'Search',
   disabled = false,
   label = 'Search',
+  className = '',
   onClear,
   onSearch,
   ...props
@@ -42,7 +43,7 @@ export default function SearchInput({
   }
 
   return (
-    <div className={`${search} search ${disabled ? 'search--disabled' : ''}`}>
+    <div className={`${search} search ${disabled ? 'search--disabled' : ''} ${className}`}>
       <div className={`${search}__inner`}>
         <input
           {...props}

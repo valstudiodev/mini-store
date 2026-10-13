@@ -1,0 +1,14 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.product-search {
+  @include adaptiveValue('margin-bottom', 40, 20);
+  // &__btn {
+  //   background-color: var(--color-button);
+  // }
+
+  // &__icon {
+  //   color: var(--color-primary);
+  // }
+}

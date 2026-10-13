@@ -12,7 +12,7 @@ export const LazyCheckoutPage = lazy(() => import('@/pages/CheckoutPage/ui/Check
 export const LazyContactsPage = lazy(() => import('@/pages/Contacts/ui/ContactsPage'));
 export const LazyProductPage = lazy(() => import('@/pages/ProductPage/ui/ProductPage'));
 export const LazyProductEditPage = lazy(() => import('@/pages/ProductEditPage/ui/ProductEditPage'));
-export const LazyShopFilter = lazy(() => import('@/pages/ShopPage/ui/ShopFilter'));
+export const LazyShopFilter = lazy(() => import('@/features/shop/shop-filter/ui/ShopFilter'));
 export const LazyShopPage = lazy(() => import('@/pages/ShopPage/ui/ShopPage'));
 
 

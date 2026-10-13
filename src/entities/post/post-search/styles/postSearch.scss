@@ -1,0 +1,9 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.post-search {
+  @media (max-width: toEm(768)) {
+    width: 100%;
+  }
+}

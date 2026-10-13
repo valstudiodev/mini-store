@@ -1,8 +1,8 @@
 import { Section } from '@/shared/primitives';
 import '../styles/contacts-section.scss';
 import Container from '@/shared/primitives/Container/Container';
-import ContactInfo from '../ContactsInfo/ui/ContactInfo';
-import ContactsForm from '../ContactsForm/ui/ContactsForm';
+import { ContactInfo } from '@/widgets/Contacts'
+import { ContactsForm } from '@/features/contact';
 
 function ContactsSection(): React.JSX.Element {
   const contactsSection = 'contacts-section'

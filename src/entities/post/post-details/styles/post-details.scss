@@ -1,0 +1,44 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.post-details {
+
+  &__info {
+    @include adaptiveValue('margin-bottom', 30, 15);
+  }
+
+  &___title {
+    @include adaptiveValue('font-size', 30, 22);
+    font-family: var(--font-secondary);
+    line-height: 1.14;
+    letter-spacing: toRem(1.8);
+    text-transform: uppercase;
+    @include adaptiveValue('margin-bottom', 30, 15);
+  }
+
+  &__wrap {
+    color: var(--color-text-muted);
+    font-size: toRem(13);
+    text-transform: uppercase;
+    letter-spacing: toRem(0.78);
+    font-family: var(--font-secondary);
+    @include adaptiveValue('margin-bottom', 20, 10);
+  }
+
+  &__date {}
+
+  &__category {}
+
+  &__image {
+    width: 100%;
+    // height: toRem(678);
+    aspect-ratio: 1300 / 678;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

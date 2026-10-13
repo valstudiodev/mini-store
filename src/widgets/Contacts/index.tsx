@@ -1,3 +1,3 @@
-export { default as ContactItem } from '@/widgets/Contacts/ContactsSection/ContactItem/ui/ContactItem'
-export { default as ContactsForm } from '@/widgets/Contacts/ContactsSection/ContactsForm/ui/ContactsForm'
-export { default as ContactInfo } from '@/widgets/Contacts/ContactsSection/ContactsInfo/ui/ContactInfo'
+export { default as ContactInfo } from '@/widgets/Contacts/ContactsInfo/ui/ContactInfo'
+export { default as ContactHeader } from '@/widgets/Contacts/ContactsHeader/ui/ContactHeader'
+export { default as ContactsSection } from '@/widgets/Contacts/ContactsSection/ui/ContactsSection'

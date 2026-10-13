@@ -1,0 +1,15 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.posts-grid {
+
+  &__list {
+    @include grid-adaptive($size: toRem(320));
+    gap: toRem(20);
+  }
+
+  &__item {
+    width: 100%;
+  }
+}

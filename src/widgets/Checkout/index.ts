@@ -1,1 +1,0 @@
-export { default as CheckoutWrapper } from '@/widgets/Checkout/CheckoutWrapper/ui/CheckoutWrapper'

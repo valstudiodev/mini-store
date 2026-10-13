@@ -1,11 +1,11 @@
 import { useAppSelector } from "@/app/store/hooks";
 import { PostCategoryProps } from "@/entities/post/model/post-types";
-import { selectPosts } from "@/entities/post/model/postSelector";
-import PostCard from "@/entities/post/ui/PostCard";
+import { selectPosts, selectPostsLoading } from "@/entities/post/model/postSelector";
+import PostCard from "@/entities/post/post-card/ui/PostCard";
 import { selectHasLoaded } from "@/entities/product/model/productSelector";
 import '../styles/post-list.scss';
-import { Link } from "react-router";
-import { routeMap } from "@/app/routes/routeMap";
+import WarningMessage from "@/shared/ui/WarningMessage/ui/WarningMessage";
+import filterPosts from "@/entities/post/model/filterPosts";
 
 function PostList({
   category
@@ -15,12 +15,16 @@ function PostList({
   const posts = useAppSelector(selectPosts)
   const hasLoaded = useAppSelector(selectHasLoaded)
 
-  const filteredPosts = posts.filter(
-    (post) => post.category === category
-  )
+  const isLoading = useAppSelector(selectPostsLoading)
+
+  const filteredPosts = filterPosts(posts, category)
+
+  if (isLoading) {
+    return <div className="text-center text-4xl">Loading POSTS...</div>
+  }
 
   if (hasLoaded && filteredPosts.length === 0) {
-    return <p>Posts is not found.</p>
+    return <WarningMessage text="No posts found." />
   }
 
   return (
@@ -30,12 +34,7 @@ function PostList({
           className={`${postList}__item`}
           key={post.id}
         >
-          <Link
-            to={`${routeMap.blogPost.path}`}
-            className={`${postList}__link`}
-          >
-            <PostCard post={post} />
-          </Link>
+          <PostCard post={post} />
         </li>
       ))}
     </ul>

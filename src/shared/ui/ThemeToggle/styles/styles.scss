@@ -6,8 +6,9 @@
   color: var(--color-text-primary);
   background-color: var(--color-primary);
   transition: all 0.3s;
+  cursor: pointer;
 
-  &:hover {
+  @include hover {
     background-color: var(--color-primary-hover);
   }
 }

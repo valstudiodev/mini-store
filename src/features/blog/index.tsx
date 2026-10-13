@@ -1,0 +1,1 @@
+export { default as BlogFilter } from '@/features/blog/blog-filter/ui/BlogFilter'

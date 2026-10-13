@@ -1,0 +1,1 @@
+export { default as ContactsForm } from '@/features/contact/contact-form/ui/ContactsForm'

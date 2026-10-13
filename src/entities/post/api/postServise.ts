@@ -22,6 +22,7 @@ export async function getPosts(): Promise<Post[]> {
 }
 
 export async function getPostById(postId: string): Promise<Post | null> {
+
   const postDocRef = doc(db, 'posts', postId)
   const postSnap = await getDoc(postDocRef)
 

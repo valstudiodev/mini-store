@@ -15,5 +15,58 @@
     "contacts": "Контакти",
     "checkout": "Оформлення замовлення",
     "cart": "Кошик"
+  },
+  "common": {
+    "shopProduct": "Переглянути товари",
+    "shopSale": "Переглянути розпродаж",
+    "subscribe": "Підписатися",
+    "goToShop": "Перейти до магазину",
+    "readBlogs": "Читати блог"
+  },
+  "navigation": {
+    "home": "Головна",
+    "about": "Про нас",
+    "pages": "Сторінки",
+    "blog": "Блог",
+    "contacts": "Контакти"
+  },
+  "footer": {
+    "shipping": "Доставка:",
+    "paymentOptions": "Способи оплати:",
+    "quickLinks": "Швидкі посилання",
+    "helpInfo": "Допомога та інформація",
+    "trackOrder": "Відстежити замовлення",
+    "returnsPolicies": "Політика повернення",
+    "shippingDelivery": "Доставка",
+    "contactUs": "Зв'язатися з нами",
+    "faqs": "Часті запитання",
+    "contactQueries": "Маєте запитання або пропозиції?",
+    "contactSupport": "Потрібна допомога? Просто зателефонуйте нам."
+  },
+  "products": {},
+  "cart": {},
+  "checkout": {},
+  "auth": {},
+  "home": {
+    "title": "Ваші товари — чудові.",
+    "newYearSale": "Новорічний розпродаж",
+    "mobileProduct": "Мобільні телефони",
+    "smartWatches": "Розумні годинники",
+    "latestPosts": "Останні публікації",
+    "shopOurInsta": "Наш Instagram-магазин"
+  },
+  "subscribe": {
+    "title": "Підпишіться на нашу розсилку",
+    "text": "Отримуйте найсвіжіші новини, оновлення та спеціальні пропозиції просто на свою електронну пошту."
+  },
+  "advantages": {
+    "freeDelivery": "Безкоштовна доставка",
+    "freeDeliveryText": "Безкоштовна доставка для відповідних замовлень",
+    "qualityGuarantee": "Гарантія якості",
+    "qualityGuaranteeText": "Ми гарантуємо якість наших товарів",
+    "dailyOffers": "Щоденні пропозиції",
+    "dailyOffersText": "Відкривайте для себе наші актуальні пропозиції",
+    "securePayment": "100% безпечна оплата",
+    "securePaymentText": "Ваші платежі захищені"
   }
 }

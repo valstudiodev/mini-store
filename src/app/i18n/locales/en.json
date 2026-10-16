@@ -15,5 +15,58 @@
     "contacts": "Contacts",
     "checkout": "Checkout",
     "cart": "Cart"
+  },
+  "common": {
+    "shopProduct": "Shop product",
+    "shopSale": "Shop sale",
+    "subscribe": "Subscribe",
+    "goToShop": "Go to shop",
+    "readBlogs": "Read blogs"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "pages": "Pages",
+    "blog": "Blog",
+    "contacts": "Contacts"
+  },
+  "footer": {
+    "shipping": "We ship with:",
+    "paymentOptions": "Payment options:",
+    "quickLinks": "Quick links",
+    "helpInfo": "Help & info",
+    "trackOrder": "Track Your Order",
+    "returnsPolicies": "Returns policies",
+    "shippingDelivery": "Shipping + Delivery",
+    "contactUs": "Contact Us",
+    "faqs": "faqs",
+    "contactQueries": "Do you have any queries or suggestions?",
+    "contactSupport": "If you need support? Just give us a call."
+  },
+  "products": {},
+  "cart": {},
+  "checkout": {},
+  "auth": {},
+  "home": {
+    "title": "Your Products are great.",
+    "newYearSale": "New year sale",
+    "mobileProduct": "Mobile product",
+    "smartWatches": "Smart watches",
+    "latestPosts": "Latest posts",
+    "shopOurInsta": "Shop our Insta"
+  },
+  "subscribe": {
+    "title": "Subscribe Us now",
+    "text": "Get latest news, updates and deals directly mailed to your inbox."
+  },
+  "advantages": {
+    "freeDelivery": "Free delivery",
+    "freeDeliveryText": "Free delivery on eligible orders",
+    "qualityGuarantee": "Quality guarantee",
+    "qualityGuaranteeText": "We guarantee the quality of our products",
+    "dailyOffers": "Daily offers",
+    "dailyOffersText": "Discover our latest deals",
+    "securePayment": "100% secure payment",
+    "securePaymentText": "Your payments are safe and secure"
   }
 }

@@ -2,11 +2,14 @@ import { footerColumns } from '@/widgets/Footer/routes/routeMap';
 import '../styles/footerMenu.scss';
 import FooterColummn from './FooterColumn';
 import FooterContacts from './FooterContacts';
+import { useTranslation } from 'react-i18next';
 
 function FooterMenu({
   className = ''
 }: { className?: string }): React.JSX.Element {
   const clFooterMenu = 'footer-menu'
+
+  const { t } = useTranslation()
 
   return (
     <div className={`${clFooterMenu} ${className}`}>
@@ -14,7 +17,7 @@ function FooterMenu({
         <FooterColummn
           key={column.title}
           items={column.items}
-          title={column.title}
+          title={t(column.title)}
         />
       ))}
 

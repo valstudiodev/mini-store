@@ -11,9 +11,12 @@ import 'swiper/css/navigation';
 import type { Swiper as SwiperInstance } from 'swiper'
 import { useEffect, useRef } from "react";
 import ButtonSlider from "./ButtonSlider";
+import { useTranslation } from "react-i18next";
 
 function HeroSection(): React.JSX.Element {
   const heroSection = 'hero-section'
+
+  const { t } = useTranslation()
 
   const swiperRef = useRef<SwiperInstance | null>(null)
 
@@ -60,14 +63,14 @@ function HeroSection(): React.JSX.Element {
                 as="h1"
                 className={`${heroSection}__title`}
               >
-                Your Products are great.
+                {t('home.title')}
               </Title>
               <LinkButton
                 href={routeMap.pages.path}
                 variant="primary"
                 className={`${heroSection}__btn`}
               >
-                Shop Product
+                {t('common.shopProduct')}
               </LinkButton>
             </div>
             <div className={`${heroSection}__slider`}>

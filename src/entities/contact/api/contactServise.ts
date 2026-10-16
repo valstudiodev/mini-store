@@ -1,5 +1,5 @@
 import db from "@/shared/config/firebase/firebase-config";
-import { ContactsFormData } from "@/widgets/Contacts/ContactsSection/ContactsForm/model/contacts-form.types";
+import { ContactsFormData } from "@/features/contact/contact-form/model/contacts-form.types";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 

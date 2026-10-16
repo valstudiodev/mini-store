@@ -1,5 +1,5 @@
 import { Section } from '@/shared/primitives';
-import '../styles/post-section.scss';
+import '../styles/post-latest.scss';
 import Container from '@/shared/primitives/Container/Container';
 import Headline from '@/widgets/Headline/ui/Headline';
 import PostList from '../../PostLIst/ui/PostLIst';
@@ -8,9 +8,12 @@ import { selectPosts } from '@/entities/post/model/postSelector';
 import { routeMap } from '@/app/routes/routeMap';
 import { useEffect } from 'react';
 import { fetchPosts } from '@/entities/post/model/postThunk';
+import { useTranslation } from 'react-i18next';
 
 function PostSection(): React.JSX.Element {
   const postSection = 'post-section'
+
+  const { t } = useTranslation()
 
   const dispatch = useAppDispatch()
   const posts = useAppSelector(selectPosts)
@@ -30,8 +33,8 @@ function PostSection(): React.JSX.Element {
           <>
             <Headline
               to={`${routeMap.blog.path}`}
-              title='latest posts'
-              linkLabel='read blogs'
+              title={t('home.latestPosts')}
+              linkLabel={t('common.readBlogs')}
             />
             <PostList category='latest' />
           </>

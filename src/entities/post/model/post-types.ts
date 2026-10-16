@@ -64,12 +64,13 @@ export interface CreatePostPayload {
   title: string;
   imageUrl: string;
   date: string;
-  category: PostCategory
+  category: PostCategory;
 }
 
 export interface PostCardProps {
   post: Post;
   className?: string;
+  actions?: React.ReactElement[];
 }
 
 export interface PostCategoryProps {
@@ -82,4 +83,11 @@ export interface PostsState {
   loading: boolean;
   error: string | null;
   hasLoaded: boolean;
+}
+
+export interface PostEditFormValues {
+  title: string;
+  imageUrl: string;
+  date: string;
+  category: PostCategory | '';
 }

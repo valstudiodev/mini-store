@@ -25,6 +25,10 @@ export const routeMap = {
     '/blog/:id',
     (id: string | number) => `/blog/${id}`
   ),
+  postEdit: defineRoute(
+    '/posts/:id/edit',
+    (id: number | string) => `/posts/${id}/edit`
+  ),
   contacts: defineRoute('/contacts'),
   product: defineRoute(
     '/product/:id',

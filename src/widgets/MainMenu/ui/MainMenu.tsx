@@ -17,11 +17,15 @@ import { LogOut, UserShield } from "lucide-react";
 import { selectAuthInitialized, selectAuthUser } from '@/features/auth/model/authSelector';
 import { openAuthModal } from '@/features/auth/model/authModalSlice';
 import ThemeToggle from '@/shared/ui/ThemeToggle/ui/ThemeToggle';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '@/shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
 
 function MainMenu({
   className = ''
 }: MainMenuProps): React.JSX.Element {
   const classMainMenu = 'main-menu'
+
+  const { t } = useTranslation()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,7 +37,6 @@ function MainMenu({
   const initialized = useAppSelector(selectAuthInitialized)
 
   const isAdmin = user?.role === 'admin'
-  const isAuthenticated = user !== null
 
   useEffect(() => {
     document.documentElement.dataset.menuOpen = String(isMenuOpen)
@@ -76,7 +79,7 @@ function MainMenu({
                 onClick={closeMenu}
                 className={({ isActive }) => `${classMainMenu}__link ${isActive ? 'is-active' : ''}`}
               >
-                {route?.meta?.title}
+                {route?.meta?.title && t(route.meta.title)}
               </NavLink>
             </li>
           )
@@ -92,7 +95,7 @@ function MainMenu({
 
         {user ? (
           <>
-            <span className='text-x'>{user.email}</span>
+            <span className={`${classMainMenu}__email-user`}>{user.email}</span>
 
             <button onClick={() => logout()}>
               <span>
@@ -142,6 +145,8 @@ function MainMenu({
             size={26}
           />
         </ThemeToggle>
+
+        <LanguageSwitcher className={`${classMainMenu}__lang`} />
       </div>
 
 

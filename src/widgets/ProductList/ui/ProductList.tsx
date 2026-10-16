@@ -13,12 +13,15 @@ import { SpinnerDefault } from "@/shared/ui";
 import { DeleteButton, UpdateButton } from "@/features/product";
 import { selectAuthUser } from "@/features/auth/model/authSelector";
 import WarningMessage from "@/shared/ui/WarningMessage/ui/WarningMessage";
+import { useState } from "react";
 
 
 function ProductList({
   category
 }: ProductCategoryProps): React.JSX.Element {
   const productList = 'product-list'
+
+  const [error, setError] = useState<string | null>(null);
 
   const products = useAppSelector(selectProducts)
   const productLoading = useAppSelector(selectProductloading)
@@ -57,11 +60,16 @@ function ProductList({
   }
 
   const handleDelete = async (productId: string): Promise<void> => {
+    setError(null)
 
     try {
       await dispatch(deleteProduct(productId)).unwrap()
-    } catch (error) {
-
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError('Failed to delete a product.')
+      }
     }
   }
 
@@ -132,6 +140,9 @@ function ProductList({
           </li>
         ))}
       </ul>
+      {error && (
+        <p role="alert">{error}</p>
+      )}
     </Swiper >
   );
 }

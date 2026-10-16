@@ -1,0 +1,9 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.post-edit {
+  @include adaptiveValue('padding-block', 100, 50);
+
+  &__container {}
+}

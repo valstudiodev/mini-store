@@ -5,12 +5,16 @@ import { Title } from '@/shared/typography';
 import LinkButton from '@/shared/ui/LinkButton/ui/LInkButton';
 import { routeMap } from '@/app/routes/routeMap';
 import Container from '@/shared/primitives/Container/Container';
+import { useTranslation } from 'react-i18next';
 
 
 function Banner({
   className = ''
 }: { className?: string }): React.JSX.Element {
   const banner = 'banner'
+
+  const { t } = useTranslation()
+
   return (
     <Section className={`${banner} ${className}`}>
       <Container className={`${banner}__container`}>
@@ -19,13 +23,13 @@ function Banner({
           <Title
             className={`${banner}__title`}
             as='h2'>
-            New year sale
+            {t('home.newYearSale')}
           </Title>
           <LinkButton
             href={`${routeMap.pages.path}`}
             className={`${banner}__btn`}
           >
-            Shop sale
+            {t('common.shopSale')}
           </LinkButton>
         </div>
         <div className={`${banner}__image`}>

@@ -1,9 +1,12 @@
 import { Link } from 'react-router';
 import { footerBottomData } from '../model/footer-data';
 import '../styles/footer-bottom.scss';
+import { useTranslation } from 'react-i18next';
 
 function FooterBottom(): React.JSX.Element {
   const footerBottom = 'footer-bottom'
+
+  const { t } = useTranslation()
 
   return (
     <div className={`${footerBottom}`}>
@@ -13,7 +16,7 @@ function FooterBottom(): React.JSX.Element {
             <h4
               key={title}
               className={`${footerBottom}__title`}>
-              {title}
+              {t(title)}
             </h4>
             <ul className={`${footerBottom}__list`}>
               {icons.map(({ icon, label, to }) => (

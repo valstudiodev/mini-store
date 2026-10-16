@@ -2,6 +2,7 @@ import LinkBase from "@/shared/ui/LinkBase/ui/LinkBase";
 import { FooterColumnData } from "../model/types";
 import FooterTitle from "./FooterTitle";
 import '../styles/footerColumn.scss';
+import { useTranslation } from "react-i18next";
 
 function FooterColummn({
   title,
@@ -9,6 +10,8 @@ function FooterColummn({
   className = ''
 }: FooterColumnData): React.JSX.Element {
   const clFooterColumn = 'footer-column'
+
+  const { t } = useTranslation()
 
   return (
     <div className={`${clFooterColumn} ${className}`}>
@@ -26,7 +29,7 @@ function FooterColummn({
                 to={item.to}
                 className={`${clFooterColumn}__link`}
               >
-                {item.label}
+                {t(item.label)}
               </LinkBase>
             ) : (
               <a

@@ -1,6 +1,3 @@
-import { Timestamp } from "firebase/firestore";
-
-
 export interface BlogComment {
   id: string;
   name: string;
@@ -34,10 +31,12 @@ export interface CommentState {
   comments: BlogComment[],
   isFetching: boolean;
   isCreating: boolean;
+  isDeleting: boolean;
   error: string | null;
 }
 
 export interface CommentItemProps {
   comment: BlogComment;
   onReply: (commentId: string) => void;
+  actions?: React.ReactElement[]
 }

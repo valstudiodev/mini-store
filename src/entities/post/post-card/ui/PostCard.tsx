@@ -2,11 +2,13 @@ import { Link } from "react-router";
 import { PostCardProps } from "../../model/post-types";
 import '../styles/post-card.scss';
 import { routeMap } from "@/app/routes/routeMap";
+import { Fragment } from "react/jsx-runtime";
 
 
 function PostCard({
   post,
-  className = ''
+  className = '',
+  actions
 }: PostCardProps): React.JSX.Element {
   const postCard = 'post-card'
 
@@ -33,6 +35,9 @@ function PostCard({
           </h3>
         </div>
       </Link>
+      {actions?.map((action, index) => (
+        <Fragment key={index}>{action}</Fragment>
+      ))}
     </article>
   );
 }

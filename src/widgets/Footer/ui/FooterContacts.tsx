@@ -1,4 +1,6 @@
-import { footerContacts, FooterContactsProps } from '../model/types';
+import { useTranslation } from 'react-i18next';
+import { footerContacts } from '../model/footer-data';
+import { FooterContactsProps } from '../model/types';
 import '../styles/footerContacts.scss';
 
 function FooterContacts({
@@ -6,6 +8,8 @@ function FooterContacts({
   className = ''
 }: FooterContactsProps): React.JSX.Element {
   const clFooterContacts = 'footer-contacts'
+
+  const { t } = useTranslation()
 
   return (
     <div className={`${clFooterContacts} ${className}`}>
@@ -19,7 +23,7 @@ function FooterContacts({
             key={label}
           >
             <p className={`${clFooterContacts}__text`}>
-              {label}
+              {t(label)}
             </p>
 
             <a

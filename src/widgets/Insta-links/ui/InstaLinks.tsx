@@ -4,11 +4,14 @@ import { InstaLInksProps } from "../model/instaLInks-types";
 import '../styles/insta-links.scss';
 import InstaLinksList from "./InstaLinkList";
 import { Title } from "@/shared/typography";
+import { useTranslation } from "react-i18next";
 
 function InstaLinks({
   className = ''
 }: InstaLInksProps): React.JSX.Element {
   const clInstaLinks = 'insta-links'
+
+  const { t } = useTranslation()
 
   return (
     <Section className={`${clInstaLinks} ${className}`}>
@@ -17,7 +20,7 @@ function InstaLinks({
           as="h3"
           className={`${clInstaLinks}__title`}
         >
-          shop our insta
+          {t('home.shopOurInsta')}
         </Title>
         <InstaLinksList />
       </Container>

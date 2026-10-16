@@ -3,11 +3,14 @@ import Subscribe from "@/shared/ui/Subscribe/ui/Subscribe";
 import Container from "@/shared/primitives/Container/Container";
 import { Title } from "@/shared/typography";
 import '../styles/subscribe.scss';
+import { useTranslation } from "react-i18next";
 
 function SubscribeSection({
   className = ''
 }: { className?: string }): React.JSX.Element {
   const subscribe = 'subscribe'
+
+  const { t } = useTranslation()
 
   return (
     <Section className={`${subscribe} ${className}`}>
@@ -17,10 +20,10 @@ function SubscribeSection({
             as="h2"
             className={`${subscribe}__title`}
           >
-            Subscribe Us now
+            {t('subscribe.title')}
           </Title>
           <p className={`${subscribe}__text`}>
-            Get latest news, updates and deals directly mailed to your inbox.
+            {t('subscribe.text')}
           </p>
         </div>
         <Subscribe className={`${subscribe}__form`} />

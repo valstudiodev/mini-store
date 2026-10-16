@@ -5,8 +5,8 @@ export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
 
 export interface AdvantageItem {
   icon?: string;
-  title?: string;
-  text?: string;
+  title: string;
+  text: string;
 }
 export interface AdvantageItemProps {
   item: AdvantageItem

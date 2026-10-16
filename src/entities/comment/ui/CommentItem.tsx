@@ -1,9 +1,11 @@
+import { Fragment } from 'react/jsx-runtime';
 import { CommentItemProps } from '../model/types';
 import '../styles/comment-item.scss';
 
 function CommentItem({
   comment,
-  onReply
+  onReply,
+  actions
 }: CommentItemProps): React.JSX.Element {
   const commentItem = 'comment-item'
 
@@ -33,6 +35,13 @@ function CommentItem({
         >
           Reply Now
         </button>
+        {actions?.map((action, index) => (
+          <Fragment
+            key={index}
+          >
+            {action}
+          </Fragment>
+        ))}
       </div>
     </article >
   );

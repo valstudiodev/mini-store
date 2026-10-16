@@ -6,6 +6,7 @@ import '../styles/mobile-products.scss';
 import Container from "@/shared/primitives/Container/Container";
 import { useAppSelector } from "@/app/store/hooks";
 import { selectProducts } from "@/entities/product/model/productSelector";
+import { useTranslation } from "react-i18next";
 
 interface MobileProductsProps {
   className?: string;
@@ -15,6 +16,8 @@ function MobileProducts({
   className = ''
 }: MobileProductsProps): React.JSX.Element {
   const mobileProducts = 'mobile-product'
+
+  const { t } = useTranslation()
 
   const products = useAppSelector(selectProducts)
 
@@ -29,8 +32,8 @@ function MobileProducts({
           <>
             <Headline
               to={`${routeMap.pages.path}`}
-              linkLabel="go to shop"
-              title="Mobile product" />
+              linkLabel={t('common.goToShop')}
+              title={t('home.mobileProduct')} />
             <ProductList category="phones" />
           </>
         )}

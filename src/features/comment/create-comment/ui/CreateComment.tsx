@@ -1,11 +1,9 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { selectCommentError, selectCommentIsCreating, selectComments } from "@/entities/comment/model/commentsSelector";
 import { useForm } from "react-hook-form";
 import { RequestStatus } from "@/shared/types/common";
 import { useEffect, useState } from "react";
 import { emailRules, messageRules, nameRules } from "../model/validation";
 import Message from "@/shared/ui/Message/ui/Message";
-import { CommentsFormData, CreateCommentProps, CreatedCommentPayload } from "@/entities/comment/model/types";
+import { CommentsFormData } from "@/entities/comment/model/types";
 import { createComment } from "@/entities/comment/api/commentService";
 import '../styles/create-comment.scss';
 
@@ -25,9 +23,6 @@ function CreateComment(): React.JSX.Element {
     formState: { errors },
     reset
   } = useForm<CommentsFormData>()
-
-  console.log(errors);
-
 
   const isLoading = status === 'loading'
   const isError = status === 'error'

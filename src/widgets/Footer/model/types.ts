@@ -51,43 +51,4 @@ export interface FooterContactsProps {
 }
 
 
-export const socialLinks: SocialLink[] = [
-  {
-    label: 'facebook',
-    to: '/',
-    icon: '--icon-fb1',
-  },
-  {
-    label: 'instagram',
-    to: '/',
-    icon: '--icon-instagramm',
-  },
-  {
-    label: 'twitter',
-    to: '/',
-    icon: '--icon-twitter'
-  },
-  {
-    label: 'linkdin',
-    to: '/',
-    icon: '--icon-linkdin'
-  },
-  {
-    label: 'utub',
-    to: '/',
-    icon: '--icon-utub'
-  },
-];
 
-export const footerContacts: FooterContactItem[] = [
-  {
-    label: 'Do you have any queries or suggestions?',
-    value: 'yourinfo@gmail.com',
-    href: '/email',
-  },
-  {
-    label: 'If you need support? Just give us a call.',
-    value: '+55 111 222 333 44',
-    href: '/support',
-  }
-]

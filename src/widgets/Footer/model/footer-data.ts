@@ -1,3 +1,4 @@
+import { FooterContactItem, SocialLink } from "./types";
 
 interface FooterBootomIcon {
   icon: string;
@@ -12,7 +13,7 @@ interface FooterBottomColumn {
 
 export const footerBottomData: FooterBottomColumn[] = [
   {
-    title: 'We ship with:',
+    title: 'footer.shipping',
     icons: [
       {
         icon: '--icon-label-dhl',
@@ -27,7 +28,7 @@ export const footerBottomData: FooterBottomColumn[] = [
     ]
   },
   {
-    title: 'Payment options:',
+    title: 'footer.paymentOptions',
     icons: [
       {
         icon: '--icon-visa',
@@ -47,3 +48,45 @@ export const footerBottomData: FooterBottomColumn[] = [
     ]
   }
 ]
+
+export const footerContacts: FooterContactItem[] = [
+  {
+    label: 'footer.contactQueries',
+    value: 'yourinfo@gmail.com',
+    href: '/email',
+  },
+  {
+    label: 'footer.contactSupport',
+    value: '+55 111 222 333 44',
+    href: '/support',
+  }
+]
+
+
+export const socialLinks: SocialLink[] = [
+  {
+    label: 'facebook',
+    to: '/',
+    icon: '--icon-fb1',
+  },
+  {
+    label: 'instagram',
+    to: '/',
+    icon: '--icon-instagramm',
+  },
+  {
+    label: 'twitter',
+    to: '/',
+    icon: '--icon-twitter'
+  },
+  {
+    label: 'linkdin',
+    to: '/',
+    icon: '--icon-linkdin'
+  },
+  {
+    label: 'utub',
+    to: '/',
+    icon: '--icon-utub'
+  },
+];

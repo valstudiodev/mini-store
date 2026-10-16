@@ -14,6 +14,7 @@ import {
   LazyHomePage,
   LazyPage404,
   LazyPagesLayout,
+  LazyPostEditPage,
   LazyProductEditPage,
   LazyProductPage,
   LazyShopPage
@@ -24,6 +25,7 @@ import ErrorPage from "@/pages/ErrorPage/ui/ErrorPage";
 import { routeMap } from "./routeMap";
 import { SpinnerDefault } from "@/shared/ui";
 import ProtectedRoute from "@/widgets/Auth/ProtectedRoute/ui/ProtectedRoute";
+import PageLoader from "@/shared/ui/PageLoader/ui/PageLoader";
 
 
 export const routes = [
@@ -36,13 +38,13 @@ export const routes = [
         index: true,
         id: 'home-page',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyHomePage />
           </Suspense>
         ),
         meta: {
           isInMenu: true,
-          title: 'Home',
+          title: 'navigation.home',
         },
         handle: {
           breadcrumb: 'Home',
@@ -53,13 +55,13 @@ export const routes = [
         path: routeMap.about.path,
         id: 'about',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyAboutPage />
           </Suspense>
         ),
         meta: {
           isInMenu: true,
-          title: 'About',
+          title: 'navigation.about',
           breadcrumbs: true,
         },
         handle: {
@@ -71,13 +73,13 @@ export const routes = [
         path: routeMap.pages.path,
         id: 'pages',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyPagesLayout />
           </Suspense>
         ),
         meta: {
           isInMenu: true,
-          title: 'Pages',
+          title: 'navigation.pages',
           breadcrumbs: true,
         },
         handle: {
@@ -89,7 +91,7 @@ export const routes = [
             index: true,
             id: 'shop',
             element: (
-              <Suspense fallback={<SpinnerDefault size="large" />}>
+              <Suspense fallback={<PageLoader duration={3000} />}>
                 <LazyShopPage />
               </Suspense>
             ),
@@ -107,7 +109,7 @@ export const routes = [
             id: 'cart',
             element: (
               <ProtectedRoute requiresAuth allowedRoles={['admin', 'user']}>
-                <Suspense fallback={<SpinnerDefault size="large" />}>
+                <Suspense fallback={<PageLoader duration={3000} />}>
                   <LazyCartPage />
                 </Suspense>
               </ProtectedRoute>
@@ -127,7 +129,7 @@ export const routes = [
             id: 'checkout',
             element: (
               <ProtectedRoute requiresAuth allowedRoles={['user', 'admin']}>
-                <Suspense fallback={<SpinnerDefault size="large" />}>
+                <Suspense fallback={<PageLoader duration={3000} />}>
                   <LazyCheckoutPage />
                 </Suspense>
               </ProtectedRoute>
@@ -147,7 +149,7 @@ export const routes = [
         path: routeMap.product.path,
         id: 'product',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyProductPage />
           </Suspense>
         ),
@@ -161,13 +163,13 @@ export const routes = [
         path: routeMap.blog.path,
         id: 'blog',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyBlogPage />
           </Suspense>
         ),
         meta: {
           isInMenu: true,
-          title: 'Blog',
+          title: 'navigation.blog',
           breadcrumbs: true,
         },
         handle: {
@@ -179,7 +181,7 @@ export const routes = [
         path: routeMap.blogPost.path,
         id: 'blog-post',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyBlogPost />
           </Suspense>
         ),
@@ -190,16 +192,33 @@ export const routes = [
         }
       },
       {
+        path: routeMap.postEdit.path,
+        id: 'post-edit',
+        element: (
+          <Suspense fallback={<div className="text-center text-4xl">Loading POST EDIT...</div>}>
+            <LazyPostEditPage />
+          </Suspense>
+        ),
+        meta: {
+          title: 'post-edit',
+          breadcrumbs: true,
+        },
+        handle: {
+          breadcrumb: 'Post-edit',
+          title: 'Post-edit'
+        }
+      },
+      {
         path: routeMap.contacts.path,
         id: 'contacts',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyContactsPage />
           </Suspense>
         ),
         meta: {
           isInMenu: true,
-          title: 'Contacts',
+          title: 'navigation.contacts',
           breadcrumbs: true,
         },
         handle: {
@@ -211,7 +230,7 @@ export const routes = [
         path: routeMap.productEdit.path,
         id: 'product-edit',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyProductEditPage />
           </Suspense>
         ),
@@ -228,7 +247,7 @@ export const routes = [
       {
         path: '*',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyPage404 />
           </Suspense>
         ),
@@ -253,7 +272,7 @@ export const routes = [
         index: true,
         id: 'admin',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyAdminDashboard />
           </Suspense>
         ),
@@ -262,7 +281,7 @@ export const routes = [
         path: 'products',
         id: 'admin-products',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyAdminProducts />
           </Suspense>
         ),
@@ -271,7 +290,7 @@ export const routes = [
         path: 'posts',
         id: 'admin-posts',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyAdminPosts />
           </Suspense>
         ),
@@ -280,7 +299,7 @@ export const routes = [
         path: 'comments',
         id: 'admin-comments',
         element: (
-          <Suspense fallback={<SpinnerDefault size="large" />}>
+          <Suspense fallback={<PageLoader duration={3000} />}>
             <LazyAdminComments />
           </Suspense>
         ),

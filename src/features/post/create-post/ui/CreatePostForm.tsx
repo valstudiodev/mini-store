@@ -85,10 +85,11 @@ function CreatePostForm({
           value={formValues.category}
         >
           <option value="">Select category</option>
-          <option value="news">news</option>
-          <option value="technology">technology</option>
-          <option value="gadgets">gadgets</option>
-          <option value="camera">camera</option>
+          <option value="news">News</option>
+          <option value="latest">Latest</option>
+          <option value="technology">Technology</option>
+          <option value="gadgets">Gadgets</option>
+          <option value="camera">Camera</option>
         </select>
       </label>
 

@@ -4,11 +4,11 @@
 
 .theme-toggle {
   color: var(--color-text-primary);
-  background-color: var(--color-primary);
+  // background-color: var(--color-primary);
   transition: all 0.3s;
   cursor: pointer;
 
   @include hover {
-    background-color: var(--color-primary-hover);
+    // background-color: var(--color-primary-hover);
   }
 }

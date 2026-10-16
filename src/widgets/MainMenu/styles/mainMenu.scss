@@ -98,4 +98,72 @@ html[data-menu-open='true'] {
     gap: toRem(2);
   }
 
+  &__email-user {
+    @include adaptiveValue('font-size', 14, 12);
+
+    @media (max-width: toEm(768)) {
+      display: none;
+    }
+  }
+
+  &__lang {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    border: toRem(1) solid var(--color-border);
+    border-radius: toRem(5);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s, background-color 0.2s;
+
+    @include hover {
+      border-color: var(--color-accent);
+      background-color: var(--color-surface-hover);
+    }
+
+    &:focus-within {
+      border-color: var(--color-accent);
+    }
+
+    .language-switcher__select {
+      width: 100%;
+      border-radius: toRem(5);
+      min-width: toRem(58);
+      padding: toRem(7) toRem(25) toRem(7) toRem(10);
+      appearance: none;
+      border: 0;
+      outline: 0;
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+      font: inherit;
+      font-size: toRem(13);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+
+    .language-switcher__chevron {
+      position: absolute;
+      right: toRem(7);
+      color: var(--color-text-secondary);
+      pointer-events: none;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    &:focus-within .language-switcher__chevron {
+      transform: rotate(180deg);
+      color: var(--color-accent);
+    }
+
+    @media (max-width: toEm(768)) {
+      .language-switcher__select {
+        min-width: toRem(54);
+        padding-block: toRem(6);
+        font-size: toRem(12);
+      }
+    }
+  }
+
 }

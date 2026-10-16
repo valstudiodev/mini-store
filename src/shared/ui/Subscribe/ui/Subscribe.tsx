@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Message from '../../Message/ui/Message';
 import useSubscribe from '../model/useSubscribe';
 import '../styles/subscribe.scss';
@@ -6,6 +7,8 @@ function Subscribe({
   className = ''
 }: { className?: string }): React.JSX.Element {
   const subscribeForm = 'subscribe-form'
+
+  const { t } = useTranslation()
 
   const {
     email,
@@ -38,7 +41,7 @@ function Subscribe({
           className={`${subscribeForm}__btn`}
           type="submit"
           disabled={status === 'loading'}>
-          {status === 'loading' ? 'Submitting...' : 'Subscribe'}
+          {status === 'loading' ? 'Submitting...' : `${t('common.subscribe')}`}
         </button>
       </div>
 

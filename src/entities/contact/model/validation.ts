@@ -1,4 +1,4 @@
-import { ContactsFormData } from "@/widgets/Contacts/ContactsSection/ContactsForm/model/contacts-form.types";
+import { ContactsFormData } from "@/features/contact/contact-form/model/contacts-form.types";
 import { RegisterOptions } from "react-hook-form";
 
 export const nameRules: RegisterOptions<ContactsFormData, 'name'> = {

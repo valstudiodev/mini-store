@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { AdvantageItemProps } from '../model/types';
 import '../styles/advantageItem.scss';
 
@@ -5,6 +6,8 @@ function AdvantageItem({
   item
 }: AdvantageItemProps): React.JSX.Element {
   const advantageItem = 'advantage-item'
+
+  const { t } = useTranslation()
 
   const IconItem = item.icon
 
@@ -18,10 +21,10 @@ function AdvantageItem({
       )}
       <div className={`${advantageItem}__content`}>
         <h3 className={`${advantageItem}__title`}>
-          {item.title}
+          {t(item.title)}
         </h3>
         <p className={`${advantageItem}__text`}>
-          {item.text}
+          {t(item.text)}
         </p>
       </div>
     </article>

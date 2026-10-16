@@ -7,6 +7,7 @@ export const LazyErrorPage = lazy(() => import('@/pages/ErrorPage/ui/ErrorPage')
 export const LazyAboutPage = lazy(() => import('@/pages/AboutPage/ui/AboutPage'));
 export const LazyBlogPage = lazy(() => import('@/pages/BlogPage/ui/BlogPage'));
 export const LazyBlogPost = lazy(() => import('@/pages/BlogPostPage/ui/BlogPostPage'));
+export const LazyPostEditPage = lazy(() => import('@/pages/PostEdit/ui/PostEdit'));
 export const LazyCartPage = lazy(() => import('@/pages/CartPage/ui/CartPage'));
 export const LazyCheckoutPage = lazy(() => import('@/pages/CheckoutPage/ui/CheckoutPage'));
 export const LazyContactsPage = lazy(() => import('@/pages/Contacts/ui/ContactsPage'));

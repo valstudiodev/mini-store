@@ -1,4 +1,4 @@
-import { socialLinks } from "../model/types";
+import { socialLinks } from '../model/footer-data';
 import '../styles/footerLinks.scss';
 import FooterLink from "./FooterLink";
 

@@ -11,5 +11,10 @@
     width: 100%;
   }
 
-  &__link {}
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: toRem(10);
+  }
 }

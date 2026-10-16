@@ -5,22 +5,22 @@ import { AdvantageItem } from "./types";
 export const advantageItems: AdvantageItem[] = [
   {
     icon: '--icon-ion-cart',
-    title: 'Free delivery',
-    text: 'Consectetur adipi elit lorem ipsum dolor sit amet.',
+    title: 'advantages.freeDelivery',
+    text: 'advantages.freeDeliveryText',
   },
   {
     icon: '--icon-guarantee-icon',
-    title: 'Quality guarantee',
-    text: 'Dolor sit amet orem ipsu mcons ectetur adipi elit.',
+    title: 'advantages.qualityGuarantee',
+    text: 'advantages.qualityGuaranteeText',
   },
   {
     icon: '--icon-offers-icon',
-    title: 'Daily offers',
-    text: 'Amet consectetur adipi elit loreme ipsum dolor sit.',
+    title: 'advantages.dailyOffers',
+    text: 'advantages.dailyOffersText',
   },
   {
     icon: '--icon-security-icon',
-    title: '100% secure payment',
-    text: 'Rem Lopsum dolor sit amet, consectetur adipi elit.',
+    title: 'advantages.securePayment',
+    text: 'advantages.securePaymentText',
   }
 ]

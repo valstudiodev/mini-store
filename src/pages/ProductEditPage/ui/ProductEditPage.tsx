@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { selectProduct } from "@/entities/product/model/productSelector";
+import { useAppDispatch } from "@/app/store/hooks";
+// import { selectProduct } from "@/entities/product/model/productSelector";
 import { fetchProductById } from "@/entities/product/model/productThunk";
 import ProductEditForm from "@/features/product/edit-product/ui/ProductEditForm";
 import { Section } from "@/shared/primitives";
@@ -15,7 +15,7 @@ function ProductEditPage(): React.JSX.Element {
 
   const dispatch = useAppDispatch()
 
-  const product = useAppSelector(selectProduct)
+  // const product = useAppSelector(selectProduct)
 
   useEffect(() => {
     if (id) {
@@ -23,19 +23,10 @@ function ProductEditPage(): React.JSX.Element {
     }
   }, [id]);
 
-  console.log(product);
-  // console.log(id);
-
-
 
   return (
     <Section className={productEdit}>
       <Container className={`${productEdit}__container`}>
-        {/* <Title
-          className={`${productEdit}__title`}
-          as="h1">
-          Product Edit page
-        </Title> */}
         <ProductEditForm />
       </Container>
     </Section>

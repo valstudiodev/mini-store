@@ -1,0 +1,48 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--overlay {
+    background: rgb(0 0 0 / 55%);
+    backdrop-filter: blur(3px);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: calc(100vw - 32px);
+  }
+
+  &__track {
+    width: 100%;
+    height: 6px;
+    overflow: hidden;
+    background: rgb(255 255 255 / 25%);
+    border-radius: 999px;
+  }
+
+  &__bar {
+    height: 100%;
+    background: var(--color-primary, #fff);
+    border-radius: inherit;
+    transition: width 50ms linear;
+  }
+
+  &__percentage {
+    color: #fff;
+    font-size: toRem(50);
+    font-weight: 600;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+}

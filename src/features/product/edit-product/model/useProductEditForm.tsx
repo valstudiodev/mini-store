@@ -10,23 +10,23 @@ interface UseProductEditFormProps {
   product: Product | null;
 }
 
+const initialState: ProductEditFormValues = {
+  title: '',
+  price: 0,
+  imageUrl: '',
+  category: '',
+  rating: 0,
+  description: '',
+  stock: 0,
+  sku: '',
+  tags: '',
+  colors: '',
+  sizes: '',
+}
+
 function useProductEditForm({
   product,
 }: UseProductEditFormProps) {
-
-  const initialState: ProductEditFormValues = {
-    title: '',
-    price: 0,
-    imageUrl: '',
-    category: '',
-    rating: 0,
-    description: '',
-    stock: 0,
-    sku: '',
-    tags: '',
-    colors: '',
-    sizes: '',
-  }
 
   const [formValues, setFormValues] = useState<ProductEditFormValues>(initialState);
   const [error, setError] = useState<string | null>(null);

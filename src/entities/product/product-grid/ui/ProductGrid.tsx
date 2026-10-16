@@ -9,6 +9,7 @@ import DeleteButton from '@/features/product/delete-product/ui/DeleteButton';
 import UpdateButton from '@/features/product/update-button/ui/UpdateButton';
 import { routeMap } from '@/app/routes/routeMap';
 import { deleteProduct } from '@/features/product/delete-product/model/delete-product';
+import { useState } from 'react';
 
 function ProductGrid({
   products,
@@ -17,6 +18,8 @@ function ProductGrid({
   const productGrid = 'product-grid'
 
   const dispatch = useAppDispatch()
+
+  const [error, setError] = useState<string | null>(null);
 
   const user = useAppSelector(selectAuthUser)
 
@@ -31,11 +34,16 @@ function ProductGrid({
   }
 
   const handleDelete = async (productId: string): Promise<void> => {
+    setError(null)
 
     try {
       await dispatch(deleteProduct(productId)).unwrap()
-    } catch (error) {
-
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError('Failed to delete a product.')
+      }
     }
   }
 
@@ -81,6 +89,9 @@ function ProductGrid({
           </li>
         ))}
       </ul>
+      {error && (
+        <p role='alert'>{error}</p>
+      )}
     </div>
   );
 }

@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-Cx0BB4qO.js";var t=e();function n({className:e=``,text:n}){let r=`warning-message`;return(0,t.jsxs)(`div`,{className:[r,e].filter(Boolean).join(` `),role:`status`,children:[(0,t.jsx)(`span`,{className:`${r}__icon`,"aria-hidden":`true`,children:`!`}),(0,t.jsx)(`p`,{className:`${r}__text`,children:n})]})}export{n as t};

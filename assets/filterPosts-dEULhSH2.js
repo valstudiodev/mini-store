@@ -1,1 +1,0 @@
-var e=e=>e.posts.posts,t=e=>e.posts.loading,n=e=>e.posts.error;function r(e,t){return t===`all`?e:e.filter(e=>e.category===t)}export{t as i,n,e as r,r as t};

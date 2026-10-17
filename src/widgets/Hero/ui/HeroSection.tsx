@@ -84,7 +84,9 @@ function HeroSection(): React.JSX.Element {
                 className={`${heroSection}__swiper mySwiper`}>
                 <div className={`${heroSection}__wrap`}>
                   {heroImages.map((img) => (
-                    <SwiperSlide className={`${heroSection}__slide`}>
+                    <SwiperSlide
+                      key={img.title}
+                      className={`${heroSection}__slide`}>
                       <img
                         className={`${heroSection}__img`}
                         src={img.imageUrl} alt={img.title ?? ''} />

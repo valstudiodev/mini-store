@@ -10,7 +10,7 @@
 
   &__item {
     &:nth-child(even) {
-      margin-left: toRem(80);
+      @include adaptiveValue('margin-left', 80, 0);
     }
   }
 }

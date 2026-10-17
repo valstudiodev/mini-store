@@ -1,6 +1,7 @@
 import { FieldError, UseFormRegister } from 'react-hook-form';
 import { CheckoutFieldConfig, CheckoutFormData } from '../model/types';
 import '../styles/checkout-filed.scss';
+import { useTranslation } from 'react-i18next';
 
 interface CheckoutFieldProps {
   className?: string;
@@ -17,18 +18,20 @@ function CheckoutField({
 }: CheckoutFieldProps): React.JSX.Element {
   const checkoutField = 'checkout-field'
 
+  const { t } = useTranslation()
+
   return (
     <div className={`${checkoutField} ${className}`}>
       <label
         className={`${checkoutField}__label`}
         htmlFor={fieldData.name}>
-        {fieldData.label}
+        {t(fieldData.label)}
       </label>
       <input
         id={fieldData.name}
         className={`${checkoutField}__input`}
         type={fieldData.type}
-        placeholder={fieldData.placeholder}
+        placeholder={t(fieldData.placeholder)}
         {...register(fieldData.name)}
       />
 

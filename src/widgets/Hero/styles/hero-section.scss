@@ -112,6 +112,10 @@
     width: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: toEm(900)) {
+    height: 100%;
+  }
 }
 
 .btn-nav {

@@ -51,36 +51,3 @@ export type ProductFilterConfig =
   | PriceFilterConfig;
 
 
-export const productFilterConfig: ProductFilterConfig[] = [
-  {
-    title: 'category',
-    options: categoryOptions,
-  },
-  {
-    title: 'tags',
-    options: [
-      'white',
-      'cheap',
-      'mobile',
-      'modern',
-    ]
-  },
-  {
-    title: 'brands',
-    options: [
-      'Apple',
-      'Samsung',
-      'Green',
-    ]
-  },
-  {
-    title: 'filter by price',
-    options: [
-      'Less than $100',
-      '$100-$200',
-      '$200-$300',
-      '$300-$400',
-      '$400-$500',
-    ]
-  }
-]

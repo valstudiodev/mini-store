@@ -2,81 +2,81 @@ import { CheckoutFormSectionProps } from "../model/types";
 
 export const checkoutFormSections: CheckoutFormSectionProps[] = [
   {
-    title: 'Billing Details',
+    title: 'checkout.billingDetails',
     fields: [
       {
         name: 'firstName',
-        label: 'First name*',
+        label: 'checkout.fields.firstName',
         type: 'text',
         required: true,
         placeholder: '',
       },
       {
         name: 'lastName',
-        label: 'Last name*',
+        label: 'checkout.fields.lastName',
         type: 'text',
         required: true,
         placeholder: '',
       },
       {
         name: 'companyName',
-        label: 'Company name (optional)',
+        label: 'checkout.fields.companyName',
         type: 'text',
         required: false,
         placeholder: '',
       },
       {
         name: 'countryRegion',
-        label: 'Country / Region *',
+        label: 'checkout.fields.countryRegion',
         type: 'text',
         required: true,
-        placeholder: 'United States (US)',
+        placeholder: 'checkout.placeholders.countryRegion',
       },
       {
         name: 'address',
-        label: 'Street address *',
+        label: 'checkout.fields.address',
         type: 'text',
         required: true,
-        placeholder: 'House number and street name',
+        placeholder: 'checkout.placeholders.address',
       },
       {
         name: 'apartment',
-        label: '',
+        label: 'checkout.fields.apartment',
         type: 'text',
         required: true,
-        placeholder: 'Appartments, suite, etc.',
+        placeholder: 'checkout.placeholders.apartment',
       },
       {
         name: 'city',
-        label: 'Town / City *',
+        label: 'checkout.fields.city',
         type: 'text',
         required: true,
-        placeholder: 'Town / City *',
+        placeholder: 'checkout.placeholders.city',
       },
       {
         name: 'state',
-        label: 'State *',
+        label: 'checkout.fields.state',
         type: 'text',
         required: true,
-        placeholder: 'Florida',
+        placeholder: 'checkout.placeholders.state',
       },
       {
         name: 'zipCode',
-        label: 'ZIP Code *',
+        label: 'checkout.fields.zipCode',
         type: 'text',
         required: true,
         placeholder: '',
       },
       {
         name: 'phone',
-        label: 'Phone *',
+        label: 'checkout.fields.phone',
         type: 'text',
         required: true,
         placeholder: '',
       },
       {
         name: 'email',
-        label: 'Email address *',
+        label: 'checkout.fields.email',
         type: 'text',
         required: true,
         placeholder: '',
@@ -84,14 +84,14 @@ export const checkoutFormSections: CheckoutFormSectionProps[] = [
     ]
   },
   {
-    title: 'Additional Information',
+    title: 'checkout.additionalInformation',
     fields: [
       {
         name: 'notes',
-        label: 'Order notes (optional)',
+        label: 'checkout.fields.notes',
         type: 'text',
         required: false,
-        placeholder: 'Notes about your order. Like special notes for delivery.',
+        placeholder: 'checkout.placeholders.notes',
       }
     ]
   },

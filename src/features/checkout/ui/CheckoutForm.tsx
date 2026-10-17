@@ -9,6 +9,7 @@ import ButtonSubmit from './ButtonSubmit';
 import createOrder from '@/entities/order/api/orderApi';
 import { useEffect, useState } from 'react';
 import MessageSuccessOrder from '@/shared/ui/MessageSuccesOrder/ui/MessageSuccessOrder';
+import { useTranslation } from 'react-i18next';
 
 interface CheckoutFprmProps {
   className?: string;
@@ -18,6 +19,8 @@ function CheckoutForm({
   className = ''
 }: CheckoutFprmProps): React.JSX.Element {
   const checkoutForm = 'checkout-form'
+
+  const { t } = useTranslation()
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [confirmedOrderId, setConfirmedOrderId] = useState<string | null>(null);
@@ -72,7 +75,7 @@ function CheckoutForm({
           {checkoutFormSections.map((section) => (
             <section className={`${checkoutForm}__section`}>
               <h2 className={`${checkoutForm}__title`}>
-                {section.title}
+                {t(section.title)}
               </h2>
               <div className={`${checkoutForm}__wrap`}>
                 {section.fields.map((field) => (
@@ -91,7 +94,7 @@ function CheckoutForm({
           className={`${checkoutForm}__btn`}
           disabled={isLoading || isSuccess}
         >
-          Place an order
+          {t('common.placeOrder')}
         </ButtonSubmit>
       </form>
 

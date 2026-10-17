@@ -6,10 +6,13 @@ import Message from "@/shared/ui/Message/ui/Message";
 import { CommentsFormData } from "@/entities/comment/model/types";
 import { createComment } from "@/entities/comment/api/commentService";
 import '../styles/create-comment.scss';
+import { useTranslation } from "react-i18next";
 
 
 function CreateComment(): React.JSX.Element {
   const createCommentForm = 'create-comment-form'
+
+  const { t } = useTranslation()
 
   const [status, setStatus] = useState<RequestStatus>('idle');
 
@@ -62,7 +65,7 @@ function CreateComment(): React.JSX.Element {
         <div className={`${createCommentForm}__textarea`}>
           <textarea
             id="message"
-            placeholder="Write your comment here *"
+            placeholder={t('comments.commentPlaceholder')}
             className={`${createCommentForm}__textarea-input`}
             {...register('text', messageRules)}
           />
@@ -74,7 +77,7 @@ function CreateComment(): React.JSX.Element {
             <input
               id="name"
               type="text"
-              placeholder="Write your name here *"
+              placeholder={t('comments.namePlaceholder')}
               className={`${createCommentForm}__input`}
               {...register('name', nameRules)}
             />
@@ -85,7 +88,7 @@ function CreateComment(): React.JSX.Element {
             <input
               id="email"
               type="email"
-              placeholder="Write your email here *"
+              placeholder={t('comments.emailPlaceholder')}
               className={`${createCommentForm}__input`}
               {...register('email', emailRules)}
             />
@@ -99,7 +102,7 @@ function CreateComment(): React.JSX.Element {
         disabled={isLoading}
         className={`${createCommentForm}__btn`}
       >
-        {isLoading ? 'Sending' : 'post comment'}
+        {isLoading ? 'Sending' : `${t('comments.postComment')}`}
       </button>
 
       {isSuccess && (

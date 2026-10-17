@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { selectHasLoaded, selectProductError, selectProductloading, selectProducts } from "@/entities/product/model/productSelector";
+import { selectHasLoaded, selectProductError, selectProducts, selectProductsLoading } from "@/entities/product/model/productSelector";
 import { ProductCard } from "@/entities";
 import '../styles/product-list.scss';
 import AddToCartButton from "@/features/cart/add-to-cart/ui/AddToCartBtn";
@@ -9,11 +9,11 @@ import { deleteProduct } from "@/features/product/delete-product/model/delete-pr
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import { routeMap } from "@/app/routes/routeMap";
-import { SpinnerDefault } from "@/shared/ui";
 import { DeleteButton, UpdateButton } from "@/features/product";
 import { selectAuthUser } from "@/features/auth/model/authSelector";
 import WarningMessage from "@/shared/ui/WarningMessage/ui/WarningMessage";
 import { useState } from "react";
+import { SpinnerDefault } from "@/shared/ui";
 
 
 function ProductList({
@@ -24,7 +24,7 @@ function ProductList({
   const [error, setError] = useState<string | null>(null);
 
   const products = useAppSelector(selectProducts)
-  const productLoading = useAppSelector(selectProductloading)
+  const productsLoading = useAppSelector(selectProductsLoading)
   const productError = useAppSelector(selectProductError)
   const hasLoaded = useAppSelector(selectHasLoaded)
   const user = useAppSelector(selectAuthUser)
@@ -45,7 +45,7 @@ function ProductList({
     (product) => product.category === category
   )
 
-  if (productLoading) return <SpinnerDefault />
+  if (productsLoading) return <SpinnerDefault size="large" />
 
   if (productError) {
     return (
@@ -99,7 +99,8 @@ function ProductList({
       }}
       modules={[Pagination, Autoplay]}
       className={`${productList}__swiper`}>
-      <ul className={productList}>
+      <ul
+        className={productList}>
         {filteredProducts.map((product) => (
           <li
             key={product.id}
@@ -111,6 +112,7 @@ function ProductList({
                   ...(isAuthenticated
                     ? [
                       <AddToCartButton
+                        key='add-to-cart'
                         className={`${productList}__btn-add`}
                         onClick={() => handleAddToCart(product.id)}
                       />,
@@ -119,7 +121,9 @@ function ProductList({
 
                   ...(isAdmin
                     ? [
-                      <div className='actions-wrap flex 
+                      <div
+                        key='admin-actions'
+                        className='actions-wrap flex 
                         items-center justify-between gap-3'>
                         <DeleteButton
                           onClick={() => handleDelete(product.id)}

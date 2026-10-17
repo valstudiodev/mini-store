@@ -11,6 +11,10 @@ function UpdateButton({
   children
 }: UpdateButtonProps): React.JSX.Element {
   const updateButton = 'update-button'
+
+  console.log('---Edit Button SHARED render---');
+
+
   return (
     <Link
       className={updateButton}

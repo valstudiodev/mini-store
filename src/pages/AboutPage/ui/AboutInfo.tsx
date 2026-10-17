@@ -4,6 +4,7 @@ import Container from '@/shared/primitives/Container/Container';
 import AboutImage from "@/assets/img/about/about-img.webp";
 import LinkButton from '@/shared/ui/LinkButton/ui/LInkButton';
 import { routeMap } from '@/app/routes/routeMap';
+import { useTranslation } from 'react-i18next';
 
 interface AboutInfoProps {
   className?: string;
@@ -14,6 +15,8 @@ function AboutInfo({
 }: AboutInfoProps): React.JSX.Element {
   const aboutInfo = 'about-info'
 
+  const { t } = useTranslation()
+
   return (
     <Section className={`${aboutInfo} ${className}`}>
       <Container className={`${aboutInfo}__container`}>
@@ -21,19 +24,13 @@ function AboutInfo({
           <img src={AboutImage} alt='image' />
         </div>
         <div className={`${aboutInfo}__content`}>
-          <h2 className={`${aboutInfo}__title`}>How was Ministore Found?</h2>
+          <h2 className={`${aboutInfo}__title`}>{t('about.infoTitle')}</h2>
           <div className={`${aboutInfo}__text`}>
             <p>
-              Risus augue curabitur diam senectus congue velit et. Sed vitae metus nibh sit era.
-              Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet
-              duis erat volutpat vitae eget.
-              Sed vitae metus nibh sit era. Nulla adipiscing pharetra
-              pellentesque maecenas odio eros at. Quam libero etiam et in ac at quis.
+              {t('about.infoParagraph1')}
             </p>
             <p>
-              Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at.
-              Et libero vulputate amet duis erat volutpat vitae eget. Quam libero etiam et in ac at quis.
-              Risus augue curabitur diam senectus congue velit et.
+              {t('about.infoParagraph2')}
             </p>
           </div>
           <LinkButton
@@ -41,7 +38,7 @@ function AboutInfo({
             href={routeMap.pages.path}
             className={`${aboutInfo}__btn`}
           >
-            Shop Our store
+            {t('common.shopOurStore')}
           </LinkButton>
         </div>
       </Container>

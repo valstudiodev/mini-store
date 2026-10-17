@@ -1,7 +1,15 @@
-@use '../../../shared/styles/settings/settings' as *;
+@use '@/shared/styles/settings/settings' as *;
 @use '@/shared/styles/mixins/grid' as *;
-@use '../../../shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
 
 .mobile-product {
+  position: relative;
   @include adaptiveValue('padding-block', 60, 20);
+
+  .spinner-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
 }

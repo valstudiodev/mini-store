@@ -10,6 +10,9 @@ import Message from '@/shared/ui/Message/ui/Message';
 function ProductEditForm(): React.JSX.Element {
   const formEdit = 'form-edit'
 
+  console.log('---Edit button product render---');
+
+
   const navigate = useNavigate()
 
   const product = useAppSelector(selectProduct)

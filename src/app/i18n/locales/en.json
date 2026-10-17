@@ -21,7 +21,9 @@
     "shopSale": "Shop sale",
     "subscribe": "Subscribe",
     "goToShop": "Go to shop",
-    "readBlogs": "Read blogs"
+    "readBlogs": "Read blogs",
+    "shopOurStore": "Shop Our store",
+    "placeOrder": "Place an order"
   },
   "navigation": {
     "home": "Home",
@@ -45,8 +47,12 @@
   },
   "products": {},
   "cart": {},
-  "checkout": {},
   "auth": {},
+  "about": {
+    "infoTitle": "How was Ministore Found?",
+    "infoParagraph1": "Risus augue curabitur diam senectus congue velit et. Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet duis erat volutpat vitae eget. Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Quam libero etiam et in ac at quis.",
+    "infoParagraph2": "Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet duis erat volutpat vitae eget. Quam libero etiam et in ac at quis. Risus augue curabitur diam senectus congue velit et."
+  },
   "home": {
     "title": "Your Products are great.",
     "newYearSale": "New year sale",
@@ -68,5 +74,69 @@
     "dailyOffersText": "Discover our latest deals",
     "securePayment": "100% secure payment",
     "securePaymentText": "Your payments are safe and secure"
+  },
+  "productFilters": {
+    "category": "Category",
+    "tags": "Tags",
+    "brands": "Brands",
+    "filterByPrice": "Filter by price",
+    "options": {
+      "white": "White",
+      "cheap": "Cheap",
+      "mobile": "Mobile",
+      "modern": "Modern",
+      "apple": "Apple",
+      "samsung": "Samsung",
+      "green": "Green",
+      "lessThan100": "Less than $100",
+      "100To200": "$100–$200",
+      "200To300": "$200–$300",
+      "300To400": "$300–$400",
+      "400To500": "$400–$500"
+    }
+  },
+  "contacts": {
+    "contactInfo": "Contact info",
+    "contactInfoText": "Have a question or need assistance? We're here to help. Reach out to us using the contact details below, and our team will be happy to assist you.",
+    "anyQuestions": "Any questions?",
+    "formDescription": "Use the form below to get in touch with us.",
+    "fullName": "Your full name *",
+    "emailPlaceholder": "Write your email here *",
+    "phoneNumber": "Phone number",
+    "subjectPlaceholder": "Write your subject here",
+    "messagePlaceholder": "Write your message here",
+    "submit": "Submit"
+  },
+  "checkout": {
+    "billingDetails": "Billing Details",
+    "additionalInformation": "Additional Information",
+    "fields": {
+      "firstName": "First name *",
+      "lastName": "Last name *",
+      "companyName": "Company name (optional)",
+      "countryRegion": "Country / Region *",
+      "address": "Street address *",
+      "apartment": "Apartment, suite, etc.",
+      "city": "Town / City *",
+      "state": "State *",
+      "zipCode": "ZIP Code *",
+      "phone": "Phone *",
+      "email": "Email address *",
+      "notes": "Order notes (optional)"
+    },
+    "placeholders": {
+      "countryRegion": "United States (US)",
+      "address": "House number and street name",
+      "apartment": "Apartments, suite, etc.",
+      "city": "Town / City *",
+      "state": "Florida",
+      "notes": "Notes about your order, such as special delivery instructions."
+    }
+  },
+  "comments": {
+    "commentPlaceholder": "Write your comment here *",
+    "namePlaceholder": "Write your name here *",
+    "emailPlaceholder": "Write your email here *",
+    "postComment": "Post comment"
   }
 }

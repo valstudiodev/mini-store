@@ -12,7 +12,7 @@ function FooterBottom(): React.JSX.Element {
     <div className={`${footerBottom}`}>
       <div className={`${footerBottom}__column`}>
         {footerBottomData.map(({ title, icons }) => (
-          <>
+          <div className={`${footerBottom}__wrap`}>
             <h4
               key={title}
               className={`${footerBottom}__title`}>
@@ -29,7 +29,7 @@ function FooterBottom(): React.JSX.Element {
                 </li>
               ))}
             </ul>
-          </>
+          </div>
         ))}
       </div>
 

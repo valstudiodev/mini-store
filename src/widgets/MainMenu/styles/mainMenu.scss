@@ -166,4 +166,8 @@ html[data-menu-open='true'] {
     }
   }
 
+  &__burger {
+    background-color: var(--color-primary);
+  }
+
 }

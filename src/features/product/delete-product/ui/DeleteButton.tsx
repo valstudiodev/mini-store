@@ -11,6 +11,9 @@ function DeleteButton({
 }: DeleteButtonProps): React.JSX.Element {
   const deleteBtn = 'delete-button'
 
+  console.log('---Delete button product render---');
+
+
   return (
     <button
       type='button'

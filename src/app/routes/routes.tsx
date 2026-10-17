@@ -23,7 +23,6 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "@/widgets/MainLayout/ui/MainLayout";
 import ErrorPage from "@/pages/ErrorPage/ui/ErrorPage";
 import { routeMap } from "./routeMap";
-import { SpinnerDefault } from "@/shared/ui";
 import ProtectedRoute from "@/widgets/Auth/ProtectedRoute/ui/ProtectedRoute";
 import PageLoader from "@/shared/ui/PageLoader/ui/PageLoader";
 

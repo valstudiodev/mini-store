@@ -18,6 +18,8 @@ function App(): React.JSX.Element {
   const hasLoaded = useAppSelector(selectHasLoaded)
 
   useEffect(() => {
+    console.log('hasLoaded:', hasLoaded)
+
     if (!hasLoaded) {
       dispatch(fetchProducts())
     }

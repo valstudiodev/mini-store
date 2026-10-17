@@ -6,11 +6,14 @@ import Message from "@/shared/ui/Message/ui/Message";
 import { createContact } from "@/entities/contact/api/contactServise";
 import { useForm } from "react-hook-form";
 import { emailRules, messageRules, nameRules, phoneRules } from "@/entities/contact/model/validation";
+import { useTranslation } from "react-i18next";
 
 function ContactsForm({
   className = ''
 }: { className?: string }): React.JSX.Element {
   const contactsForm = 'contacts-form'
+
+  const { t } = useTranslation()
 
   const [status, setStatus] = useState<RequestStatusType>('idle');
 
@@ -49,8 +52,8 @@ function ContactsForm({
   return (
     <div className={`${contactsForm} ${className}`}>
       <ContactHeader
-        title="any questions?"
-        text="Use the form below to get in touch with us."
+        title={t('contacts.anyQuestions')}
+        text={t('contacts.formDescription')}
         className={`${contactsForm}__header`}
       />
       <form
@@ -60,7 +63,7 @@ function ContactsForm({
         <div className={`${contactsForm}__wrap`}>
           <label className={`${contactsForm}__field`}>
             <input
-              placeholder="Your full name *"
+              placeholder={t('contacts.fullName')}
               type="text"
               id="name"
               {...register('name', nameRules)}
@@ -72,7 +75,7 @@ function ContactsForm({
             <input
               className={`${contactsForm}__input`}
               type="email"
-              placeholder="Write your email here *"
+              placeholder={t('contacts.emailPlaceholder')}
               id="email"
               {...register('email', emailRules)}
             />
@@ -84,7 +87,7 @@ function ContactsForm({
           <input
             className={`${contactsForm}__input`}
             type="tel"
-            placeholder="Phone number"
+            placeholder={t('contacts.phoneNumber')}
             {...register('phone', phoneRules)}
           />
           {errors.phone && <p className='text-red-700'>{errors.phone.message}</p>}
@@ -94,7 +97,7 @@ function ContactsForm({
           <input
             className={`${contactsForm}__input`}
             type="text"
-            placeholder="Write your subject here"
+            placeholder={t('contacts.subjectPlaceholder')}
             minLength={10}
             {...register('subject', {
               required: 'The subject text is nesessary!',
@@ -110,7 +113,7 @@ function ContactsForm({
         <div>
           <textarea
             className={`${contactsForm}__textarea`}
-            placeholder="Write your message here *"
+            placeholder={t('contacts.messagePlaceholder')}
             {...register('message', messageRules)}
           />
           {errors.message && <p className='text-red-700'>{errors.message.message}</p>}
@@ -122,7 +125,7 @@ function ContactsForm({
           disabled={status === 'loading'}
           className={`${contactsForm}__btn-submit`}
         >
-          {status === 'loading' ? 'Sending...' : 'Submit'}
+          {status === 'loading' ? 'Sending...' : `${t('contacts.submit')}`}
         </button>
 
         {status === 'success' && (

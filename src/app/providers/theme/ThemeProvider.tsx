@@ -16,9 +16,6 @@ function ThemeProvider({
 }: ThemeProviderProps) {
   const [state, dispatch] = useReducer(themeReducer, initialThemeState);
 
-  console.log('---Theme', state);
-
-
   useEffect(() => {
     document.documentElement.dataset.theme = state.theme
   }, [state.theme]);

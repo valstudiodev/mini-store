@@ -18,6 +18,16 @@
     @include adaptiveValue('gap', 10, 5);
   }
 
+  &__wrap {
+    display: flex;
+    align-items: center;
+    gap: toRem(10);
+
+    @media (max-width: toEm(505)) {
+      flex-direction: column;
+    }
+  }
+
   &__item {}
 
   &__title {}
@@ -28,10 +38,17 @@
 
   &__column {
     display: flex;
+    @include adaptiveValue('gap', 46, 15);
   }
 
-  &__copyright {}
+  &__copyright {
+    text-align: center;
+  }
 
   &__copyright-text {}
+
+  @media (max-width: toEm(768)) {
+    flex-direction: column;
+  }
 
 }

@@ -153,6 +153,8 @@ function MainMenu({
       <MobileMenu
         isOpen={isMenuOpen}
         onToggle={toggleMenu}
+        className={`${classMainMenu}__burger`}
+        color='var(--color-text-primary)'
       />
 
       <AuthModal />

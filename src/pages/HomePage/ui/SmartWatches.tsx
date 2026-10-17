@@ -5,8 +5,9 @@ import ProductList from "@/widgets/ProductList/ui/ProductList";
 import '../styles/smart-watches.scss';
 import Container from "@/shared/primitives/Container/Container";
 import { useAppSelector } from "@/app/store/hooks";
-import { selectProducts } from "@/entities/product/model/productSelector";
+import { selectProducts, selectProductsLoading } from "@/entities/product/model/productSelector";
 import { useTranslation } from "react-i18next";
+import { SpinnerDefault } from "@/shared/ui";
 
 interface SmartWatchesProps {
   className?: string;
@@ -20,23 +21,28 @@ function SmartWatches({
   const { t } = useTranslation()
 
   const products = useAppSelector(selectProducts)
+  const productsLoading = useAppSelector(selectProductsLoading)
 
-  const watchProductsList = products.filter(
+  const hasWatches = products.some(
     (product) => product.category === 'watches'
   );
 
   return (
     <Section className={`${smartWatches} ${className}`}>
       <Container>
-        {watchProductsList.length > 0 && (
-          <>
-            <Headline
-              title={t('home.smartWatches')}
-              to={`${routeMap.pages.path}`}
-              linkLabel={t('common.goToShop')}
-            />
-            <ProductList category="watches" />
-          </>
+        {productsLoading ? (
+          <SpinnerDefault size="large" />
+        ) : (
+          hasWatches && (
+            <>
+              <Headline
+                title={t('home.smartWatches')}
+                to={`${routeMap.pages.path}`}
+                linkLabel={t('common.goToShop')}
+              />
+              <ProductList category="watches" />
+            </>
+          )
         )}
       </Container>
     </Section>

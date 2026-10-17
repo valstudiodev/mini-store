@@ -7,6 +7,9 @@ import Message from '@/shared/ui/Message/ui/Message';
 function ProductCreateForm(): React.JSX.Element {
   const clCreateForm = 'create-form'
 
+  console.log('---Create product form render ---');
+
+
   const {
     formValues,
     handleChange,

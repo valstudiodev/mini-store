@@ -1,15 +1,15 @@
-export interface ContactsHeaderProps {
+export interface ContactsHeaderData {
   title: string;
   text: string;
 }
 
-export const contactHeaderData: ContactsHeaderProps[] = [
+export const contactHeaderData: ContactsHeaderData[] = [
   {
-    title: 'Contact info',
-    text: 'Tortor dignissim convallis aenean et tortor at risus viverra adipiscing.'
+    title: 'contacts.contactInfo',
+    text: 'contacts.description'
   },
   {
-    title: 'any questions?',
-    text: 'Use the form below to get in touch with us.',
+    title: 'contacts.anyQuestions',
+    text: 'contacts.formDescription',
   }
 ]

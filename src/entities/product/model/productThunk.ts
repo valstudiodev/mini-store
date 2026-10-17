@@ -8,7 +8,11 @@ export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: st
   'products/fetchProducts',
   async (_, { rejectWithValue }) => {
     try {
+      console.log('fetchProducts: started')
+
+      await new Promise((resolve) => setTimeout(resolve, 2000))
       const response = await getProducts()
+      console.log('fetchProducts: finished')
       return response
     } catch (error) {
       if (error instanceof Error) {

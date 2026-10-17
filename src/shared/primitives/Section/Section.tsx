@@ -9,7 +9,7 @@ function Section({
 }: SectionProps): React.JSX.Element {
   return (
     <section
-      className={` ${className}`.trim()}
+      className={className}
     >
       {children}
     </section>

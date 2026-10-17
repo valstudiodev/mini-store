@@ -18,7 +18,7 @@ export interface CheckoutFieldConfig {
   label: string;
   type: string;
   required?: boolean;
-  placeholder?: string;
+  placeholder: string;
 }
 
 export interface CheckoutFormSectionProps {

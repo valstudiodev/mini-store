@@ -21,13 +21,9 @@ function SpinnerDefault({
     .join(' ');
 
   return (
-    <>
-      <div className='spinner-container--overlay'></div>
-      <div className={containerClasses} role="status" aria-label={label}>
-        <div className="spinner-container__circle" />
-      </div>
-    </>
-
+    <div className={containerClasses} role="status" aria-label={label}>
+      <div className="spinner-container__circle" />
+    </div>
   );
 }
 

@@ -1,6 +1,5 @@
 import '../styles/advantages-list.scss';
 import { AdvantageItem } from '@/widgets/AdvantageSection';
-import Container from '@/shared/primitives/Container/Container';
 import { advantageItems } from '../../AdvantagesItem/model/advantage-data';
 
 
@@ -14,19 +13,17 @@ function AdvantagesList({
   const advantagesList = 'advantages'
 
   return (
-    <Container>
-      <div className={`${advantagesList} ${className}`}>
-        <ul className={`${advantagesList}__list`}>
-          {advantageItems.map((item) => (
-            <li
-              key={item.title}
-              className={`${advantagesList}__item`}>
-              <AdvantageItem item={item} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Container>
+    <div className={`${advantagesList} ${className}`}>
+      <ul className={`${advantagesList}__list`}>
+        {advantageItems.map((item) => (
+          <li
+            key={item.title}
+            className={`${advantagesList}__item`}>
+            <AdvantageItem item={item} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

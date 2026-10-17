@@ -1,4 +1,4 @@
-import { Fragment } from "react/jsx-runtime";
+// import { Fragment } from "react/jsx-runtime";
 import { ProductCardProps } from "../../model/types";
 import '../styles/product-card.scss';
 import { routeMap } from "@/app/routes/routeMap";
@@ -30,9 +30,10 @@ function ProductCard({
           </span>
         </div>
       </Link>
-      {actions?.map((action, index) => (
+      {/* {actions?.map((action, index) => (
         <Fragment key={index}>{action}</Fragment>
-      ))}
+      ))} */}
+      {actions}
     </article>
   );
 }

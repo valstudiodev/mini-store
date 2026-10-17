@@ -13,7 +13,7 @@
     justify-content: space-between;
     @include adaptiveValue('gap', 20, 10);
     @include adaptiveValue('padding-block', 80, 20);
-    @include adaptiveValue('padding-inline', 110, 30);
+    @include adaptiveValue('padding-inline', 110, 10);
 
     @media (max-width: toEm(1080)) {
       flex-direction: column;

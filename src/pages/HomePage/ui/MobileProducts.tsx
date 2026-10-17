@@ -5,8 +5,10 @@ import ProductList from "@/widgets/ProductList/ui/ProductList";
 import '../styles/mobile-products.scss';
 import Container from "@/shared/primitives/Container/Container";
 import { useAppSelector } from "@/app/store/hooks";
-import { selectProducts } from "@/entities/product/model/productSelector";
+import { selectProducts, selectProductsLoading } from "@/entities/product/model/productSelector";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import { SpinnerDefault } from "@/shared/ui";
 
 interface MobileProductsProps {
   className?: string;
@@ -20,22 +22,27 @@ function MobileProducts({
   const { t } = useTranslation()
 
   const products = useAppSelector(selectProducts)
+  const productsLoading = useAppSelector(selectProductsLoading)
 
-  const mobileProductsList = products.filter(
+  const hasPhones = products.some(
     (product) => product.category === 'phones'
   );
 
   return (
     <Section className={`${mobileProducts} ${className}`}>
       <Container>
-        {mobileProductsList.length > 0 && (
-          <>
-            <Headline
-              to={`${routeMap.pages.path}`}
-              linkLabel={t('common.goToShop')}
-              title={t('home.mobileProduct')} />
-            <ProductList category="phones" />
-          </>
+        {productsLoading ? (
+          <SpinnerDefault size="large" />
+        ) : (
+          hasPhones && (
+            <>
+              <Headline
+                to={`${routeMap.pages.path}`}
+                linkLabel={t('common.goToShop')}
+                title={t('home.mobileProduct')} />
+              <ProductList category="phones" />
+            </>
+          )
         )}
       </Container>
     </Section>

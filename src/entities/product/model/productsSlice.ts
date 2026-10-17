@@ -7,7 +7,8 @@ import { updateProduct } from "@/features/product/edit-product/model/updateProdu
 const initialState: ProductsState = {
   products: [],
   product: null,
-  loading: false,
+  productLoading: false,
+  productsLoading: false,
   error: null,
   hasLoaded: false
 }
@@ -19,17 +20,17 @@ export const productsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
-        state.loading = true
+        state.productsLoading = true
         state.error = null
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.loading = false
+        state.productsLoading = false
         state.hasLoaded = true
         state.error = null
         state.products = action.payload
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.loading = false
+        state.productsLoading = false
         state.error = action.payload ?? 'Failed to fetch products'
       })
 
@@ -50,17 +51,17 @@ export const productsSlice = createSlice({
       })
 
       .addCase(fetchProductById.pending, (state) => {
-        state.loading = true
+        state.productLoading = true
         state.error = null
         state.product = null
       })
       .addCase(fetchProductById.fulfilled, (state, action) => {
-        state.loading = false
+        state.productLoading = false
         state.error = null
         state.product = action.payload
       })
       .addCase(fetchProductById.rejected, (state, action) => {
-        state.loading = false
+        state.productLoading = false
         state.product = null
         state.error = action.payload ?? 'Failed to fetch product by ID'
       })

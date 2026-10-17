@@ -2,8 +2,6 @@ import '../styles/product-filter.scss';
 import { ProductFilterProps } from "../model/product-filter.types";
 import FilterSection from './FilterSection';
 import { productFilterConfig } from '../model/product-filter.data';
-import { useTranslation } from 'react-i18next';
-
 
 function ProductFilter({
   category,

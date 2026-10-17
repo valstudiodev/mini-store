@@ -31,7 +31,9 @@ function SmartWatches({
     <Section className={`${smartWatches} ${className}`}>
       <Container>
         {productsLoading ? (
-          <SpinnerDefault size="large" />
+          <div className={`${smartWatches}__loading`}>
+            <SpinnerDefault size="large" />
+          </div>
         ) : (
           hasWatches && (
             <>

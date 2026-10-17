@@ -2,10 +2,10 @@ import { BlogFilterHeader, BlogPosts, BlogSidebar } from '@/widgets/Blog';
 import '../styles/blogFilter.scss';
 import { useState } from 'react';
 import { useAppSelector } from '@/app/store/hooks';
-import { selectPostError, selectPosts, selectPostsLoading } from '@/entities/post/model/postSelector';
+import { selectHasLoaded, selectPostError, selectPosts, selectPostsLoading } from '@/entities/post/model/postSelector';
 import filterPosts from '@/entities/post/model/filterPosts';
 import { PostFilter } from '@/entities/post/model/post-types';
-import { SpinnerOpen } from '@/shared/ui';
+import { SpinnerDefault } from '@/shared/ui';
 
 function BlogFilter(): React.JSX.Element {
   const blogFilter = 'blog-filter'
@@ -13,6 +13,8 @@ function BlogFilter(): React.JSX.Element {
   const posts = useAppSelector(selectPosts)
   const isLoading = useAppSelector(selectPostsLoading)
   const error = useAppSelector(selectPostError)
+
+  const hasLoaded = useAppSelector(selectHasLoaded)
 
   const [searchValue, setSearchValue] = useState<string>('');
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -49,7 +51,11 @@ function BlogFilter(): React.JSX.Element {
   const currentPosts = filteredPosts.slice(startIndex, endIndex)
 
   if (isLoading) {
-    return <SpinnerOpen size='large' />
+    return (
+      <div className={`${blogFilter}__loading`}>
+        <SpinnerDefault size='large' />
+      </div>
+    )
   }
 
   if (error) {
@@ -84,6 +90,7 @@ function BlogFilter(): React.JSX.Element {
           currentPage={currentPage}
           onPageChange={setCurrentPage}
           totalPages={totalPages}
+          hasLoaded={hasLoaded}
           className={`${blogFilter}__posts`}
         />
 

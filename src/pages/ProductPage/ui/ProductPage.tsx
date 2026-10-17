@@ -41,7 +41,9 @@ function ProductPage() {
       <Container className={`${classProductPage}__container`}>
         {product
           ? <ProductDetails product={product} />
-          : <SpinnerDefault size="large" />
+          : <div className={`${classProductPage}__loading`}>
+            <SpinnerDefault size="large" />
+          </div>
         }
         <SubscribeSection />
         <InstaLinks />

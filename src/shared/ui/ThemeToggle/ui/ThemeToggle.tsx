@@ -14,6 +14,8 @@ function ThemeToggle({
   ...props
 }: ThemeToggleProps): React.JSX.Element {
   const { state, dispatch } = useTheme()
+  console.log(state);
+
 
   return (
     <button

@@ -3,14 +3,14 @@
 @use '../../../shared/styles/abstracts/input-mixins' as *;
 
 .smart-watches {
-  position: relative;
   @include adaptiveValue('padding-top', 60, 20);
   @include adaptiveValue('padding-bottom', 120, 40);
 
-  .spinner-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(300);
   }
+
 }

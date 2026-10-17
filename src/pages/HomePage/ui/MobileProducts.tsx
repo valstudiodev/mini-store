@@ -7,7 +7,6 @@ import Container from "@/shared/primitives/Container/Container";
 import { useAppSelector } from "@/app/store/hooks";
 import { selectProducts, selectProductsLoading } from "@/entities/product/model/productSelector";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
 import { SpinnerDefault } from "@/shared/ui";
 
 interface MobileProductsProps {
@@ -32,7 +31,9 @@ function MobileProducts({
     <Section className={`${mobileProducts} ${className}`}>
       <Container>
         {productsLoading ? (
-          <SpinnerDefault size="large" />
+          <div className={`${mobileProducts}__loading`}>
+            <SpinnerDefault size="large" />
+          </div>
         ) : (
           hasPhones && (
             <>

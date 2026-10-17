@@ -36,7 +36,7 @@ function MainMenu({
   const user = useAppSelector(selectAuthUser)
   const initialized = useAppSelector(selectAuthInitialized)
 
-  const isAdmin = user?.role === 'admin'
+  const isAdmin = initialized && user?.role === 'admin'
 
   useEffect(() => {
     document.documentElement.dataset.menuOpen = String(isMenuOpen)
@@ -56,10 +56,6 @@ function MainMenu({
 
   const closeMenu = (): void => {
     setIsMenuOpen(false)
-  }
-
-  if (!initialized) {
-    return <div>LOADING MAIN MENU...</div>
   }
 
   return (
@@ -93,27 +89,29 @@ function MainMenu({
             size={18} />
         </ButtonBase>
 
-        {user ? (
-          <>
-            <span className={`${classMainMenu}__email-user`}>{user.email}</span>
+        {initialized && (
+          user ? (
+            <>
+              <span className={`${classMainMenu}__email-user`}>{user.email}</span>
 
-            <button onClick={() => logout()}>
-              <span>
-                <LogOut size={22} />
-              </span>
-            </button>
-          </>
-        ) : (
-          <>
-            <ButtonBase
-              onClick={() => dispatch(openAuthModal())}
-            >
-              <User
-                className={`${classMainMenu}__icon`}
-                size={18}
-              />
-            </ButtonBase>
-          </>
+              <button onClick={() => logout()}>
+                <span>
+                  <LogOut size={22} />
+                </span>
+              </button>
+            </>
+          ) : (
+            <>
+              <ButtonBase
+                onClick={() => dispatch(openAuthModal())}
+              >
+                <User
+                  className={`${classMainMenu}__icon`}
+                  size={18}
+                />
+              </ButtonBase>
+            </>
+          )
         )}
 
         <Link

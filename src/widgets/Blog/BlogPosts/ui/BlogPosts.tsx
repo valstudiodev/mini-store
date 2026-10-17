@@ -11,13 +11,14 @@ function BlogPosts({
   currentPage,
   onPageChange,
   totalResults,
+  hasLoaded,
   totalPages
 }: BlogPostProps): React.JSX.Element {
   const blogPostSection = 'blog-post-section'
 
   return (
     <Section className={`${blogPostSection} ${className}`}>
-      {totalResults === 0
+      {hasLoaded && totalResults === 0
         ? <WarningMessage text='No posts found in this category.' />
         : <PostsGrid posts={posts} />}
 

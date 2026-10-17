@@ -10,13 +10,14 @@ function ShopProducts({
   currentPage,
   onPageChange,
   totalResults,
+  hasLoaded,
   totalPages
 }: ShopProductsProps): React.JSX.Element {
   const shopProducts = 'shop-products'
 
   return (
     <div className={`${shopProducts} ${className}`}>
-      {totalResults === 0
+      {hasLoaded && totalResults === 0
         ? <WarningMessage text='No posts found in this category.' />
         : <ProductGrid products={products} />
       }

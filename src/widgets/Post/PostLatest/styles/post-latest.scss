@@ -7,4 +7,11 @@
   @include adaptiveValue('padding-block', 60, 30);
 
   &__container {}
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(400);
+  }
 }

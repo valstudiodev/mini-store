@@ -74,7 +74,8 @@ export interface PostCardProps {
 }
 
 export interface PostCategoryProps {
-  category: PostFilter
+  category: PostFilter;
+  limit?: number;
 }
 
 export interface PostsState {

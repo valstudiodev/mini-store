@@ -3,13 +3,12 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .mobile-product {
-  position: relative;
   @include adaptiveValue('padding-block', 60, 20);
 
-  .spinner-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(300);
   }
 }

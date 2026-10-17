@@ -3,6 +3,7 @@
 @use '@/shared/styles/abstracts/input-mixins' as *;
 
 .shop-filter {
+  // position: relative;
 
   &__header {}
 
@@ -14,6 +15,13 @@
     @media (max-width: toEm(768)) {
       order: 2;
     }
+  }
+
+  &__loading {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__layout {
@@ -34,3 +42,10 @@
     }
   }
 }
+
+// .loader-wrapper {
+//   display: flex;
+//   justify-content: center;
+//   width: 100%;
+//   align-items: center;
+// }

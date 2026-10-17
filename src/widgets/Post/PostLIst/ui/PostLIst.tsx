@@ -14,7 +14,8 @@ import { useState } from "react";
 import { selectAuthUser } from "@/features/auth/model/authSelector";
 
 function PostList({
-  category
+  category,
+  limit
 }: PostCategoryProps): React.JSX.Element {
   const postList = 'post-list'
 
@@ -28,6 +29,8 @@ function PostList({
   const isLoading = useAppSelector(selectPostsLoading)
 
   const filteredPosts = filterPosts(posts, category)
+
+  const displayedPosts = limit ? filteredPosts.slice(0, limit) : filteredPosts
 
   const isAdmin = user?.role === 'admin'
 
@@ -56,7 +59,7 @@ function PostList({
   return (
     <>
       <ul className={`${postList}`}>
-        {filteredPosts.map((post) => (
+        {displayedPosts.map((post) => (
           <li
             className={`${postList}__item`}
             key={post.id}

@@ -4,6 +4,7 @@ export interface BlogPostProps {
   posts: Post[];
   className?: string;
   totalResults: number;
+  hasLoaded?: boolean;
 
   currentPage: number;
   onPageChange: (page: number) => void;

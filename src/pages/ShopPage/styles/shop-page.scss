@@ -1,0 +1,13 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.shop-filter-header {
+  margin-bottom: toRem(20);
+
+  &__result {
+    display: flex;
+    align-items: center;
+    gap: toRem(4);
+  }
+}

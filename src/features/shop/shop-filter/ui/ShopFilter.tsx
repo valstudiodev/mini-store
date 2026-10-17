@@ -1,19 +1,21 @@
 import '../styles/shop-filter.scss';
 import ShopProducts from "@/widgets/Shop/ShopProducts/ui/ShopProducts";
 import { useAppSelector } from "@/app/store/hooks";
-import { selectProductError, selectProductloading, selectProducts } from "@/entities/product/model/productSelector";
+import { selectHasLoaded, selectProductError, selectProducts, selectProductsLoading } from "@/entities/product/model/productSelector";
 import { useState } from "react";
 import { CategoryFilterType } from "@/features/shop/product-filter/model/product-filter.types";
 import ShopSidebar from "@/widgets/Shop/ShopSidebar/ui/ShopSidebar";
 import { matchesPriceFilter } from "@/shared/lib/product/filterByPrice";
-import ShopFilterHeader from '../../../../pages/ShopPage/ui/ShopFilterHeader';
+import ShopFilterHeader from '@/pages/ShopPage/ui/ShopFilterHeader';
+import { SpinnerDefault } from '@/shared/ui';
 
 function ShopFilter(): React.JSX.Element {
   const classShopFilter = 'shop-filter'
 
   const products = useAppSelector(selectProducts)
-  const isLoading = useAppSelector(selectProductloading)
+  const isLoading = useAppSelector(selectProductsLoading)
   const error = useAppSelector(selectProductError)
+  const hasLoaded = useAppSelector(selectHasLoaded)
 
   const [category, setCategory] = useState<CategoryFilterType>('all');
   const [tag, setTag] = useState<string>('');
@@ -77,7 +79,11 @@ function ShopFilter(): React.JSX.Element {
   const currentProducts = filteredProducts.slice(startIndex, endIndex)
 
   if (isLoading) {
-    return <div className='text-center text-4xl'>Loading PRODUCTS...</div>
+    return (
+      <div className={`${classShopFilter}__loading`}>
+        <SpinnerDefault size='large' />
+      </div>
+    )
   }
 
   if (error) {
@@ -107,6 +113,7 @@ function ShopFilter(): React.JSX.Element {
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={setCurrentPage}
+            hasLoaded={hasLoaded}
           />
         </div>
 

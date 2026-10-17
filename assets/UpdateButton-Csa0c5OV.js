@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{t}from"./chunk-BV7QT456-BvQIYu1C.js";var n=e();function r({children:e,onClick:t}){return(0,n.jsx)(`button`,{type:`button`,className:`delete-button`,onClick:t,children:e})}function i({to:e,children:r}){return(0,n.jsx)(t,{className:`update-button`,to:e,children:r})}export{r as n,i as t};

@@ -10,6 +10,8 @@ import createOrder from '@/entities/order/api/orderApi';
 import { useEffect, useState } from 'react';
 import MessageSuccessOrder from '@/shared/ui/MessageSuccesOrder/ui/MessageSuccessOrder';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '@/app/store/hooks';
+import { clearCart } from '@/entities/cart/model/cartSlice';
 
 interface CheckoutFprmProps {
   className?: string;
@@ -21,6 +23,8 @@ function CheckoutForm({
   const checkoutForm = 'checkout-form'
 
   const { t } = useTranslation()
+
+  const dispatch = useAppDispatch()
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [confirmedOrderId, setConfirmedOrderId] = useState<string | null>(null);
@@ -53,7 +57,7 @@ function CheckoutForm({
 
     try {
       const orderId = await createOrder(data)
-
+      dispatch(clearCart())
       setConfirmedOrderId(orderId)
       reset()
 
@@ -73,7 +77,9 @@ function CheckoutForm({
         className={`${checkoutForm} ${className}`}>
         <div className={`${checkoutForm}__body`}>
           {checkoutFormSections.map((section) => (
-            <section className={`${checkoutForm}__section`}>
+            <section
+              key={section.title}
+              className={`${checkoutForm}__section`}>
               <h2 className={`${checkoutForm}__title`}>
                 {t(section.title)}
               </h2>

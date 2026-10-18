@@ -13,7 +13,9 @@ export const fetchProducts = createAsyncThunk<Product[], void, { rejectValue: st
       await new Promise((resolve) => setTimeout(resolve, 2000))
       const response = await getProducts()
       console.log('fetchProducts: finished')
+
       return response
+
     } catch (error) {
       if (error instanceof Error) {
         return rejectWithValue(error.message)
@@ -29,6 +31,7 @@ export const fetchProductById = createAsyncThunk<Product | null, { productId: st
     try {
       const response = await getProductById(productId)
       return response
+
     } catch (error) {
       return thunkApi.rejectWithValue('Failed to fetch product by ID')
     }

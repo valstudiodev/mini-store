@@ -1,3 +1,5 @@
+import './wrapper.scss';
+
 interface WrapperProps {
   children: React.ReactNode;
   className?: string;

@@ -2,6 +2,8 @@ import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { openAuthModal } from "@/features/auth/model/authModalSlice";
 import { selectAuthInitialized, selectAuthUser } from "@/features/auth/model/authSelector";
 import { useEffect } from "react";
+import '../ui/styles.scss';
+import PageLoader from "@/shared/ui/PageLoader/ui/PageLoader";
 
 interface ProtectedRouteProps {
   children: React.JSX.Element;
@@ -29,7 +31,11 @@ function ProtectedRoute({
   }, [initialized, user, requiresAuth, dispatch]);
 
   if (!initialized) {
-    return <div>LOADING PROTECTED ROUTE...</div>
+    return (
+      <div className='route-loading'>
+        <PageLoader />
+      </div>
+    )
   }
 
   if (requiresAuth && user === null) {
@@ -39,7 +45,6 @@ function ProtectedRoute({
   if (allowedRoles && (!user || !allowedRoles.includes(user.role))) {
     return <div className="text-center text-4xl">Access denied</div>
   }
-
 
   return children
 }

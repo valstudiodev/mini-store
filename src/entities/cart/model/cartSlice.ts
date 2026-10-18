@@ -1,19 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AddToCartPayload, CartItem } from "./cartTypes";
 
-const initialState: CartItem[] = []
+export function loadCart(): CartItem[] {
+  try {
+    const itemValue = localStorage.getItem('cart')
+
+    if (!itemValue) {
+      return []
+    }
+
+    const newArray = JSON.parse(itemValue)
+
+    if (!Array.isArray(newArray)) return []
+
+    return newArray
+
+
+  } catch (error) {
+    return []
+  }
+}
+
+const initialState: CartItem[] = loadCart()
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    // addToCart: (state, action: PayloadAction<string>) => {
-    //   const existing = state.find((item) => item.productId === action.payload)
-    //   if (existing) existing.quantity += 1
-    //   else state.push({ productId: action.payload, quantity: 1 })
-    // },
-    // clearCart: () => [],
-
     addToCart: (state, action: PayloadAction<AddToCartPayload>) => {
       const existing = state.find((item) => item.productId === action.payload.productId)
       if (existing) {

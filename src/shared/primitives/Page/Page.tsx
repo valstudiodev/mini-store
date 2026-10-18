@@ -1,3 +1,5 @@
+import './page.scss';
+
 interface PageProps {
   children: React.ReactNode;
   className?: string;

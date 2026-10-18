@@ -35,7 +35,7 @@ function CheckoutField({
         {...register(fieldData.name)}
       />
 
-      {error && <span>{error.message}</span>}
+      {error && <p className={`${checkoutField}__error`}>{error.message}</p>}
     </div>
   );
 }

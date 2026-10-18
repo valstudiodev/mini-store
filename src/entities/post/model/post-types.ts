@@ -12,6 +12,7 @@ export type PostCategory =
   | 'technology'
   | 'gadgets'
   | 'camera'
+  | 'related'
 
 export type PostFilter = PostCategory | 'all'
 

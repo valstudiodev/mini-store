@@ -10,6 +10,8 @@ import CommentsSection from "@/widgets/Comment/CommentsSection/ui/CommentsSectio
 import PostDetailsPage from "@/entities/post/post-details/ui/PostDetails";
 import { SubscribeSection } from "@/widgets";
 import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
+import { SpinnerDefault } from "@/shared/ui";
+import { PostsRelated } from "@/widgets/Post";
 
 function BlogPostPage(): React.JSX.Element {
   const classBlogPostPage = 'blog-post-page'
@@ -50,7 +52,12 @@ function BlogPostPage(): React.JSX.Element {
   }, [id]);
 
   if (isLoading) {
-    return <div className="text-center text-4xl">Loading POST DETAILS...</div>
+    return (
+      <div className={`${classBlogPostPage}__loading`}>
+        {/* <SpinnerDefault size="large" /> */}
+        <div>Loading BLOG POST PAGE....</div>
+      </div>
+    )
   }
 
   if (post === null) {
@@ -61,12 +68,11 @@ function BlogPostPage(): React.JSX.Element {
   return (
     <Section className={classBlogPostPage}>
       <Container>
-        <PostDetailsPage post={post} />
-        <CommentsSection />
-        {/* Related posts */}
-
-        <SubscribeSection />
-        <InstaLinks />
+        {/* <PostDetailsPage post={post} /> */}
+        {/* <CommentsSection /> */}
+        <PostsRelated />
+        {/* <SubscribeSection /> */}
+        {/* <InstaLinks /> */}
       </Container>
     </Section>
   );

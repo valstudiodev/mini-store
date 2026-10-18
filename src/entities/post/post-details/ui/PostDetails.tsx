@@ -38,7 +38,6 @@ function PostDetailsPage({
           block={block}
         />
       ))}
-
     </article>
   );
 }

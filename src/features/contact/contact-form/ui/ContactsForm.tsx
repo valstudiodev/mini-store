@@ -68,7 +68,7 @@ function ContactsForm({
               id="name"
               {...register('name', nameRules)}
             />
-            {errors.name && <p className='text-red-700'>{errors.name.message}</p>}
+            {errors.name && <p className={`${contactsForm}__error`}>{errors.name.message}</p>}
           </label>
 
           <label className={`${contactsForm}__field`}>
@@ -79,7 +79,7 @@ function ContactsForm({
               id="email"
               {...register('email', emailRules)}
             />
-            {errors.email && <p className='text-red-700'>{errors.email.message}</p>}
+            {errors.email && <p className={`${contactsForm}__error`}>{errors.email.message}</p>}
           </label>
         </div>
 
@@ -90,7 +90,7 @@ function ContactsForm({
             placeholder={t('contacts.phoneNumber')}
             {...register('phone', phoneRules)}
           />
-          {errors.phone && <p className='text-red-700'>{errors.phone.message}</p>}
+          {errors.phone && <p className={`${contactsForm}__error`}>{errors.phone.message}</p>}
         </label>
 
         <label className={`${contactsForm}__field`}>
@@ -107,7 +107,7 @@ function ContactsForm({
               }
             })}
           />
-          {errors.subject && <p className='text-red-700'>{errors.subject.message}</p>}
+          {errors.subject && <p className={`${contactsForm}__error`}>{errors.subject.message}</p>}
         </label>
 
         <div>
@@ -116,7 +116,7 @@ function ContactsForm({
             placeholder={t('contacts.messagePlaceholder')}
             {...register('message', messageRules)}
           />
-          {errors.message && <p className='text-red-700'>{errors.message.message}</p>}
+          {errors.message && <p className={`${contactsForm}__error`}>{errors.message.message}</p>}
         </div>
 
 

@@ -46,7 +46,14 @@
     "contactSupport": "If you need support? Just give us a call."
   },
   "products": {},
-  "cart": {},
+  "cart": {
+    "empty": {
+      "eyebrow": "A fresh start",
+      "title": "Your cart is waiting for something good",
+      "description": "It looks like you haven’t found your favorites yet. Take a look around and discover something you’ll love.",
+      "exploreShop": "Explore the shop"
+    }
+  },
   "auth": {},
   "about": {
     "infoTitle": "How was Ministore Found?",

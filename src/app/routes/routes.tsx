@@ -90,9 +90,10 @@ export const routes = [
             index: true,
             id: 'shop',
             element: (
-              <Suspense fallback={<PageLoader duration={3000} />}>
+              <Suspense >
                 <LazyShopPage />
               </Suspense>
+              // fallback={<PageLoader duration={3000} />}
             ),
             meta: {
               isInMenu: true,
@@ -108,7 +109,7 @@ export const routes = [
             id: 'cart',
             element: (
               <ProtectedRoute requiresAuth allowedRoles={['admin', 'user']}>
-                <Suspense fallback={<PageLoader duration={3000} />}>
+                <Suspense>
                   <LazyCartPage />
                 </Suspense>
               </ProtectedRoute>
@@ -128,7 +129,7 @@ export const routes = [
             id: 'checkout',
             element: (
               <ProtectedRoute requiresAuth allowedRoles={['user', 'admin']}>
-                <Suspense fallback={<PageLoader duration={3000} />}>
+                <Suspense>
                   <LazyCheckoutPage />
                 </Suspense>
               </ProtectedRoute>

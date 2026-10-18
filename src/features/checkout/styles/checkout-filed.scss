@@ -17,6 +17,10 @@
     color: var(--color-button-hover);
   }
 
+  &__error {
+    color: var(--color-error);
+  }
+
   &__input {
     border: toRem(1) solid var(--color-border);
     padding-block: toRem(20);

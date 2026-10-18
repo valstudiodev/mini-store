@@ -37,8 +37,6 @@ function BlogSidebar({
 
         <BlogSocialLinks />
       </div>
-
-
     </aside>
   );
 }

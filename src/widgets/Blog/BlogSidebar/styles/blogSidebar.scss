@@ -9,6 +9,10 @@
   @include adaptiveValue('gap', 40, 20);
 
   &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include adaptiveValue('gap', 40, 20);
 
     @media (max-width: toEm(768)) {
       width: 100%;

@@ -22,7 +22,6 @@ function CreatePostForm({
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
 
   const loading = postCreateStatus === 'loading'
-  // const errorStatus = postCreateStatus === 'error'
 
   useEffect(() => {
     if (postCreateStatus !== 'success') return
@@ -87,6 +86,7 @@ function CreatePostForm({
           <option value="">Select category</option>
           <option value="news">News</option>
           <option value="latest">Latest</option>
+          <option value="related">Related</option>
           <option value="technology">Technology</option>
           <option value="gadgets">Gadgets</option>
           <option value="camera">Camera</option>

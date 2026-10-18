@@ -5,9 +5,11 @@
 .cart-items {
   @include adaptiveValue('padding-bottom', 40, 20);
 
-  &__text {
-    text-align: center;
-    @include adaptiveValue('font-size', 30, 20);
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(300);
   }
 
   &__list {}

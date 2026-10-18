@@ -29,5 +29,9 @@ export const postFilterCategories: PpostFilterProps[] = [
   {
     value: 'camera',
     label: 'Camera'
+  },
+  {
+    value: 'related',
+    label: 'Related'
   }
 ]

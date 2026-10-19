@@ -1,0 +1,16 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/mixins/grid' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+
+.related-products {
+  @include adaptiveValue('padding-block', 60, 30);
+
+  &__container {}
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(300);
+  }
+}

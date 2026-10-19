@@ -45,7 +45,12 @@
     "contactQueries": "Do you have any queries or suggestions?",
     "contactSupport": "If you need support? Just give us a call."
   },
-  "products": {},
+  "products": {
+    "relatedProducts": {
+      "title": "Related products",
+      "goToShop": "Go to shop"
+    }
+  },
   "cart": {
     "empty": {
       "eyebrow": "A fresh start",

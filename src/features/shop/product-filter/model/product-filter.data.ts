@@ -8,24 +8,24 @@ export const productFilterConfig: ProductFilterConfig[] = [
   {
     title: 'tags',
     options: [
-      'productFilters.options.white',
-      'productFilters.options.cheap',
-      'productFilters.options.mobile',
-      'productFilters.options.modern',
+      'white',
+      'cheap',
+      'mobile',
+      'modern',
     ]
   },
   {
     title: 'brands',
     options: [
-      'productFilters.options.apple',
-      'productFilters.options.samsung',
-      'productFilters.options.green',
+      'apple',
+      'samsung',
+      'green',
     ]
   },
   {
     title: 'filter by price',
     options: [
-      'productFilters.options.lessThan100',
+      'lessThan100',
       '$100-$200',
       '$200-$300',
       '$300-$400',

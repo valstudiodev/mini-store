@@ -22,6 +22,7 @@ export const categoryOptions: CategoryFilterType[] = [
   'watches',
   'accessories',
   'tablets',
+  'related'
 ];
 
 export interface CategoryFilterConfig {

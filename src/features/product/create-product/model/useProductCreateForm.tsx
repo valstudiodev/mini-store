@@ -5,32 +5,31 @@ import { isProductColor } from "@/entities/product/model/isProductColor";
 import { isProductSize } from "@/entities/product/model/isProductSize";
 import { createProduct } from "../api/createProductService";
 
+const initialState: ProductFormValues = {
+  title: '',
+  price: '',
+  imageUrl: '',
+  category: '',
+  rating: '',
+  description: '',
+  stock: '',
+  sku: '',
+  tags: '',
+  colors: '',
+  sizes: '',
+}
 
 function useProductCreateForm() {
-
-  const initialState: ProductFormValues = {
-    title: '',
-    price: 0,
-    imageUrl: '',
-    category: '',
-    rating: 0,
-    description: '',
-    stock: 0,
-    sku: '',
-    tags: '',
-    colors: '',
-    sizes: '',
-  }
 
   const [formValues, setFormValues] = useState<ProductFormValues>(initialState);
 
   const [productCreateStatus, setProductCreateStatus] = useState<ProductCreateStatus>('idle');
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const name = e.target.name
 
-    const value = name === 'price' ? Number(e.target.value) : e.target.value
+    const value = e.target.value
 
     setFormValues(
       (prev) => ({
@@ -88,15 +87,53 @@ function useProductCreateForm() {
       return
     }
 
+    if (formValues.price.trim() === '' || formValues.rating.trim() === '' || formValues.stock.trim() === '') {
+      setError('All numeric fields are required.')
+      setProductCreateStatus('error')
+      return
+    }
+
+    const price = Number(formValues.price)
+    const rating = Number(formValues.rating)
+    const stock = Number(formValues.stock)
+
+    if (
+      !Number.isFinite(price) ||
+      !Number.isFinite(rating) ||
+      !Number.isFinite(stock)
+    ) {
+      setError('Please enter valid numbers.')
+      setProductCreateStatus('error')
+      return
+    }
+
+    if (price <= 0) {
+      setError('Price must be greater than zero.')
+      setProductCreateStatus('error')
+      return
+    }
+
+    if (stock < 0) {
+      setError('Stock cannot be negative.')
+      setProductCreateStatus('error')
+      return
+    }
+
+    if (rating < 0 || rating > 5) {
+      setError('Rating must be between 0 and 5.')
+      setProductCreateStatus('error')
+      return
+    }
+
     try {
       const payload: CreateProductPayload = {
         title: formValues.title,
-        price: formValues.price,
+        price: Number(formValues.price),
         imageUrl: formValues.imageUrl,
         category: formValues.category,
-        rating: formValues.rating,
+        rating: Number(formValues.rating),
         description: formValues.description,
-        stock: formValues.stock,
+        stock: Number(formValues.stock),
         sku: formValues.sku,
         tags: formValues.tags.split(',').map(item => {
           return item.trim()

@@ -10,9 +10,6 @@ import Message from '@/shared/ui/Message/ui/Message';
 function ProductEditForm(): React.JSX.Element {
   const formEdit = 'form-edit'
 
-  console.log('---Edit button product render---');
-
-
   const navigate = useNavigate()
 
   const product = useAppSelector(selectProduct)
@@ -84,14 +81,19 @@ function ProductEditForm(): React.JSX.Element {
       </label>
 
       <label className={`${formEdit}__label`}>
-        <input
-          className={`${formEdit}__input border`}
+        <select
           name='category'
-          value={formValues.category}
+          className={`${formEdit}__select`}
           onChange={handleChange}
-          type="text"
-          placeholder='Edit category...'
-        />
+          value={formValues.category}
+        >
+          <option value=''>Select category</option>
+          <option value='phones'>Phones</option>
+          <option value='watches'>Watches</option>
+          <option value='accessories'>Accessories</option>
+          <option value='tablets'>Tablets</option>
+          <option value='related'>Related</option>
+        </select>
       </label>
 
       <label className={`${formEdit}__label`}>

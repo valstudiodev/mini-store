@@ -7,9 +7,6 @@ import Message from '@/shared/ui/Message/ui/Message';
 function ProductCreateForm(): React.JSX.Element {
   const clCreateForm = 'create-form'
 
-  console.log('---Create product form render ---');
-
-
   const {
     formValues,
     handleChange,
@@ -24,8 +21,6 @@ function ProductCreateForm(): React.JSX.Element {
 
   const loading = productCreateStatus === 'loading'
   const errorStatus = productCreateStatus === 'error'
-
-
 
   useEffect(() => {
     if (productCreateStatus === 'success') {
@@ -56,7 +51,7 @@ function ProductCreateForm(): React.JSX.Element {
 
   return (
 
-    <>
+    <div>
       <form
         className={clCreateForm}
         onSubmit={handleSubmit}
@@ -95,14 +90,19 @@ function ProductCreateForm(): React.JSX.Element {
         </label>
 
         <label className={`${clCreateForm}__field`}>
-          <input
+          <select
             name='category'
-            type='text'
-            value={formValues.category}
+            className={`${clCreateForm}__select`}
             onChange={handleChange}
-            placeholder='Type a category...'
-            className={`${clCreateForm}__input`}
-          />
+            value={formValues.category}
+          >
+            <option value=''>Select category</option>
+            <option value='phones'>Phones</option>
+            <option value='watches'>Watches</option>
+            <option value='accessories'>Accessories</option>
+            <option value='tablets'>Tablets</option>
+            <option value='related'>Related</option>
+          </select>
         </label>
 
         <label className={`${clCreateForm}__field`}>
@@ -182,16 +182,6 @@ function ProductCreateForm(): React.JSX.Element {
           />
         </label>
 
-        {errorStatus && (
-          error
-        )}
-
-        {showSuccess && (
-          <Message
-            variant='success'
-            label='Product created successfully!' />
-        )}
-
         <button
           type='submit'
           disabled={loading}
@@ -200,7 +190,17 @@ function ProductCreateForm(): React.JSX.Element {
           {loading ? 'Adding...' : 'Add'}
         </button>
       </form>
-    </>
+
+      {errorStatus && (
+        error
+      )}
+
+      {showSuccess && (
+        <Message
+          variant='success'
+          label='Product created successfully!' />
+      )}
+    </div>
 
   );
 }

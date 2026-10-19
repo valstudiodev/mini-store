@@ -1,5 +1,4 @@
 import { useAppDispatch } from "@/app/store/hooks";
-// import { selectProduct } from "@/entities/product/model/productSelector";
 import { fetchProductById } from "@/entities/product/model/productThunk";
 import ProductEditForm from "@/features/product/edit-product/ui/ProductEditForm";
 import { Section } from "@/shared/primitives";
@@ -14,8 +13,6 @@ function ProductEditPage(): React.JSX.Element {
   const { id } = useParams<{ id: string }>()
 
   const dispatch = useAppDispatch()
-
-  // const product = useAppSelector(selectProduct)
 
   useEffect(() => {
     if (id) {

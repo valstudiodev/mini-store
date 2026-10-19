@@ -54,8 +54,7 @@ function BlogPostPage(): React.JSX.Element {
   if (isLoading) {
     return (
       <div className={`${classBlogPostPage}__loading`}>
-        {/* <SpinnerDefault size="large" /> */}
-        <div>Loading BLOG POST PAGE....</div>
+        <SpinnerDefault size="large" />
       </div>
     )
   }
@@ -64,15 +63,14 @@ function BlogPostPage(): React.JSX.Element {
     return <WarningMessage text="Post not found." />
   }
 
-
   return (
     <Section className={classBlogPostPage}>
       <Container>
-        {/* <PostDetailsPage post={post} /> */}
-        {/* <CommentsSection /> */}
+        <PostDetailsPage post={post} />
+        <CommentsSection />
         <PostsRelated />
-        {/* <SubscribeSection /> */}
-        {/* <InstaLinks /> */}
+        <SubscribeSection />
+        <InstaLinks />
       </Container>
     </Section>
   );

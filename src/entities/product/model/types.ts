@@ -3,6 +3,7 @@ export type ProductCategoryType =
   | 'watches'
   | 'accessories'
   | 'tablets'
+  | 'related'
 
 export interface Product {
   id: string;

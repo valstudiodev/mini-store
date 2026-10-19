@@ -83,7 +83,7 @@ function ProductDetails({
         </div>
 
         <span className={`${productDetails}__price`}>
-          ${product.price.toFixed(2)}
+          ${Number(product.price.toFixed(2))}
         </span>
 
         <p className={`${productDetails}__description`}>

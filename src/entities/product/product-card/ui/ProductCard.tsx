@@ -11,9 +11,6 @@ function ProductCard({
 }: ProductCardProps): React.JSX.Element {
   const productCard = 'product-card'
 
-  // console.log('---Product card render---');
-
-
   return (
     <article className={`${productCard}`}>
       <Link
@@ -33,9 +30,6 @@ function ProductCard({
           </span>
         </div>
       </Link>
-      {/* {actions?.map((action, index) => (
-        <Fragment key={index}>{action}</Fragment>
-      ))} */}
       {actions}
     </article>
   );

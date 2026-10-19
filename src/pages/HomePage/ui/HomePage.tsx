@@ -1,8 +1,8 @@
 import Section from '@/shared/primitives/Section/Section';
 import '../styles/homePage.scss';
-import MobileProducts from './MobileProducts';
+import { MobileProducts } from '@/widgets/Products';
 import HeroSection from '@/widgets/Hero/ui/HeroSection';
-import SmartWatches from './SmartWatches';
+import { SmartWatches } from '@/widgets/Products';
 import Banner from '@/widgets/Banner/ui/Banner';
 import { SubscribeSection } from '@/widgets';
 import InstaLinks from '@/widgets/Insta-links/ui/InstaLinks';

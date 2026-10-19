@@ -19,7 +19,8 @@
     background-color: var(--color-surface);
   }
 
-  &__input {
+  &__input,
+  &__select {
     width: 100%;
     min-height: toRem(44);
     padding: toRem(10) toRem(12);

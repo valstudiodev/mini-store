@@ -12,13 +12,13 @@ import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { selectCartTotalQuantity } from '@/entities/cart/model/cartSelector';
 import { MenuRoute } from '@/app/routes/route-types';
 import AuthModal from '@/widgets/Auth/AuthModal/ui/AuthModal';
-import { logout } from '@/features/auth/logout/model/logout';
-import { LogOut, UserShield } from "lucide-react";
+import { UserShield } from "lucide-react";
 import { selectAuthInitialized, selectAuthUser } from '@/features/auth/model/authSelector';
 import { openAuthModal } from '@/features/auth/model/authModalSlice';
 import ThemeToggle from '@/shared/ui/ThemeToggle/ui/ThemeToggle';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '@/shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
+import ButtonLogout from '@/features/auth/logout/ui/LogOutButton';
 
 function MainMenu({
   className = ''
@@ -94,11 +94,12 @@ function MainMenu({
             <>
               <span className={`${classMainMenu}__email-user`}>{user.email}</span>
 
-              <button onClick={() => logout()}>
+              {/* <button onClick={() => logout()}>
                 <span>
                   <LogOut size={22} />
                 </span>
-              </button>
+              </button> */}
+              <ButtonLogout />
             </>
           ) : (
             <>

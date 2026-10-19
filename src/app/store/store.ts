@@ -17,20 +17,20 @@ export const store = configureStore({
   }
 })
 
-let previousCart = store.getState().cart
+// let previousCart = store.getState().cart
 
-store.subscribe(() => {
-  const currentCart = store.getState().cart
-  if (currentCart !== previousCart) {
-    previousCart = currentCart
+// store.subscribe(() => {
+//   const currentCart = store.getState().cart
+//   if (currentCart !== previousCart) {
+//     previousCart = currentCart
 
-    try {
-      localStorage.setItem('cart', JSON.stringify(currentCart))
-    } catch (error) {
-      console.log('Failed to save cart:', error);
-    }
-  }
-})
+//     try {
+//       localStorage.setItem('cart', JSON.stringify(currentCart))
+//     } catch (error) {
+//       console.log('Failed to save cart:', error);
+//     }
+//   }
+// })
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

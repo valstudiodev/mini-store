@@ -2,12 +2,12 @@ import { ProductCategoryType } from "@/entities/product/model/types";
 
 export interface ProductEditFormValues {
   title: string;
-  price: number;
+  price: string;
   imageUrl: string;
   category: ProductCategoryType | '';
-  rating: number;
+  rating: string;
   description: string;
-  stock: number;
+  stock: string;
   sku: string;
   tags: string;
   colors: string;

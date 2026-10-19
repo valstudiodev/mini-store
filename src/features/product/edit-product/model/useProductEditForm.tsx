@@ -12,12 +12,12 @@ interface UseProductEditFormProps {
 
 const initialState: ProductEditFormValues = {
   title: '',
-  price: 0,
+  price: '',
   imageUrl: '',
   category: '',
-  rating: 0,
+  rating: '',
   description: '',
-  stock: 0,
+  stock: '',
   sku: '',
   tags: '',
   colors: '',
@@ -38,12 +38,12 @@ function useProductEditForm({
     if (product) {
       setFormValues({
         title: product.title,
-        price: product.price,
+        price: String(product.price),
         imageUrl: product.imageUrl,
         category: product.category,
-        rating: product.rating,
+        rating: String(product.rating),
         description: product.description,
-        stock: product.stock,
+        stock: String(product.stock),
         sku: product.sku,
         tags: product.tags.join(', '),
         colors: product.colors.join(', '),
@@ -52,10 +52,10 @@ function useProductEditForm({
     }
   }, [product]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const name = e.target.name
 
-    const value = name === 'price' || name === 'rating' || name === 'stock' ? Number(e.target.value) : e.target.value
+    const value = e.target.value
 
     setFormValues(
       (prev) => ({
@@ -123,12 +123,12 @@ function useProductEditForm({
     try {
       const productData: CreateProductPayload = {
         title: formValues.title,
-        price: formValues.price,
+        price: Number(formValues.price),
         imageUrl: formValues.imageUrl,
         category: category,
-        rating: formValues.rating,
+        rating: Number(formValues.rating),
         description: formValues.description,
-        stock: formValues.stock,
+        stock: Number(formValues.stock),
         sku: formValues.sku,
         tags: formValues.tags.split(',').map(item => {
           return item.trim()
@@ -155,7 +155,6 @@ function useProductEditForm({
         setError('Failed to update a product')
       }
     }
-
   }
 
   return {

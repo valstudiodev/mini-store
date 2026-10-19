@@ -45,7 +45,12 @@
     "contactQueries": "Маєте запитання або пропозиції?",
     "contactSupport": "Потрібна допомога? Просто зателефонуйте нам."
   },
-  "products": {},
+  "products": {
+    "relatedProducts": {
+      "title": "Схожі товари",
+      "goToShop": "Перейти до магазину"
+    }
+  },
   "cart": {
     "empty": {
       "eyebrow": "Час для нових покупок",

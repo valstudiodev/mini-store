@@ -3,48 +3,49 @@ import Section from "@/shared/primitives/Section/Section";
 import '../styles/productPage.scss';
 import { useParams } from "react-router";
 import { ProductDetails } from "@/entities";
-import { getProductById } from "@/entities/product/api/productServise";
-import { useEffect, useState } from "react";
-import { Product } from "@/entities/product/model/types";
+import { useEffect } from "react";
 import { SubscribeSection } from "@/widgets";
 import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
 import { SpinnerDefault } from "@/shared/ui";
+import { RelatedProducts } from "@/widgets/Products";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { selectProduct, selectProductError, selectProductloading } from "@/entities/product/model/productSelector";
+import { fetchProductById } from "@/entities/product/model/productThunk";
+import WarningMessage from "@/shared/ui/WarningMessage/ui/WarningMessage";
 
 function ProductPage() {
   const classProductPage = 'product-page'
 
   const { id } = useParams<{ id: string }>()
 
-  const [product, setProduct] = useState<Product | null>(null);
+  const dispatch = useAppDispatch()
+
+  const product = useAppSelector(selectProduct)
+  const productLoading = useAppSelector(selectProductloading)
+  const error = useAppSelector(selectProductError)
 
   useEffect(() => {
     if (!id) return
 
-    let isMounted = true
-    async function loadProduct(): Promise<void> {
-
-      if (id) {
-        const productDetails = await getProductById(id)
-        if (isMounted) {
-          setProduct(productDetails)
-        }
-      }
-    }
-    loadProduct()
-    return () => {
-      isMounted = false
-    }
-  }, [id]);
+    dispatch(fetchProductById({ productId: id }))
+  }, [id, dispatch]);
 
   return (
     <Section className={classProductPage}>
       <Container className={`${classProductPage}__container`}>
-        {product
-          ? <ProductDetails product={product} />
-          : <div className={`${classProductPage}__loading`}>
+        {productLoading ? (
+          <div className={`${classProductPage}__loading`}>
             <SpinnerDefault size="large" />
           </div>
+        ) : error ? (
+          <p role="alert">{error}</p>
+        ) : product ? (
+          <ProductDetails product={product} />
+        ) : (
+          <WarningMessage text="Product not found." />
+        )
         }
+        <RelatedProducts />
         <SubscribeSection />
         <InstaLinks />
       </Container>

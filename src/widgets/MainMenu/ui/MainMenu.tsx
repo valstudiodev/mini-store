@@ -94,11 +94,6 @@ function MainMenu({
             <>
               <span className={`${classMainMenu}__email-user`}>{user.email}</span>
 
-              {/* <button onClick={() => logout()}>
-                <span>
-                  <LogOut size={22} />
-                </span>
-              </button> */}
               <ButtonLogout />
             </>
           ) : (

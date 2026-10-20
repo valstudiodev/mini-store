@@ -1,0 +1,28 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--color-accent);
+
+  &__star {
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  &__star-empty {
+    color: #d1d5db;
+  }
+
+  &__star-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: var(--color-accent);
+  }
+}

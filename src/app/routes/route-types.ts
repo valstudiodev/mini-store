@@ -28,13 +28,3 @@ export type MenuRoute = {
     title?: string;
   };
 };
-
-
-// export interface AppRouteObject {
-//   path?: string;
-//   element?: React.ReactNode;
-//   children?: AppRouteObject[];
-//   handle?: {
-//     meta?: RouteMeta;
-//   };
-// }

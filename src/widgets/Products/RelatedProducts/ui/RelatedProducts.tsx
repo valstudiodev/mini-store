@@ -2,7 +2,7 @@ import { Section } from '@/shared/primitives';
 import '../styles/relateProducts.scss';
 import Container from '@/shared/primitives/Container/Container';
 import { useAppSelector } from '@/app/store/hooks';
-import { selectProductloading, selectProducts, selectProductsLoading } from '@/entities/product/model/productSelector';
+import { selectProducts, selectProductsLoading } from '@/entities/product/model/productSelector';
 import { useTranslation } from 'react-i18next';
 import { SpinnerDefault } from '@/shared/ui';
 import Headline from '@/widgets/Headline/ui/Headline';

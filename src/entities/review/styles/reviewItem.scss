@@ -1,0 +1,41 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include adaptiveValue('gap', 30, 15);
+
+  &--icon-quotes-icon {
+    @include adaptiveValue('font-size', 65, 40);
+    color: #EBEFF1;
+    line-height: 0
+  }
+
+  &__text {
+    @include adaptiveValue('font-size', 34, 22);
+    font-weight: 300;
+    letter-spacing: toRem(0.68);
+    line-height: 1.38;
+    color: var(--color-button-hover);
+    text-align: center;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: toRem(8);
+  }
+
+  &__author {}
+}

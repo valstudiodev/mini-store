@@ -1,0 +1,32 @@
+@use '@/shared/styles/settings/settings' as *;
+@use '@/shared/styles/abstracts/input-mixins' as *;
+@use '@/shared/styles/themes/lightTheme' as *;
+
+.reviews-slider {
+  @include adaptiveValue('padding-block', 60, 30);
+
+  &__container {}
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue('gap', 20, 10);
+  }
+
+  &__slider {
+    min-width: 0;
+  }
+
+  &__swiper {
+    max-width: toRem(1000);
+  }
+
+  &__slide {}
+
+  &__btn-prev {}
+
+  &__btn-next {
+    rotate: 180deg;
+  }
+}

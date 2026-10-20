@@ -5,6 +5,7 @@ import { SubscribeSection } from "@/widgets";
 import InstaLinks from "@/widgets/Insta-links/ui/InstaLinks";
 import AboutInfo from "./AboutInfo";
 import AdvantagesSection from "@/widgets/AdvantageSection/ui/AdvantagesSection";
+import ReviewsSlider from "@/widgets/Review/Review-slider/ui/ReviewsSlider";
 
 function AboutPage(): React.JSX.Element {
   const classAboutPage = 'about-page'
@@ -14,6 +15,7 @@ function AboutPage(): React.JSX.Element {
       <Container className={`${classAboutPage}__container`}>
         <AdvantagesSection />
         <AboutInfo />
+        <ReviewsSlider />
         <SubscribeSection />
         <InstaLinks />
       </Container>

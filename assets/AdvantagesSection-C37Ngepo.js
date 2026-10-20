@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-Cx0BB4qO.js";import{L as t}from"./index-Le9DDFNc.js";import{t as n}from"./Section-BXDf9_ZA.js";import{s as r}from"./InstaLinks-az1i_3_M.js";import"./primitives-D4vXDyHx.js";var i=e();function a(){let e=`advantages-section`;return(0,i.jsx)(n,{className:e,children:(0,i.jsx)(t,{className:`${e}__container`,children:(0,i.jsx)(r,{})})})}export{a as t};

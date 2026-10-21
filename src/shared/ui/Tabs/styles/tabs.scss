@@ -3,6 +3,7 @@
 @use '@/shared/styles/themes/lightTheme' as *;
 
 .tabs {
+  @include adaptiveValue('padding-block', 60, 30);
 
   &__actions {
     display: flex;

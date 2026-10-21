@@ -12,6 +12,8 @@ import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { selectProduct, selectProductError, selectProductloading } from "@/entities/product/model/productSelector";
 import { fetchProductById } from "@/entities/product/model/productThunk";
 import WarningMessage from "@/shared/ui/WarningMessage/ui/WarningMessage";
+import { Tabs } from "@/shared/ui/Tabs";
+import { tabs } from "@/shared/ui/Tabs/model/tabs-data";
 
 function ProductPage() {
   const classProductPage = 'product-page'
@@ -45,6 +47,10 @@ function ProductPage() {
           <WarningMessage text="Product not found." />
         )
         }
+        <Tabs
+          tabs={tabs}
+          defaultActiveId="description"
+        />
         <RelatedProducts />
         <SubscribeSection />
         <InstaLinks />

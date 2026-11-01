@@ -4,37 +4,90 @@ import { User } from "firebase/auth";
 import { setInitialized, setUser } from "@/features/auth/model/authSlice";
 import { useDispatch } from "react-redux";
 import { getUserProfile } from "@/features/auth/api/userProfileApi";
+import { useAppDispatch } from "../store/hooks";
 
-function InitAuth({ children }: { children: React.ReactNode }) {
+// function InitAuth({ children }: { children: React.ReactNode }) {
 
-  const dispatch = useDispatch()
+//   const dispatch = useDispatch()
+
+//   useEffect(() => {
+//     const unsubscribe = subscribeToAuthState(
+//       async function (user: User | null) {
+//         console.log('Firebase Auth user:', user);
+
+//         try {
+//           if (!user) {
+//             dispatch(setUser(null))
+//             return
+//           }
+
+//           const userProfile = await getUserProfile(user.uid)
+
+//           console.log('Firestore profile:', userProfile);
+
+//           dispatch(setUser(userProfile))
+
+//         } catch (error) {
+//           console.error('Failed to initialize authentication:', error)
+//           dispatch(setUser(null))
+//         } finally {
+//           dispatch(setInitialized(true))
+//         }
+//       }
+//     )
+//     return unsubscribe
+//   }, [dispatch]);
+
+//   return children
+// }
+
+function InitAuth({
+  children,
+}: {
+  children: React.ReactNode;
+}): React.JSX.Element {
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const unsubscribe = subscribeToAuthState(
-      async function (user: User | null) {
+    let isActive = true;
 
+    const unsubscribe = subscribeToAuthState(
+      async (firebaseUser: User | null) => {
         try {
-          if (!user) {
-            dispatch(setUser(null))
-            return
+          if (!firebaseUser) {
+            if (isActive) {
+              dispatch(setUser(null));
+            }
+
+            return;
           }
 
-          const userProfile = await getUserProfile(user.uid)
+          const userProfile = await getUserProfile(firebaseUser.uid);
 
-          dispatch(setUser(userProfile))
-
+          if (isActive) {
+            dispatch(setUser(userProfile));
+          }
         } catch (error) {
-          console.error('Failed to initialize authentication:', error)
-          dispatch(setUser(null))
+          console.error('Failed to initialize authentication:', error);
+
+          if (isActive) {
+            dispatch(setUser(null));
+          }
         } finally {
-          dispatch(setInitialized(true))
+          if (isActive) {
+            dispatch(setInitialized(true));
+          }
         }
-      }
-    )
-    return unsubscribe
+      },
+    );
+
+    return () => {
+      isActive = false;
+      unsubscribe();
+    };
   }, [dispatch]);
 
-  return children
+  return <>{children}</>;
 }
 
 export default InitAuth

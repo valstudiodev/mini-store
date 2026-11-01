@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import '../styles/google-button.scss';
 
 interface GoogleAuthButtonProps {
@@ -12,6 +13,8 @@ function GoogleAuthButton({
   children
 }: GoogleAuthButtonProps): React.JSX.Element {
   const googleAuthBtn = 'google-auth-btn'
+
+  // const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <button

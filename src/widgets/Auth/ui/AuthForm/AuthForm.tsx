@@ -1,27 +1,28 @@
 import GoogleAuthButton from "@/features/auth/google/ui/GoogleAuthButton";
-import { AuthFormValues, ModeType, RequestStatus } from "../../AuthModal/model/auth-modal.types";
-import '../styles/auth-form.scss';
+import { AuthFormValues, AuthMode, RequestStatus } from "../../model/auth-modal.types";
+import './auth-form.scss';
+import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 interface AuthFormProps {
-  setMode: React.Dispatch<React.SetStateAction<ModeType>>;
   isSignUp: boolean;
-  formValues: AuthFormValues;
+  register: UseFormRegister<AuthFormValues>;
+  errors: FieldErrors<AuthFormValues>;
   className?: string;
   error: string | null;
   status: RequestStatus;
 
   handleGoogleSignIn: () => void;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleModeChange: (mode: AuthMode) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 function AuthForm({
-  setMode,
   isSignUp,
-  formValues,
-  handleChange,
+  errors,
+  register,
   handleSubmit,
   handleGoogleSignIn,
+  handleModeChange,
   error,
   status,
   className = ''
@@ -41,12 +42,17 @@ function AuthForm({
           htmlFor="email">Email</label>
         <input
           id="email"
-          name="email"
           type="email"
-          value={formValues.email}
-          onChange={handleChange}
+          disabled={isLoading}
+          autoComplete="email"
+          {...register('email')}
           className={`${authForm}__input`}
         />
+        {errors.email && (
+          <p className={`${authForm}__error`}>
+            {errors.email.message}
+          </p>
+        )}
       </div>
 
       <div className={`${authForm}__wrap`}>
@@ -55,12 +61,16 @@ function AuthForm({
           htmlFor="password">Password</label>
         <input
           id="password"
-          name="password"
           type="password"
-          value={formValues.password}
-          onChange={handleChange}
+          disabled={isLoading}
+          {...register('password')}
           className={`${authForm}__input`}
         />
+        {errors.password && (
+          <p className={`${authForm}__error`}>
+            {errors.password?.message}
+          </p>
+        )}
       </div>
 
       {isSignUp && (
@@ -70,17 +80,21 @@ function AuthForm({
             htmlFor="confirmPassword">Confirm password</label>
           <input
             id="confirmPassword"
-            name="confirmPassword"
             type="password"
-            value={formValues.confirmPassword}
-            onChange={handleChange}
+            disabled={isLoading}
+            {...register('confirmPassword')}
             className={`${authForm}__input`}
           />
+          {errors.confirmPassword && (
+            <p className={`${authForm}__error`}>
+              {errors.confirmPassword?.message}
+            </p>
+          )}
         </div>
       )}
 
       {error !== null && (
-        <p>{error}</p>
+        <p className={`${authForm}__error`}>{error}</p>
       )}
 
       <button
@@ -104,7 +118,7 @@ function AuthForm({
 
           <button
             type="button"
-            onClick={() => setMode('login')}
+            onClick={() => handleModeChange('login')}
             className={`${authForm}__btn-login`}
           >
             Login
@@ -117,7 +131,7 @@ function AuthForm({
 
           <button
             type="button"
-            onClick={() => setMode('signup')}
+            onClick={() => handleModeChange('signup')}
             className={`${authForm}__btn-signup`}
           >
             Sign Up

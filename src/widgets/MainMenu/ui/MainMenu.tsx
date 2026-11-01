@@ -11,7 +11,7 @@ import { routeMap } from '@/app/routes/routeMap';
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { selectCartTotalQuantity } from '@/entities/cart/model/cartSelector';
 import { MenuRoute } from '@/app/routes/route-types';
-import AuthModal from '@/widgets/Auth/AuthModal/ui/AuthModal';
+import AuthModal from '@/widgets/Auth/ui/AuthModal/AuthModal';
 import { UserShield } from "lucide-react";
 import { selectAuthInitialized, selectAuthUser } from '@/features/auth/model/authSelector';
 import { openAuthModal } from '@/features/auth/model/authModalSlice';
@@ -45,6 +45,7 @@ function MainMenu({
       delete document.documentElement.dataset.menuOpen
     };
   }, [isMenuOpen]);
+
 
   const toggleMenu = (): void => {
     setIsMenuOpen((prev) => !prev)

@@ -46,6 +46,10 @@
     }
   }
 
+  &__error {
+    color: var(--color-error);
+  }
+
   &__btn,
   &__btn-login,
   &__btn-signup {

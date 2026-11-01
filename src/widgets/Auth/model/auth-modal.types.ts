@@ -3,7 +3,7 @@ export interface AuthModalProps {
   onClose: () => void;
 }
 
-export type ModeType = 'login' | 'signup'
+export type AuthMode = 'login' | 'signup'
 
 export interface AuthFormValues {
   email: string;

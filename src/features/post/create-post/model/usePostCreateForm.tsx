@@ -34,7 +34,6 @@ function usePostCreateForm() {
 
     console.log('---Submiting');
 
-
     const validationErrors = validatePostForm(formValues)
 
     setErrors(validationErrors)
